@@ -107,7 +107,7 @@
                         <div class="space-y-2">
                             <h3 class="text-[11px] font-bold text-slate-400 uppercase tracking-wider flex items-center">
                                 <span class="w-4 h-4 rounded-full bg-indigo-900 text-indigo-300 flex items-center justify-center text-[9px] mr-1.5">1</span>
-                                Шил сав сонгох (image_6824fa.png)
+                                Шил сав сонгох
                             </h3>
                             <div class="grid grid-cols-4 gap-1.5">
                                 <button onclick="selectGlassware('tube')" id="btn-glass-tube" class="p-2 rounded-xl border-2 border-indigo-600 bg-indigo-950/40 text-white transition-all flex flex-col items-center justify-center text-[9px] text-center">
@@ -442,11 +442,21 @@
 
         <!-- SHARED EXPERIMENTS GALLERY SECTION -->
         <div id="section-gallery" class="hidden h-full w-full p-6 overflow-y-auto custom-scroll">
-            <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl max-w-4xl mx-auto space-y-4">
+            <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl max-w-4xl mx-auto space-y-6">
                 <div>
                     <h2 class="text-sm font-bold text-indigo-400 flex items-center"><i class="fa-solid fa-folder-open mr-2"></i>Хуваалцсан туршилтуудын сан</h2>
                     <p class="text-[10px] text-slate-400">Багш болон сурагчдын хамтран бэлтгэж хадгалсан бодит туршилтын төлөвүүд.</p>
                 </div>
+
+                <!-- NEW: UNIVERSAL IMPORT TEXT FIELD FOR CODE SHARING -->
+                <div class="bg-slate-950 p-4 rounded-xl border border-indigo-900/60 space-y-3">
+                    <h4 class="text-[11px] font-bold text-indigo-300 flex items-center"><i class="fa-solid fa-key mr-2"></i>Туршилтын текстэн код оруулах / Импортлох</h4>
+                    <div class="flex gap-2">
+                        <input type="text" id="universal-import-code" placeholder="Энд хуулсан туршилтын кодыг тавина уу (Жишээ: eyJjdXJyZW50TW9kZSI...)" class="flex-grow bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-300 focus:outline-none focus:border-indigo-500">
+                        <button onclick="importSharedStateFromCode()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition">Ачаалах</button>
+                    </div>
+                </div>
+
                 <div id="shared-experiments-list" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <!-- Dynamic shared states appear here -->
                     <p class="text-slate-500 text-xs text-center py-10 col-span-2">Хуваалцсан туршилт байхгүй эсвэл ачаалж байна...</p>
@@ -535,9 +545,18 @@
                     <input type="text" id="share-title" placeholder="Жишээ: Шохойн чулуу задрах ба CO2 таних" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500">
                 </div>
                 <p class="text-[9px] text-slate-400 leading-normal bg-slate-950/40 p-2.5 rounded-lg border border-slate-800">Тэмдэглэл: Таны одоогийн сонгосон сав, уусмал, рН, температур болон хатуу бодисын орчны яг одоогийн төлөв хадгалагдаж, бусад сурагчдад харагдах болно.</p>
+                
+                <!-- STYLISH EXPORT CODES -->
+                <div class="hidden bg-slate-950 p-2.5 rounded-xl border border-indigo-950 space-y-1" id="export-code-box">
+                    <span class="text-[8px] font-bold text-indigo-400 block uppercase">Хуулж авах хувийн туршилтын код:</span>
+                    <div class="flex gap-1.5">
+                        <input type="text" readonly id="export-code-input" class="bg-slate-900 border border-slate-800 text-[10px] text-slate-400 rounded p-1 w-full font-mono">
+                        <button onclick="copyGeneratedCode()" class="bg-indigo-900 text-[10px] text-indigo-200 px-3.5 py-1 rounded font-bold hover:bg-indigo-800 shrink-0">Хуулах</button>
+                    </div>
+                </div>
             </div>
             <button onclick="saveAndShareState()" class="w-full py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold rounded-xl text-xs transition">
-                Нийтэд Хуваалцах
+                Нийтэд Хуваалцах & Код үүсгэх
             </button>
         </div>
     </div>
@@ -614,7 +633,7 @@
         let titrationBuretteVol = 50.0; 
         let titrationFlaskVol = 10.0;   
         let titrationFlaskPh = 1.2;     
-        let titrationActiveColor = '#cbd5e1'; // Changed from '#f8fafc' to a distinct cool silver-grey representing water fluid
+        let titrationActiveColor = '#cbd5e1'; 
         let titrationValveOpen = false;
         let titrationStandMesh = null;
         let titrationBuretteMesh = null;
@@ -740,11 +759,10 @@
             }
             userName = input;
             document.getElementById('login-overlay').classList.add('hidden');
-            document.getElementById('btn-logout').classList.remove('hidden'); // Show logout button on successful login
+            document.getElementById('btn-logout').classList.remove('hidden'); 
 
             if (auth && db) {
                 try {
-                    // Use active session from early auth
                     if (!auth.currentUser) {
                         let userCredential;
                         const customToken = typeof window.__initial_auth_token !== 'undefined' ? window.__initial_auth_token : null;
@@ -776,6 +794,7 @@
             } else {
                 userId = "offline-user-" + Math.random().toString(36).substring(2, 9);
                 updateOfflinePresence();
+                startLocalGalleryListener(); 
             }
 
             // Init ThreeJS after login
@@ -886,6 +905,7 @@
 
         window.openShareModal = function() {
             document.getElementById('share-modal').classList.remove('hidden');
+            document.getElementById('export-code-box').classList.add('hidden');
         }
 
         window.closeShareModal = function() {
@@ -901,9 +921,9 @@
 
             const state = {
                 title: title,
-                creator: userName,
+                creator: userName || "Туршигч",
                 role: userRole,
-                userId: userId,
+                userId: userId || "local-user",
                 timestamp: Date.now(),
                 currentMode,
                 selectedGlass,
@@ -914,18 +934,73 @@
                 burnerOn
             };
 
+            // Generate string share code (Base64 representation)
+            const jsonStr = JSON.stringify(state);
+            const base64Code = btoa(unescape(encodeURIComponent(jsonStr)));
+            
+            // Present the code in the UI
+            document.getElementById('export-code-input').value = base64Code;
+            document.getElementById('export-code-box').classList.remove('hidden');
+
+            // Save to LocalStorage fallback for offline/all-user functionality
+            const localList = JSON.parse(localStorage.getItem('local_experiments') || '[]');
+            localList.push({ docId: "local-" + Date.now(), ...state });
+            localStorage.setItem('local_experiments', JSON.stringify(localList));
+
             if (db) {
                 try {
                     const collRef = collection(db, 'artifacts', appId, 'public', 'data', 'shared_experiments');
                     await addDoc(collRef, state);
-                    closeShareModal();
-                    window.showToast("Туршилт амжилттай хадгалагдаж бусдад хуваалцагдлаа!", "success");
+                    window.showToast("Туршилт онлайн хадгалагдлаа! Мөн хувийн холбоос код бэлэн боллоо.", "success");
                 } catch(e) {
-                    console.error("Save shared state failed", e);
+                    console.error("Save shared state failed on cloud, saved locally", e);
+                    window.showToast("Код бэлэн боллоо. Офлайн хадгалагдлаа.", "info");
                 }
             } else {
-                window.showToast("Холболт байхгүй тул одоогоор хуваалцах боломжгүй байна.", "error");
+                window.showToast("Туршилт офлайн хадгалагдлаа! Хувийн холбоос код үүслээ.", "success");
+                startLocalGalleryListener(); 
             }
+        }
+
+        window.copyGeneratedCode = function() {
+            const input = document.getElementById('export-code-input');
+            input.select();
+            document.execCommand('copy');
+            window.showToast("Туршилтын код амжилттай хуулагдлаа! Бусад хүмүүст дамжуулна уу.", "success");
+        }
+
+        window.importSharedStateFromCode = function() {
+            const code = document.getElementById('universal-import-code').value.trim();
+            if(!code) {
+                window.showToast("Кодоо оруулна уу!", "error");
+                return;
+            }
+            try {
+                const decodedJson = decodeURIComponent(escape(atob(code)));
+                const data = JSON.parse(decodedJson);
+                
+                loadSerializedData(data);
+                window.showToast(`"${data.title}" амжилттай импортлогдож ачаалагдлаа!`, "success");
+            } catch(e) {
+                console.error("Import failed", e);
+                window.showToast("Код буруу эсвэл гэмтсэн байна!", "error");
+            }
+        }
+
+        function loadSerializedData(data) {
+            currentMode = data.currentMode || 'gas';
+            selectedGlass = data.selectedGlass || 'tube';
+            activeLiquid = data.activeLiquid || null;
+            activeSolid = data.activeSolid || null;
+            temperature = data.temperature || 25.0;
+            burnerOn = data.burnerOn || false;
+            glassPositionState = 'rack';
+            
+            switchTab('lab');
+            switchLabMode(currentMode);
+            buildGlassware3D();
+            checkReaction();
+            updateUI();
         }
 
         function startSharedExperimentsListener() {
@@ -934,15 +1009,29 @@
             
             onSnapshot(collRef, (snapshot) => {
                 const list = [];
+                // Retrieve all local states as well
+                const localList = JSON.parse(localStorage.getItem('local_experiments') || '[]');
+                localList.forEach(item => list.push(item));
+
                 snapshot.forEach(d => {
-                    list.push({ docId: d.id, ...d.data() });
+                    // Avoid duplicating local storage and firebase copies if matching
+                    if (!list.some(el => el.docId === d.id)) {
+                        list.push({ docId: d.id, ...d.data() });
+                    }
                 });
                 
                 list.sort((a, b) => b.timestamp - a.timestamp);
                 renderSharedGallery(list);
             }, (error) => {
                 console.error("Gallery listen failed", error);
+                startLocalGalleryListener();
             });
+        }
+
+        function startLocalGalleryListener() {
+            const localList = JSON.parse(localStorage.getItem('local_experiments') || '[]');
+            localList.sort((a, b) => b.timestamp - a.timestamp);
+            renderSharedGallery(localList);
         }
 
         function renderSharedGallery(experiments) {
@@ -958,6 +1047,9 @@
                 const liquidInfo = exp.activeLiquid ? `${exp.activeLiquid.formula} (${exp.activeLiquid.volume.toFixed(1)}ml)` : 'Байхгүй';
                 const solidInfo = exp.activeSolid ? `${exp.activeSolid.type} (${exp.activeSolid.weight.toFixed(3)}g)` : 'Байхгүй';
                 
+                // Base64 generation for share buttons in gallery
+                const expCode = btoa(unescape(encodeURIComponent(JSON.stringify(exp))));
+
                 html += `
                     <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between">
                         <div class="space-y-1">
@@ -973,9 +1065,14 @@
                             <div><span class="text-slate-500">Хатуу бодис:</span> ${solidInfo}</div>
                             <div><span class="text-slate-500">рН / Хэм:</span> ${exp.ph.toFixed(1)} рН / ${exp.temperature.toFixed(1)}°C</div>
                         </div>
-                        <button id="btn-load-${exp.docId}" class="w-full py-1.5 bg-indigo-900 hover:bg-indigo-800 text-white font-bold rounded-lg text-[9px] transition">
-                            <i class="fa-solid fa-cloud-arrow-down mr-1"></i> Лаборатори руу ачаалах
-                        </button>
+                        <div class="flex gap-2">
+                            <button id="btn-load-${exp.docId}" class="flex-grow py-1.5 bg-indigo-900 hover:bg-indigo-800 text-white font-bold rounded-lg text-[9px] transition">
+                                <i class="fa-solid fa-cloud-arrow-down mr-1"></i> Ачаалах
+                            </button>
+                            <button onclick="copySpecificCode('${expCode}')" class="px-3.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 rounded-lg text-[9px] font-bold" title="Код хуулах">
+                                <i class="fa-solid fa-copy"></i>
+                            </button>
+                        </div>
                     </div>
                 `;
             });
@@ -985,40 +1082,23 @@
             experiments.forEach(exp => {
                 const btn = document.getElementById(`btn-load-${exp.docId}`);
                 if (btn) {
-                    btn.onclick = () => loadSharedExperimentState(exp.docId);
+                    btn.onclick = () => loadSerializedData(exp);
                 }
             });
         }
 
-        async function loadSharedExperimentState(docId) {
-            if (!db) return;
-            try {
-                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'shared_experiments', docId);
-                const snapshot = await getDoc(docRef);
-                if (snapshot.exists()) {
-                    const data = snapshot.data();
-                    
-                    currentMode = data.currentMode;
-                    selectedGlass = data.selectedGlass;
-                    activeLiquid = data.activeLiquid;
-                    activeSolid = data.activeSolid;
-                    temperature = data.temperature;
-                    burnerOn = data.burnerOn;
-                    glassPositionState = 'rack';
-                    
-                    switchTab('lab');
-                    switchLabMode(currentMode);
-                    buildGlassware3D();
-                    checkReaction();
-                    updateUI();
-                }
-            } catch (e) {
-                console.error("Load state failed", e);
-            }
+        window.copySpecificCode = function(encodedStr) {
+            const dummy = document.createElement("input");
+            document.body.appendChild(dummy);
+            dummy.value = encodedStr;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+            window.showToast("Туршилтын холбоос код хуулагдлаа!", "success");
         }
 
         function getLiquidColor(ph, indicator) {
-            if (!indicator) return '#cbd5e1'; // Translucent natural liquid base color (grey-blue glass reflection)
+            if (!indicator) return '#cbd5e1'; 
             
             if (indicator === 'litmus') {
                 if (ph < 6.0) return '#ef4444'; 
@@ -1125,6 +1205,7 @@
             burnerGroup = new THREE.Group();
             burnerGroup.position.set(2.4, 0, 0);
 
+            // Circular fat glass base matching the prompt details
             const baseGeo = new THREE.SphereGeometry(0.65, 32, 16);
             baseGeo.scale(1, 0.8, 1); 
             const baseMat = new THREE.MeshPhysicalMaterial({
@@ -1144,18 +1225,21 @@
             spirit.position.y = 0.25;
             burnerGroup.add(spirit);
 
+            // Brass wick collar
             const collarGeo = new THREE.CylinderGeometry(0.16, 0.18, 0.2, 16);
             const collarMat = new THREE.MeshStandardMaterial({ color: 0xd97706, metalness: 0.95, roughness: 0.1 });
             const collar = new THREE.Mesh(collarGeo, collarMat);
             collar.position.y = 0.9;
             burnerGroup.add(collar);
 
+            // Cotton wick
             const wickGeo = new THREE.CylinderGeometry(0.045, 0.045, 0.75, 12);
             const wickMat = new THREE.MeshStandardMaterial({ color: 0xf3f4f6, roughness: 0.85 });
             const wick = new THREE.Mesh(wickGeo, wickMat);
             wick.position.y = 0.82;
             burnerGroup.add(wick);
 
+            // Standard ceramic/glass cap for extinguishment
             const capGeo = new THREE.CylinderGeometry(0.2, 0.25, 0.45, 16);
             const cap = new THREE.Mesh(capGeo, baseMat);
             
@@ -1170,7 +1254,7 @@
             scene.add(burnerGroup);
         }
 
-        function buildGlassware3D() {
+        window.buildGlassware3D = function() {
             if(currentContainerGroup) scene.remove(currentContainerGroup);
             if(currentMode === 'titrate') {
                 buildTitrationSetup3D();
@@ -1342,13 +1426,13 @@
             const liquidColor = activeLiquid.indicator ? activeLiquid.color : '#e0f2fe';
             const mat = new THREE.MeshPhysicalMaterial({
                 color: new THREE.Color(liquidColor),
-                transmission: activeLiquid.indicator ? 0.75 : 0.4, // Lower transmission means light reflects beautifully off the volume boundary
+                transmission: activeLiquid.indicator ? 0.75 : 0.4, 
                 transparent: true,
-                opacity: activeLiquid.indicator ? 0.85 : 0.65, // Increased base opacity to prevent invisibility
+                opacity: activeLiquid.indicator ? 0.85 : 0.65, 
                 roughness: 0.1,
                 metalness: 0.15,
                 clearcoat: 1.0,
-                ior: 1.333 // Water index of refraction
+                ior: 1.333 
             });
 
             liquidMesh = new THREE.Mesh(geo, mat);
@@ -1360,7 +1444,7 @@
                 color: liquidColor,
                 roughness: 0.01,
                 transparent: true,
-                opacity: activeLiquid.indicator ? 0.9 : 0.75, // Elevated top surface meniscus line
+                opacity: activeLiquid.indicator ? 0.9 : 0.75, 
                 metalness: 0.4
             });
             meniscusMesh = new THREE.Mesh(meniscusGeo, meniscusMat);
@@ -1648,7 +1732,7 @@
             }
         }
 
-        function checkReaction() {
+        window.checkReaction = function() {
             const journal = document.getElementById('lab-journal');
             const assembleBtn = document.getElementById('btn-assemble-gas');
             
@@ -2060,7 +2144,7 @@
                             tipFlame.scale.set(2, 2, 2);
                         } else if (method === 'glow' && activeGasType === 'O2') {
                             journal.innerHTML = `<span class='text-orange-400 font-extrabold'><i class="fa-solid fa-sun animate-spin"></i> ХҮЧИЛТӨРӨГЧ ТАНИГДЛАА!</span><br>` +
-                                `Спиртэн дэнгийн дөлөнд улайсгасан цучлыг хүчилтөрөгчийн хийтэй саванд хийхэд <strong>дүрэлзэн тод аслаа</strong>. Хүчилтөрөгч шаталтыг маш сайн тэтгэдэг.`;
+                                `Спиртэн дэнгийн дөлөнд улайсгасан цучлыг хүчилтөрөгчийн хийтэй саванд хийхэд <strong>dүрэлзэн тод аслаа</strong>. Хүчилтөрөгч шаталтыг маш сайн тэтгэдэг.`;
                             tipFlame.material.color.setHex(0xffaa00);
                             tipFlame.scale.set(3, 3, 3); 
                         } else {
@@ -2224,9 +2308,9 @@
             const flaskLiquidCyl = new THREE.CylinderGeometry(0.34, 0.48, 0.3, 24);
             const flaskLiquidMat = new THREE.MeshPhysicalMaterial({
                 color: new THREE.Color(titrationActiveColor),
-                transmission: titrationFlaskPh > 8.2 ? 0.75 : 0.45, // Reduced transmission to make liquid distinct and shiny
+                transmission: titrationFlaskPh > 8.2 ? 0.75 : 0.45, 
                 transparent: true,
-                opacity: titrationFlaskPh > 8.2 ? 0.85 : 0.65, // Higher opacity so it is perfectly visible on dark backgrounds
+                opacity: titrationFlaskPh > 8.2 ? 0.85 : 0.65, 
                 roughness: 0.05,
                 clearcoat: 1.0,
                 ior: 1.333
@@ -2327,10 +2411,8 @@
                         titrationFlaskMesh.userData.liquidMesh.material.opacity = titrationFlaskPh > 8.2 ? 0.85 : 0.65;
                         titrationFlaskMesh.userData.liquidMesh.material.transmission = titrationFlaskPh > 8.2 ? 0.75 : 0.45;
                         
-                        // Dynamically scale the liquid mesh height as volume increases from 10ml to 20ml+
                         let scaleY = titrationFlaskVol / 10.0;
                         titrationFlaskMesh.userData.liquidMesh.scale.y = scaleY;
-                        // Recalculate center offset to prevent scaling into the desk surface
                         titrationFlaskMesh.userData.liquidMesh.position.y = 0.15 * scaleY;
                     }
 
@@ -2653,7 +2735,6 @@
         }
 
         function showQuestion() {
-            // Hide feedback and next button on starting a new question
             document.getElementById('quiz-feedback-container').classList.add('hidden');
             document.getElementById('btn-quiz-next').classList.add('hidden');
 
@@ -2693,7 +2774,6 @@
             const feedbackContainer = document.getElementById('quiz-feedback-container');
             const nextBtn = document.getElementById('btn-quiz-next');
             
-            // Disable all option buttons to avoid duplicate clicks
             qData.a.forEach((_, i) => {
                 const btn = document.getElementById(`btn-ans-${i}`);
                 if (btn) btn.disabled = true;
@@ -2705,7 +2785,6 @@
             const correctIcon = document.getElementById(`icon-ans-${qData.correct}`);
 
             if (idx === qData.correct) {
-                // Correct answer selected
                 score += 10;
                 if (clickedBtn) {
                     clickedBtn.className = "w-full text-left p-2.5 bg-emerald-950/60 border-2 border-emerald-500 rounded-xl text-xs text-emerald-300 transition flex justify-between items-center";
@@ -2716,7 +2795,6 @@
                 feedbackContainer.className = "p-3 rounded-xl text-xs font-bold bg-emerald-950/50 border border-emerald-800 text-emerald-300";
                 feedbackContainer.innerHTML = `<i class="fa-solid fa-check-double mr-1.5"></i> Зөв байна! Танд +10 оноо өглөө.`;
             } else {
-                // Incorrect answer selected
                 if (clickedBtn) {
                     clickedBtn.className = "w-full text-left p-2.5 bg-rose-950/60 border-2 border-rose-500 rounded-xl text-xs text-rose-300 transition flex justify-between items-center";
                 }
@@ -2736,7 +2814,6 @@
             feedbackContainer.classList.remove('hidden');
             nextBtn.classList.remove('hidden');
             
-            // Assign next question flow on next button click
             nextBtn.onclick = function() {
                 currentQuestion++;
                 showQuestion();
