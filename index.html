@@ -66,6 +66,12 @@
                         <i class="fa-solid fa-graduation-cap mr-1"></i>Мэдлэг сорих
                     </button>
                 </nav>
+
+                <!-- Logout Button -->
+                <button onclick="logout()" id="btn-logout" class="hidden bg-rose-950/40 hover:bg-rose-900/60 border border-rose-800 text-rose-300 px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center space-x-1.5">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span class="hidden sm:inline">Гарах</span>
+                </button>
             </div>
         </div>
     </header>
@@ -464,6 +470,12 @@
                     </div>
                     <h3 id="quiz-question-text" class="text-xs font-bold text-white leading-relaxed">Асуулт ачаалж байна...</h3>
                     <div class="grid grid-cols-1 gap-2" id="quiz-options-container"></div>
+                    
+                    <!-- Feedback message and Next Question Button -->
+                    <div id="quiz-feedback-container" class="hidden p-3 rounded-xl text-xs font-semibold"></div>
+                    <button id="btn-quiz-next" class="hidden w-full py-2 bg-indigo-650 hover:bg-indigo-600 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 shadow">
+                        Дараагийн асуулт <i class="fa-solid fa-arrow-right"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -602,7 +614,7 @@
         let titrationBuretteVol = 50.0; 
         let titrationFlaskVol = 10.0;   
         let titrationFlaskPh = 1.2;     
-        let titrationActiveColor = '#f8fafc'; 
+        let titrationActiveColor = '#cbd5e1'; // Changed from '#f8fafc' to a distinct cool silver-grey representing water fluid
         let titrationValveOpen = false;
         let titrationStandMesh = null;
         let titrationBuretteMesh = null;
@@ -695,6 +707,31 @@
                 : "py-2 bg-slate-950 text-slate-400 font-bold rounded-xl text-xs border border-slate-800 hover:border-slate-700";
         }
 
+        window.logout = async function() {
+            if (db && userId) {
+                try {
+                    // Remove presence immediately from Firestore
+                    const presenceDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'presences', userId);
+                    await deleteDoc(presenceDocRef);
+                } catch (e) {
+                    console.error("Presence deletion failed on logout:", e);
+                }
+            }
+            
+            // Clear current user states
+            userName = '';
+            userId = '';
+            
+            // Show login window, hide logout button
+            document.getElementById('login-username').value = '';
+            document.getElementById('login-overlay').classList.remove('hidden');
+            document.getElementById('btn-logout').classList.add('hidden');
+            
+            // Clean up and reset laboratory
+            resetLab();
+            showToast("Амжилттай гарлаа!", "success");
+        }
+
         window.processLogin = async function() {
             const input = document.getElementById('login-username').value.trim();
             if (!input) {
@@ -703,6 +740,7 @@
             }
             userName = input;
             document.getElementById('login-overlay').classList.add('hidden');
+            document.getElementById('btn-logout').classList.remove('hidden'); // Show logout button on successful login
 
             if (auth && db) {
                 try {
@@ -980,7 +1018,7 @@
         }
 
         function getLiquidColor(ph, indicator) {
-            if (!indicator) return '#f8fafc'; 
+            if (!indicator) return '#cbd5e1'; // Translucent natural liquid base color (grey-blue glass reflection)
             
             if (indicator === 'litmus') {
                 if (ph < 6.0) return '#ef4444'; 
@@ -989,7 +1027,7 @@
             } 
             if (indicator === 'phenol') {
                 if (ph > 8.2) return '#ec4899'; 
-                return '#f8fafc'; 
+                return '#cbd5e1'; 
             } 
             if (indicator === 'methyl') {
                 if (ph < 4.4) return '#f97316'; 
@@ -1001,7 +1039,7 @@
                 if (ph <= 7.5) return '#22c55e'; 
                 return '#1e3a8a'; 
             }
-            return '#f8fafc';
+            return '#cbd5e1';
         }
 
         function init3D() {
@@ -1301,13 +1339,16 @@
                 radius = 0.7;
             }
 
+            const liquidColor = activeLiquid.indicator ? activeLiquid.color : '#e0f2fe';
             const mat = new THREE.MeshPhysicalMaterial({
-                color: new THREE.Color(activeLiquid.color),
-                transmission: activeLiquid.indicator ? 0.85 : 0.98,
+                color: new THREE.Color(liquidColor),
+                transmission: activeLiquid.indicator ? 0.75 : 0.4, // Lower transmission means light reflects beautifully off the volume boundary
                 transparent: true,
-                opacity: activeLiquid.indicator ? 0.85 : 0.25, 
-                roughness: 0.05,
-                clearcoat: 1.0
+                opacity: activeLiquid.indicator ? 0.85 : 0.65, // Increased base opacity to prevent invisibility
+                roughness: 0.1,
+                metalness: 0.15,
+                clearcoat: 1.0,
+                ior: 1.333 // Water index of refraction
             });
 
             liquidMesh = new THREE.Mesh(geo, mat);
@@ -1316,10 +1357,11 @@
 
             const meniscusGeo = new THREE.CylinderGeometry(radius, radius, 0.02, 24);
             const meniscusMat = new THREE.MeshStandardMaterial({
-                color: activeLiquid.color,
-                roughness: 0.02,
+                color: liquidColor,
+                roughness: 0.01,
                 transparent: true,
-                opacity: activeLiquid.indicator ? 0.8 : 0.35
+                opacity: activeLiquid.indicator ? 0.9 : 0.75, // Elevated top surface meniscus line
+                metalness: 0.4
             });
             meniscusMesh = new THREE.Mesh(meniscusGeo, meniscusMat);
             meniscusMesh.position.y = yPos + (geo.parameters.height / 2);
@@ -1501,10 +1543,10 @@
                 if(!activeLiquid) {
                     activeLiquid = {
                         formula: selectedStockLiquidFormula,
-                        color: '#f8fafc',
+                        color: '#cbd5e1',
                         ph: selectedStockLiquidPh,
                         indicator: null,
-                        baseColor: '#f8fafc',
+                        baseColor: '#cbd5e1',
                         volume: pipetteFilledVol
                     };
                 } else {
@@ -2159,7 +2201,7 @@
 
             let fillRatio = titrationBuretteVol / 50.0;
             const liquidCyl = new THREE.CylinderGeometry(0.09, 0.09, 2.4 * fillRatio, 16);
-            const liquidMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, transparent: true, opacity: 0.3 });
+            const liquidMat = new THREE.MeshStandardMaterial({ color: '#e0f2fe', transparent: true, opacity: 0.75, metalness: 0.2 });
             const buretteLiquid = new THREE.Mesh(liquidCyl, liquidMat);
             buretteLiquid.position.y = 1.15 + (1.2 * fillRatio);
             titrationBuretteMesh.userData.liquidMesh = buretteLiquid;
@@ -2181,11 +2223,13 @@
 
             const flaskLiquidCyl = new THREE.CylinderGeometry(0.34, 0.48, 0.3, 24);
             const flaskLiquidMat = new THREE.MeshPhysicalMaterial({
-                color: titrationActiveColor,
-                transmission: 0.95,
+                color: new THREE.Color(titrationActiveColor),
+                transmission: titrationFlaskPh > 8.2 ? 0.75 : 0.45, // Reduced transmission to make liquid distinct and shiny
                 transparent: true,
-                opacity: titrationFlaskPh > 8.2 ? 0.7 : 0.25,
-                roughness: 0.05
+                opacity: titrationFlaskPh > 8.2 ? 0.85 : 0.65, // Higher opacity so it is perfectly visible on dark backgrounds
+                roughness: 0.05,
+                clearcoat: 1.0,
+                ior: 1.333
             });
             const flaskLiquid = new THREE.Mesh(flaskLiquidCyl, flaskLiquidMat);
             flaskLiquid.position.y = 0.15;
@@ -2271,7 +2315,7 @@
                     } else if(titrationFlaskPh > 7.0 && titrationFlaskPh <= 8.2) {
                         titrationActiveColor = '#fbcfe8'; 
                     } else {
-                        titrationActiveColor = '#f8fafc'; 
+                        titrationActiveColor = '#cbd5e1'; 
                     }
 
                     if(titrationBuretteMesh && titrationBuretteMesh.userData.liquidMesh) {
@@ -2280,7 +2324,14 @@
                     }
                     if(titrationFlaskMesh && titrationFlaskMesh.userData.liquidMesh) {
                         titrationFlaskMesh.userData.liquidMesh.material.color.set(titrationActiveColor);
-                        titrationFlaskMesh.userData.liquidMesh.material.opacity = titrationFlaskPh > 8.2 ? 0.8 : 0.25;
+                        titrationFlaskMesh.userData.liquidMesh.material.opacity = titrationFlaskPh > 8.2 ? 0.85 : 0.65;
+                        titrationFlaskMesh.userData.liquidMesh.material.transmission = titrationFlaskPh > 8.2 ? 0.75 : 0.45;
+                        
+                        // Dynamically scale the liquid mesh height as volume increases from 10ml to 20ml+
+                        let scaleY = titrationFlaskVol / 10.0;
+                        titrationFlaskMesh.userData.liquidMesh.scale.y = scaleY;
+                        // Recalculate center offset to prevent scaling into the desk surface
+                        titrationFlaskMesh.userData.liquidMesh.position.y = 0.15 * scaleY;
                     }
 
                     const burLbl = document.getElementById('burette-volume-lbl');
@@ -2602,10 +2653,14 @@
         }
 
         function showQuestion() {
+            // Hide feedback and next button on starting a new question
+            document.getElementById('quiz-feedback-container').classList.add('hidden');
+            document.getElementById('btn-quiz-next').classList.add('hidden');
+
             if (currentQuestion >= activeQuestions.length) {
                 document.getElementById('quiz-question-text').innerText = `Тэмцээн дууслаа! Таны авсан оноо: ${score}`;
                 document.getElementById('quiz-options-container').innerHTML = `
-                    <button id="btn-quiz-retry" class="w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold">Дахин эхлэх</button>
+                    <button id="btn-quiz-retry" class="w-full py-2 bg-indigo-650 hover:bg-indigo-600 text-white rounded-xl text-xs font-bold">Дахин эхлэх</button>
                 `;
                 const retryBtn = document.getElementById('btn-quiz-retry');
                 if (retryBtn) retryBtn.onclick = startQuiz;
@@ -2621,7 +2676,7 @@
                 html += `
                     <button id="btn-ans-${idx}" class="w-full text-left p-2.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-300 transition flex justify-between items-center">
                         <span>${ans}</span>
-                        <i class="fa-regular fa-circle text-slate-700"></i>
+                        <i id="icon-ans-${idx}" class="fa-regular fa-circle text-slate-700"></i>
                     </button>
                 `;
             });
@@ -2635,11 +2690,57 @@
 
         window.submitAnswer = function(idx) {
             const qData = activeQuestions[currentQuestion];
+            const feedbackContainer = document.getElementById('quiz-feedback-container');
+            const nextBtn = document.getElementById('btn-quiz-next');
+            
+            // Disable all option buttons to avoid duplicate clicks
+            qData.a.forEach((_, i) => {
+                const btn = document.getElementById(`btn-ans-${i}`);
+                if (btn) btn.disabled = true;
+            });
+
+            const clickedBtn = document.getElementById(`btn-ans-${idx}`);
+            const clickedIcon = document.getElementById(`icon-ans-${idx}`);
+            const correctBtn = document.getElementById(`btn-ans-${qData.correct}`);
+            const correctIcon = document.getElementById(`icon-ans-${qData.correct}`);
+
             if (idx === qData.correct) {
+                // Correct answer selected
                 score += 10;
+                if (clickedBtn) {
+                    clickedBtn.className = "w-full text-left p-2.5 bg-emerald-950/60 border-2 border-emerald-500 rounded-xl text-xs text-emerald-300 transition flex justify-between items-center";
+                }
+                if (clickedIcon) {
+                    clickedIcon.className = "fa-solid fa-circle-check text-emerald-400";
+                }
+                feedbackContainer.className = "p-3 rounded-xl text-xs font-bold bg-emerald-950/50 border border-emerald-800 text-emerald-300";
+                feedbackContainer.innerHTML = `<i class="fa-solid fa-check-double mr-1.5"></i> Зөв байна! Танд +10 оноо өглөө.`;
+            } else {
+                // Incorrect answer selected
+                if (clickedBtn) {
+                    clickedBtn.className = "w-full text-left p-2.5 bg-rose-950/60 border-2 border-rose-500 rounded-xl text-xs text-rose-300 transition flex justify-between items-center";
+                }
+                if (clickedIcon) {
+                    clickedIcon.className = "fa-solid fa-circle-xmark text-rose-400";
+                }
+                if (correctBtn) {
+                    correctBtn.className = "w-full text-left p-2.5 bg-emerald-950/40 border border-emerald-700 rounded-xl text-xs text-emerald-400 transition flex justify-between items-center";
+                }
+                if (correctIcon) {
+                    correctIcon.className = "fa-regular fa-circle-check text-emerald-500";
+                }
+                feedbackContainer.className = "p-3 rounded-xl text-xs font-bold bg-rose-950/50 border border-rose-800 text-rose-300";
+                feedbackContainer.innerHTML = `<i class="fa-solid fa-triangle-exclamation mr-1.5"></i> Буруу байна! Зөв хариулт: <span class="text-white">${qData.a[qData.correct]}</span>`;
             }
-            currentQuestion++;
-            showQuestion();
+
+            feedbackContainer.classList.remove('hidden');
+            nextBtn.classList.remove('hidden');
+            
+            // Assign next question flow on next button click
+            nextBtn.onclick = function() {
+                currentQuestion++;
+                showQuestion();
+            };
         }
     </script>
 </body>
