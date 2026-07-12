@@ -55,6 +55,13 @@
                     <i class="fa-solid fa-users text-slate-400 text-xs"></i>
                 </div>
 
+                <!-- Total Visitors Counter (Permanently Visible) -->
+                <div class="bg-slate-950 border border-slate-800 px-3 py-1.5 rounded-xl flex items-center space-x-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
+                    <span id="header-total-visitors-count" class="font-bold text-xs text-white">Нийт: Офлайн</span>
+                    <i class="fa-solid fa-eye text-slate-400 text-xs"></i>
+                </div>
+
                 <nav class="flex space-x-1 bg-slate-950 p-1 rounded-lg border border-slate-800">
                     <button onclick="switchTab('lab')" id="tab-lab" class="px-3 py-1.5 rounded-md text-[11px] font-bold transition-all bg-indigo-600 text-white shadow-md">
                         <i class="fa-solid fa-flask mr-1"></i>3D Лаборатори
@@ -891,24 +898,31 @@
                         onSnapshot(statsDocRef, (docSnap) => {
                             if (docSnap.exists()) {
                                 const data = docSnap.data();
-                                document.getElementById('total-visitors-count').innerText = `${data.totalVisits || 1} хэрэглэгч`;
+                                const currentTotal = data.totalVisits || 1;
+                                document.getElementById('total-visitors-count').innerText = `${currentTotal} хэрэглэгч`;
+                                document.getElementById('header-total-visitors-count').innerText = `Нийт: ${currentTotal}`;
                             } else {
                                 document.getElementById('total-visitors-count').innerText = "1 хэрэглэгч";
+                                document.getElementById('header-total-visitors-count').innerText = "Нийт: 1";
                             }
                         }, (err) => {
                             console.warn("Stats read permissions restricted. Falling back to local visual count.");
                             document.getElementById('total-visitors-count').innerText = "14 хэрэглэгч";
+                            document.getElementById('header-total-visitors-count').innerText = "Нийт: 14";
                         });
                     } catch (innerAuthError) {
                         console.warn("Early sign-in failed. Local offline fallback active.");
                         document.getElementById('total-visitors-count').innerText = "Офлайн горим";
+                        document.getElementById('header-total-visitors-count').innerText = "Нийт: Офлайн";
                     }
                 } catch (e) {
                     console.warn("Early auth initialization failed", e);
                     document.getElementById('total-visitors-count').innerText = "Офлайн горим";
+                    document.getElementById('header-total-visitors-count').innerText = "Нийт: Офлайн";
                 }
             } else {
                 document.getElementById('total-visitors-count').innerText = "Офлайн горим";
+                document.getElementById('header-total-visitors-count').innerText = "Нийт: Офлайн";
             }
         }
         runEarlyAuth();
@@ -1085,12 +1099,16 @@
             if (totalH > totalOH) {
                 let excessH = totalH - totalOH;
                 let concH = excessH / totalVol;
+                if (concH <= 0) return 7.0;
                 let ph = -Math.log10(concH);
+                if (isNaN(ph)) return 7.0;
                 return Math.max(0.5, Math.min(6.9, ph));
             } else if (totalOH > totalH) {
                 let excessOH = totalOH - totalH;
                 let concOH = excessOH / totalVol;
+                if (concOH <= 0) return 7.0;
                 let pOH = -Math.log10(concOH);
+                if (isNaN(pOH)) return 7.0;
                 let ph = 14 - pOH;
                 return Math.max(7.1, Math.min(14.0, ph));
             } else {
@@ -1560,14 +1578,16 @@
                 radius = 0.7;
             }
 
-            const liquidColor = activeLiquid.indicator ? activeLiquid.color : '#cbd5e1';
+            const liquidColor = activeLiquid.indicator ? activeLiquid.color : '#e2e8f0';
+            const isColorless = (liquidColor === '#cbd5e1' || liquidColor === '#e2e8f0' || liquidColor === '#f8fafc');
+
             const mat = new THREE.MeshPhysicalMaterial({
                 color: new THREE.Color(liquidColor),
-                transmission: activeLiquid.indicator ? 0.75 : 0.4, 
+                transmission: isColorless ? 0.96 : 0.75, 
                 transparent: true,
-                opacity: activeLiquid.indicator ? 0.85 : 0.65, 
-                roughness: 0.1,
-                metalness: 0.15,
+                opacity: isColorless ? 0.40 : 0.85, 
+                roughness: 0.05,
+                metalness: 0.10,
                 clearcoat: 1.0,
                 ior: 1.333 
             });
@@ -1581,7 +1601,7 @@
                 color: liquidColor,
                 roughness: 0.01,
                 transparent: true,
-                opacity: activeLiquid.indicator ? 0.9 : 0.75, 
+                opacity: isColorless ? 0.50 : 0.90, 
                 metalness: 0.4
             });
             meniscusMesh = new THREE.Mesh(meniscusGeo, meniscusMat);
@@ -2544,17 +2564,19 @@
                     } else if(titrationFlaskPh > 7.0 && titrationFlaskPh <= 8.2) {
                         titrationActiveColor = '#fbcfe8'; 
                     } else {
-                        titrationActiveColor = '#cbd5e1'; 
+                        titrationActiveColor = '#e2e8f0'; 
                     }
 
                     if(titrationBuretteMesh && titrationBuretteMesh.userData.liquidMesh) {
                         let fillRatio = titrationBuretteVol / 50.0;
                         titrationBuretteMesh.userData.liquidMesh.scale.y = fillRatio;
                     }
+
                     if(titrationFlaskMesh && titrationFlaskMesh.userData.liquidMesh) {
+                        const isTitrationColorless = (titrationActiveColor === '#cbd5e1' || titrationActiveColor === '#e2e8f0');
                         titrationFlaskMesh.userData.liquidMesh.material.color.set(titrationActiveColor);
-                        titrationFlaskMesh.userData.liquidMesh.material.opacity = titrationFlaskPh > 8.2 ? 0.85 : 0.65;
-                        titrationFlaskMesh.userData.liquidMesh.material.transmission = titrationFlaskPh > 8.2 ? 0.75 : 0.45;
+                        titrationFlaskMesh.userData.liquidMesh.material.opacity = isTitrationColorless ? 0.40 : 0.85;
+                        titrationFlaskMesh.userData.liquidMesh.material.transmission = isTitrationColorless ? 0.96 : 0.75;
                         
                         let scaleY = titrationFlaskVol / 10.0;
                         titrationFlaskMesh.userData.liquidMesh.scale.y = scaleY;
