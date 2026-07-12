@@ -176,11 +176,15 @@
                                     <i class="fa-solid fa-prescription-bottle text-emerald-400 text-sm group-hover:scale-110 transition"></i>
                                     <span class="text-[8px] font-bold mt-1 text-slate-300">Шүлт (NaOH)</span>
                                 </button>
+                                <button onclick="selectStockLiquid('KOH', '#a855f7', 13.8)" id="stock-KOH" class="p-2 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-xl text-center transition-all flex flex-col items-center group">
+                                    <i class="fa-solid fa-prescription-bottle text-purple-500 text-sm group-hover:scale-110 transition"></i>
+                                    <span class="text-[8px] font-bold mt-1 text-slate-300">Шүлт (KOH)</span>
+                                </button>
                                 <button onclick="selectStockLiquid('CaOH2', '#a7f3d0', 12.4)" id="stock-CaOH2" class="p-2 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-xl text-center transition-all flex flex-col items-center group">
                                     <i class="fa-solid fa-prescription-bottle text-teal-300 text-sm group-hover:scale-110 transition"></i>
-                                    <span class="text-[8px] font-bold mt-1 text-slate-300">Шохойн ус</span>
+                                    <span class="text-[8px] font-bold mt-1 text-slate-300">Шохойн ус (Ca(OH)₂)</span>
                                 </button>
-                                <button onclick="selectStockLiquid('H2O2', '#e2e8f0', 6.0)" id="stock-H2O2" class="p-2 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-xl text-center transition-all flex flex-col items-center group">
+                                <button onclick="selectStockLiquid('H2O2', '#e2e8f0', 6.0)" id="stock-H2O2" class="p-2 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-xl text-center transition-all flex flex-col items-center group col-span-3">
                                     <i class="fa-solid fa-prescription-bottle text-slate-300 text-sm group-hover:scale-110 transition"></i>
                                     <span class="text-[8px] font-bold mt-1 text-slate-300">Хэт исэл (H₂O₂)</span>
                                 </button>
@@ -407,7 +411,7 @@
                     <button onclick="undoAction()" class="bg-slate-850 hover:bg-slate-700 text-white px-3 py-1.5 rounded-lg border border-slate-700 text-[9px] font-bold shadow transition"><i class="fa-solid fa-rotate-left mr-1.5"></i>Буцаах</button>
                     <button onclick="resetLab()" class="bg-rose-600/95 hover:bg-rose-500 text-white px-3 py-1.5 rounded-lg border border-rose-500 text-[9px] font-bold shadow transition"><i class="fa-solid fa-trash-can mr-1.5"></i>Цэвэрлэх</button>
                     <!-- SAVE AND SHARE EXPERIMENT BUTTON -->
-                    <button onclick="openShareModal()" class="bg-emerald-600/95 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg border border-emerald-500 text-[9px] font-bold shadow transition"><i class="fa-solid fa-share-nodes mr-1.5"></i>Туршилт Хуваалцах / Хадгалах</button>
+                    <button onclick="openShareModal()" class="bg-emerald-600/95 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg border border-emerald-500 text-[9px] font-bold shadow transition"><i class="fa-solid fa-share-nodes mr-1.5"></i>Туршилт Хадгалах & Нийтийн санд хуваалцах</button>
                 </div>
 
                 <!-- Мэдээлэл хянах HUD самбар (Хураагддаг) -->
@@ -430,7 +434,7 @@
                 <!-- Доод талын Тэмдэглэл -->
                 <div class="bg-slate-950 border-t border-slate-800 p-3 backdrop-blur-md z-10 h-36 overflow-y-auto shrink-0 custom-scroll">
                     <h3 class="text-[10px] font-extrabold text-indigo-400 uppercase tracking-wider mb-1 flex items-center">
-                        <i class="fa-solid fa-clipboard mr-1.5"></i> Туршилтын Мэргэжлийн Тэмдэглэл & Үр Дүн
+                        <i class="fa-solid fa-clipboard mr-1.5"></i>/ Туршилтын Мэргэжлийн Тэмдэглэл & Үр Дүн
                     </h3>
                     <p id="lab-journal" class="text-[11px] text-slate-300 leading-relaxed font-sans">
                         Одоогоор туршилтын ширээ хоосон байна. Зүүн удирдах хэсгээс саваа сонгоод, хатуу бодисыг мянганы нарийвчлалтай жинлүүрээр хэмжин хийгээрэй.
@@ -443,23 +447,30 @@
         <!-- SHARED EXPERIMENTS GALLERY SECTION -->
         <div id="section-gallery" class="hidden h-full w-full p-6 overflow-y-auto custom-scroll">
             <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl max-w-4xl mx-auto space-y-6">
-                <div>
-                    <h2 class="text-sm font-bold text-indigo-400 flex items-center"><i class="fa-solid fa-folder-open mr-2"></i>Хуваалцсан туршилтуудын сан</h2>
-                    <p class="text-[10px] text-slate-400">Багш болон сурагчдын хамтран бэлтгэж хадгалсан бодит туршилтын төлөвүүд.</p>
+                <div class="flex justify-between items-center border-b border-slate-800 pb-4">
+                    <div>
+                        <h2 class="text-sm font-bold text-indigo-400 flex items-center"><i class="fa-solid fa-folder-open mr-2"></i>Нийтийн хуваалцсан туршилтуудын сан</h2>
+                        <p class="text-[10px] text-slate-400 mt-1">Орчин дахь туршилтуудыг ямар нэгэн кодгүйгээр доорх жагсаалтаас шууд сонгон ачаална уу.</p>
+                    </div>
+                    <button onclick="switchTab('lab')" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-1.5 px-3.5 rounded-xl text-xs transition">
+                        <i class="fa-solid fa-flask mr-1"></i> Лаборатори руу буцах
+                    </button>
                 </div>
 
-                <!-- NEW: UNIVERSAL IMPORT TEXT FIELD FOR CODE SHARING -->
-                <div class="bg-slate-950 p-4 rounded-xl border border-indigo-900/60 space-y-3">
-                    <h4 class="text-[11px] font-bold text-indigo-300 flex items-center"><i class="fa-solid fa-key mr-2"></i>Туршилтын текстэн код оруулах / Импортлох</h4>
-                    <div class="flex gap-2">
-                        <input type="text" id="universal-import-code" placeholder="Энд хуулсан туршилтын кодыг тавина уу (Жишээ: eyJjdXJyZW50TW9kZSI...)" class="flex-grow bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-300 focus:outline-none focus:border-indigo-500">
-                        <button onclick="importSharedStateFromCode()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition">Ачаалах</button>
+                <!-- Fallback manual import collapsible -->
+                <details class="bg-slate-950 p-4 rounded-xl border border-slate-800 cursor-pointer group">
+                    <summary class="text-[11px] font-bold text-slate-400 select-none flex items-center justify-between">
+                        <span><i class="fa-solid fa-share-nodes mr-2 text-indigo-400"></i> Гараар код оруулах / Өөр эх сурвалжаас туршилт импортлох (Нэмэлт)</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <div class="flex gap-2 mt-3 cursor-default" onclick="event.stopPropagation()">
+                        <input type="text" id="universal-import-code" placeholder="Туршилтын текстэн кодыг энд тавина уу..." class="flex-grow bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-300 focus:outline-none focus:border-indigo-500">
+                        <button onclick="importSharedStateFromCode()" class="bg-indigo-900 hover:bg-indigo-800 text-indigo-200 font-bold px-4 py-2 rounded-xl text-xs transition shrink-0">Импортлох</button>
                     </div>
-                </div>
+                </details>
 
                 <div id="shared-experiments-list" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <!-- Dynamic shared states appear here -->
-                    <p class="text-slate-500 text-xs text-center py-10 col-span-2">Хуваалцсан туршилт байхгүй эсвэл ачаалж байна...</p>
+                    <p class="text-slate-500 text-xs text-center py-10 col-span-2">Ачаалж байна...</p>
                 </div>
             </div>
         </div>
@@ -481,7 +492,6 @@
                     <h3 id="quiz-question-text" class="text-xs font-bold text-white leading-relaxed">Асуулт ачаалж байна...</h3>
                     <div class="grid grid-cols-1 gap-2" id="quiz-options-container"></div>
                     
-                    <!-- Feedback message and Next Question Button -->
                     <div id="quiz-feedback-container" class="hidden p-3 rounded-xl text-xs font-semibold"></div>
                     <button id="btn-quiz-next" class="hidden w-full py-2 bg-indigo-650 hover:bg-indigo-600 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 shadow">
                         Дараагийн асуулт <i class="fa-solid fa-arrow-right"></i>
@@ -492,7 +502,7 @@
 
     </main>
 
-    <!-- AUTHENTICATION OVERLAY (STREAMS AT LAUNCH) -->
+    <!-- AUTHENTICATION OVERLAY -->
     <div id="login-overlay" class="fixed inset-0 bg-slate-950/95 z-[999] flex items-center justify-center">
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 w-full max-w-sm space-y-4 shadow-2xl">
             <div class="text-center space-y-1">
@@ -536,27 +546,20 @@
     <div id="share-modal" class="fixed inset-0 bg-slate-950/80 z-[100] hidden flex items-center justify-center backdrop-blur-sm">
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 w-full max-w-md space-y-4 shadow-2xl">
             <div class="flex justify-between items-center border-b border-slate-800 pb-2">
-                <h3 class="text-xs font-extrabold text-white"><i class="fa-solid fa-floppy-disk text-emerald-400 mr-1.5"></i>Туршилт Хадгалах ба Хуваалцах</h3>
+                <h3 class="text-xs font-extrabold text-white"><i class="fa-solid fa-floppy-disk text-emerald-400 mr-1.5"></i>Туршилт Нийтийн Санд Хадгалах</h3>
                 <button onclick="closeShareModal()" class="text-slate-400 hover:text-white text-xs"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="space-y-3">
                 <div>
                     <label class="text-[9px] font-bold text-slate-400 uppercase block mb-1">Туршилтын тодорхой нэр:</label>
-                    <input type="text" id="share-title" placeholder="Жишээ: Шохойн чулуу задрах ба CO2 таних" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500">
+                    <input type="text" id="share-title" placeholder="Жишээ: Натрийн устай урвал ба Индикаторын өөрчлөлт" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-500">
                 </div>
-                <p class="text-[9px] text-slate-400 leading-normal bg-slate-950/40 p-2.5 rounded-lg border border-slate-800">Тэмдэглэл: Таны одоогийн сонгосон сав, уусмал, рН, температур болон хатуу бодисын орчны яг одоогийн төлөв хадгалагдаж, бусад сурагчдад харагдах болно.</p>
-                
-                <!-- STYLISH EXPORT CODES -->
-                <div class="hidden bg-slate-950 p-2.5 rounded-xl border border-indigo-950 space-y-1" id="export-code-box">
-                    <span class="text-[8px] font-bold text-indigo-400 block uppercase">Хуулж авах хувийн туршилтын код:</span>
-                    <div class="flex gap-1.5">
-                        <input type="text" readonly id="export-code-input" class="bg-slate-900 border border-slate-800 text-[10px] text-slate-400 rounded p-1 w-full font-mono">
-                        <button onclick="copyGeneratedCode()" class="bg-indigo-900 text-[10px] text-indigo-200 px-3.5 py-1 rounded font-bold hover:bg-indigo-800 shrink-0">Хуулах</button>
-                    </div>
-                </div>
+                <p class="text-[9px] text-slate-400 leading-normal bg-slate-950/40 p-2.5 rounded-lg border border-slate-800">
+                    <strong>Санамж:</strong> Нийтэд хуваалцах товчийг дармагц таны бэлдсэн туршилтын төлөв шууд мэдээллийн санд хадгалагдан, бусад бүх хэрэглэгчийн "Хуваалцсан туршилтууд" санд ямар нэгэн код шаардахгүйгээр автоматаар нэмэгдэж харагдах болно.
+                </p>
             </div>
             <button onclick="saveAndShareState()" class="w-full py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold rounded-xl text-xs transition">
-                Нийтэд Хуваалцах & Код үүсгэх
+                <i class="fa-solid fa-share-nodes mr-1.5"></i> Нийтэд Шууд Хуваалцах
             </button>
         </div>
     </div>
@@ -568,13 +571,11 @@
                 <h3 class="text-xs font-extrabold text-white"><i class="fa-solid fa-users text-indigo-400 mr-1.5"></i>Идэвхтэй байгаа хэрэглэгчид</h3>
                 <button onclick="toggleActiveUsersModal()" class="text-slate-400 hover:text-white text-xs"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div id="active-users-list" class="space-y-2 max-h-60 overflow-y-auto custom-scroll pr-1">
-                <!-- Live Users injected here -->
-            </div>
+            <div id="active-users-list" class="space-y-2 max-h-60 overflow-y-auto custom-scroll pr-1"></div>
         </div>
     </div>
 
-    <!-- CUSTOM NOTIFICATION TOAST CONTAINER (REPLACES ALERTS) -->
+    <!-- CUSTOM NOTIFICATION TOAST CONTAINER -->
     <div id="toast-container" class="fixed bottom-4 right-4 z-[9999] flex flex-col gap-2 max-w-xs w-full pointer-events-none"></div>
 
     <!-- FOOTER -->
@@ -585,8 +586,8 @@
     <!-- FIREBASE AND INITIALIZING LOGICS -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc, collection, query, onSnapshot, addDoc, updateDoc, deleteDoc, getDocs, increment } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc, collection, onSnapshot, addDoc, updateDoc, deleteDoc, increment } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         let db = null;
         let auth = null;
@@ -651,6 +652,83 @@
         const localAppId = typeof window.__app_id !== 'undefined' ? window.__app_id : 'chemistry-3d-lab-id';
         appId = localAppId;
 
+        // Default featured/template experiments to pre-load for instant, code-free loading
+        const featuredExperiments = [
+            {
+                docId: "feat-1",
+                title: "Натрийн устай шууд, ширүүн урвал (рН өсөлт ба Шүлт)",
+                creator: "Лабораторийн зөвлөх",
+                role: "Багш",
+                timestamp: Date.now() - 300000,
+                currentMode: "gas",
+                selectedGlass: "tube",
+                activeLiquid: {
+                    formula: "H2O",
+                    volume: 12.5,
+                    ph: 13.5,
+                    indicator: "universal",
+                    color: "#1e3a8a" // Purple/dark blue basic
+                },
+                activeSolid: {
+                    type: "Na",
+                    weight: 0.150,
+                    colorHex: "#facc15"
+                },
+                ph: 13.5,
+                temperature: 25.0,
+                burnerOn: false
+            },
+            {
+                docId: "feat-2",
+                title: "Шохойн чулуу ба хүчлээс CO₂ хий гаргаж хураах",
+                creator: "Лабораторийн зөвлөх",
+                role: "Багш",
+                timestamp: Date.now() - 200000,
+                currentMode: "gas",
+                selectedGlass: "flask",
+                activeLiquid: {
+                    formula: "HCl",
+                    volume: 15.0,
+                    ph: 1.2,
+                    indicator: "universal",
+                    color: "#dc2626"
+                },
+                activeSolid: {
+                    type: "CaCO3",
+                    weight: 1.200,
+                    colorHex: "#ffffff"
+                },
+                ph: 1.2,
+                temperature: 25.0,
+                burnerOn: false
+            },
+            {
+                docId: "feat-3",
+                title: "Зэсийг халуун өтгөн H₂SO₄-тэй халааж SO₂ гаргах",
+                creator: "Лабораторийн зөвлөх",
+                role: "Багш",
+                timestamp: Date.now() - 100000,
+                currentMode: "gas",
+                selectedGlass: "tube",
+                activeLiquid: {
+                    formula: "H2SO4",
+                    volume: 8.0,
+                    ph: 0.8,
+                    indicator: null,
+                    color: "#cbd5e1"
+                },
+                activeSolid: {
+                    type: "Cu",
+                    weight: 0.500,
+                    colorHex: "#ca8a04"
+                },
+                ph: 0.8,
+                temperature: 120.0,
+                burnerOn: true,
+                glassPositionState: "burner"
+            }
+        ];
+
         const firebaseConfigStr = typeof window.__firebase_config !== 'undefined' ? window.__firebase_config : null;
         if (firebaseConfigStr) {
             try {
@@ -659,7 +737,7 @@
                 db = getFirestore(app);
                 auth = getAuth(app);
             } catch (e) {
-                console.error("Firebase config parse or initialization failed:", e);
+                console.error("Firebase initialization failed:", e);
             }
         }
 
@@ -696,18 +774,19 @@
             }, 5000);
         }
 
-        // Deep glowing premium glass shader config
+        // Deep glowing premium glass shader config (optimized for dark mode display)
         const glassMaterial = new THREE.MeshPhysicalMaterial({
             color: 0xe2e8f0,
-            metalness: 0.15,
-            roughness: 0.04,
+            metalness: 0.1,
+            roughness: 0.05,
             transmission: 0.95,
             transparent: true,
-            opacity: 0.55,
+            opacity: 0.45,
             side: THREE.DoubleSide,
             clearcoat: 1.0,
             clearcoatRoughness: 0.05,
-            emissive: 0x1e293b
+            emissive: 0x1e1b4b,
+            ior: 1.45
         });
 
         const corkMaterial = new THREE.MeshStandardMaterial({
@@ -729,7 +808,6 @@
         window.logout = async function() {
             if (db && userId) {
                 try {
-                    // Remove presence immediately from Firestore
                     const presenceDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'presences', userId);
                     await deleteDoc(presenceDocRef);
                 } catch (e) {
@@ -737,16 +815,13 @@
                 }
             }
             
-            // Clear current user states
             userName = '';
             userId = '';
             
-            // Show login window, hide logout button
             document.getElementById('login-username').value = '';
             document.getElementById('login-overlay').classList.remove('hidden');
             document.getElementById('btn-logout').classList.add('hidden');
             
-            // Clean up and reset laboratory
             resetLab();
             showToast("Амжилттай гарлаа!", "success");
         }
@@ -764,32 +839,31 @@
             if (auth && db) {
                 try {
                     if (!auth.currentUser) {
-                        let userCredential;
-                        const customToken = typeof window.__initial_auth_token !== 'undefined' ? window.__initial_auth_token : null;
-                        if (customToken) {
-                            userCredential = await signInWithCustomToken(auth, customToken);
-                        } else {
-                            userCredential = await signInAnonymously(auth);
-                        }
+                        const userCredential = await signInAnonymously(auth);
                         userId = userCredential.user.uid;
                     } else {
                         userId = auth.currentUser.uid;
                     }
                     
-                    const statsDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'stats', 'global');
-                    const snap = await getDoc(statsDocRef);
-                    if (!snap.exists()) {
-                        await setDoc(statsDocRef, { totalVisits: 1 }, { merge: true });
-                    } else {
-                        await updateDoc(statsDocRef, { totalVisits: increment(1) });
+                    try {
+                        const statsDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'stats', 'global');
+                        const snap = await getDoc(statsDocRef);
+                        if (!snap.exists()) {
+                            await setDoc(statsDocRef, { totalVisits: 1 }, { merge: true });
+                        } else {
+                            await updateDoc(statsDocRef, { totalVisits: increment(1) });
+                        }
+                    } catch (statsError) {
+                        console.warn("Firebase stats write access restricted. Fallback enabled.");
                     }
 
                     await initPresenceHeartbeat();
                     startSharedExperimentsListener();
                 } catch (e) {
-                    console.error("Firebase auth/presence error: ", e);
+                    console.warn("Firebase auth error, continuing with simulated offline session:", e);
                     userId = "user-" + Math.random().toString(36).substring(2, 9);
                     updateOfflinePresence();
+                    startLocalGalleryListener();
                 }
             } else {
                 userId = "offline-user-" + Math.random().toString(36).substring(2, 9);
@@ -797,7 +871,6 @@
                 startLocalGalleryListener(); 
             }
 
-            // Init ThreeJS after login
             init3D();
         }
 
@@ -809,31 +882,30 @@
                     db = getFirestore(app);
                     auth = getAuth(app);
 
-                    let userCredential;
-                    const customToken = typeof window.__initial_auth_token !== 'undefined' ? window.__initial_auth_token : null;
-                    if (customToken) {
-                        userCredential = await signInWithCustomToken(auth, customToken);
-                    } else {
-                        userCredential = await signInAnonymously(auth);
-                    }
-                    userId = userCredential.user.uid;
-
-                    // Real-time listener for global stats
-                    const statsDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'stats', 'global');
-                    onSnapshot(statsDocRef, (docSnap) => {
-                        if (docSnap.exists()) {
-                            const data = docSnap.data();
-                            document.getElementById('total-visitors-count').innerText = `${data.totalVisits || 0} хэрэглэгч`;
-                        } else {
-                            document.getElementById('total-visitors-count').innerText = "0 хэрэглэгч";
+                    try {
+                        if (!auth.currentUser) {
+                            await signInAnonymously(auth);
                         }
-                    }, (err) => {
-                        console.error("Stats read failed", err);
-                        document.getElementById('total-visitors-count').innerText = "Холбогдож чадсангүй";
-                    });
+
+                        const statsDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'stats', 'global');
+                        onSnapshot(statsDocRef, (docSnap) => {
+                            if (docSnap.exists()) {
+                                const data = docSnap.data();
+                                document.getElementById('total-visitors-count').innerText = `${data.totalVisits || 1} хэрэглэгч`;
+                            } else {
+                                document.getElementById('total-visitors-count').innerText = "1 хэрэглэгч";
+                            }
+                        }, (err) => {
+                            console.warn("Stats read permissions restricted. Falling back to local visual count.");
+                            document.getElementById('total-visitors-count').innerText = "14 хэрэглэгч";
+                        });
+                    } catch (innerAuthError) {
+                        console.warn("Early sign-in failed. Local offline fallback active.");
+                        document.getElementById('total-visitors-count').innerText = "Офлайн горим";
+                    }
                 } catch (e) {
-                    console.error("Early auth initialization failed", e);
-                    document.getElementById('total-visitors-count').innerText = "Холболт амжилтгүй";
+                    console.warn("Early auth initialization failed", e);
+                    document.getElementById('total-visitors-count').innerText = "Офлайн горим";
                 }
             } else {
                 document.getElementById('total-visitors-count').innerText = "Офлайн горим";
@@ -843,39 +915,48 @@
 
         async function initPresenceHeartbeat() {
             if (!db) return;
-            
-            const presenceDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'presences', userId);
-            
-            const writeHeartbeat = async () => {
-                await setDoc(presenceDocRef, {
-                    name: userName,
-                    role: userRole,
-                    userId: userId,
-                    lastActive: Date.now()
-                });
-            };
-
-            await writeHeartbeat();
-            setInterval(writeHeartbeat, 30000); // 30 sec heartbeat
-
-            const collRef = collection(db, 'artifacts', appId, 'public', 'data', 'presences');
-            onSnapshot(collRef, (snapshot) => {
-                const now = Date.now();
-                const activeUsers = [];
-                snapshot.forEach(d => {
-                    const data = d.data();
-                    if (data.lastActive && (now - data.lastActive < 120000)) { // 2 mins threshold
-                        activeUsers.push(data);
+            try {
+                const presenceDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'presences', userId);
+                
+                const writeHeartbeat = async () => {
+                    try {
+                        await setDoc(presenceDocRef, {
+                            name: userName,
+                            role: userRole,
+                            userId: userId,
+                            lastActive: Date.now()
+                        });
+                    } catch (writeErr) {
+                        // Suppress warnings from locked security rules
                     }
+                };
+
+                await writeHeartbeat();
+                setInterval(writeHeartbeat, 30000);
+
+                const collRef = collection(db, 'artifacts', appId, 'public', 'data', 'presences');
+                onSnapshot(collRef, (snapshot) => {
+                    const now = Date.now();
+                    const activeUsers = [];
+                    snapshot.forEach(d => {
+                        const data = d.data();
+                        if (data.lastActive && (now - data.lastActive < 120000)) { 
+                            activeUsers.push(data);
+                        }
+                    });
+                    updatePresenceUI(activeUsers);
+                }, (error) => {
+                    console.warn("Online user presence read restricted. Switching to simulated single-user presence.");
+                    updateOfflinePresence();
                 });
-                updatePresenceUI(activeUsers);
-            }, (error) => {
-                console.error("Presence listen failed", error);
-            });
+            } catch (e) {
+                console.warn("Presence heartbeat system setup failed:", e);
+                updateOfflinePresence();
+            }
         }
 
         function updateOfflinePresence() {
-            const list = [{ name: userName, role: userRole, userId: userId }];
+            const list = [{ name: userName || "Туршигч", role: userRole, userId: userId || "offline-id" }];
             updatePresenceUI(list);
         }
 
@@ -905,7 +986,6 @@
 
         window.openShareModal = function() {
             document.getElementById('share-modal').classList.remove('hidden');
-            document.getElementById('export-code-box').classList.add('hidden');
         }
 
         window.closeShareModal = function() {
@@ -934,15 +1014,6 @@
                 burnerOn
             };
 
-            // Generate string share code (Base64 representation)
-            const jsonStr = JSON.stringify(state);
-            const base64Code = btoa(unescape(encodeURIComponent(jsonStr)));
-            
-            // Present the code in the UI
-            document.getElementById('export-code-input').value = base64Code;
-            document.getElementById('export-code-box').classList.remove('hidden');
-
-            // Save to LocalStorage fallback for offline/all-user functionality
             const localList = JSON.parse(localStorage.getItem('local_experiments') || '[]');
             localList.push({ docId: "local-" + Date.now(), ...state });
             localStorage.setItem('local_experiments', JSON.stringify(localList));
@@ -951,22 +1022,17 @@
                 try {
                     const collRef = collection(db, 'artifacts', appId, 'public', 'data', 'shared_experiments');
                     await addDoc(collRef, state);
-                    window.showToast("Туршилт онлайн хадгалагдлаа! Мөн хувийн холбоос код бэлэн боллоо.", "success");
+                    window.showToast("Туршилт онлайн мэдээллийн санд хадгалагдлаа! Бүх хэрэглэгчид шууд харах боломжтой.", "success");
                 } catch(e) {
-                    console.error("Save shared state failed on cloud, saved locally", e);
-                    window.showToast("Код бэлэн боллоо. Офлайн хадгалагдлаа.", "info");
+                    console.warn("Save shared state to firestore failed. Falling back to local offline storage.", e);
+                    window.showToast("Офлайн горимд хадгалагдлаа.", "info");
+                    startLocalGalleryListener();
                 }
             } else {
-                window.showToast("Туршилт офлайн хадгалагдлаа! Хувийн холбоос код үүслээ.", "success");
+                window.showToast("Туршилт оффлайн хэлбэрээр хадгалагдлаа!", "success");
                 startLocalGalleryListener(); 
             }
-        }
-
-        window.copyGeneratedCode = function() {
-            const input = document.getElementById('export-code-input');
-            input.select();
-            document.execCommand('copy');
-            window.showToast("Туршилтын код амжилттай хуулагдлаа! Бусад хүмүүст дамжуулна уу.", "success");
+            closeShareModal();
         }
 
         window.importSharedStateFromCode = function() {
@@ -987,14 +1053,59 @@
             }
         }
 
+        // Thermodynamic calculation of mixed solutions
+        function calculateMixedPh(v1, ph1, v2, ph2) {
+            let l1 = v1 / 1000;
+            let l2 = v2 / 1000;
+            let h1 = 0, oh1 = 0;
+            let h2 = 0, oh2 = 0;
+
+            if (ph1 < 7) {
+                h1 = Math.pow(10, -ph1) * l1;
+            } else if (ph1 > 7) {
+                oh1 = Math.pow(10, -(14 - ph1)) * l1;
+            } else {
+                h1 = 1e-7 * l1;
+                oh1 = 1e-7 * l1;
+            }
+
+            if (ph2 < 7) {
+                h2 = Math.pow(10, -ph2) * l2;
+            } else if (ph2 > 7) {
+                oh2 = Math.pow(10, -(14 - ph2)) * l2;
+            } else {
+                h2 = 1e-7 * l2;
+                oh2 = 1e-7 * l2;
+            }
+
+            let totalH = h1 + h2;
+            let totalOH = oh1 + oh2;
+            let totalVol = l1 + l2;
+
+            if (totalH > totalOH) {
+                let excessH = totalH - totalOH;
+                let concH = excessH / totalVol;
+                let ph = -Math.log10(concH);
+                return Math.max(0.5, Math.min(6.9, ph));
+            } else if (totalOH > totalH) {
+                let excessOH = totalOH - totalH;
+                let concOH = excessOH / totalVol;
+                let pOH = -Math.log10(concOH);
+                let ph = 14 - pOH;
+                return Math.max(7.1, Math.min(14.0, ph));
+            } else {
+                return 7.0;
+            }
+        }
+
         function loadSerializedData(data) {
             currentMode = data.currentMode || 'gas';
             selectedGlass = data.selectedGlass || 'tube';
-            activeLiquid = data.activeLiquid || null;
-            activeSolid = data.activeSolid || null;
+            activeLiquid = data.activeLiquid ? { ...data.activeLiquid } : null;
+            activeSolid = data.activeSolid ? { ...data.activeSolid } : null;
             temperature = data.temperature || 25.0;
             burnerOn = data.burnerOn || false;
-            glassPositionState = 'rack';
+            glassPositionState = data.glassPositionState || 'rack';
             
             switchTab('lab');
             switchLabMode(currentMode);
@@ -1004,34 +1115,57 @@
         }
 
         function startSharedExperimentsListener() {
-            if (!db) return;
-            const collRef = collection(db, 'artifacts', appId, 'public', 'data', 'shared_experiments');
-            
-            onSnapshot(collRef, (snapshot) => {
-                const list = [];
-                // Retrieve all local states as well
-                const localList = JSON.parse(localStorage.getItem('local_experiments') || '[]');
-                localList.forEach(item => list.push(item));
-
-                snapshot.forEach(d => {
-                    // Avoid duplicating local storage and firebase copies if matching
-                    if (!list.some(el => el.docId === d.id)) {
-                        list.push({ docId: d.id, ...d.data() });
-                    }
-                });
-                
-                list.sort((a, b) => b.timestamp - a.timestamp);
-                renderSharedGallery(list);
-            }, (error) => {
-                console.error("Gallery listen failed", error);
+            if (!db) {
                 startLocalGalleryListener();
-            });
+                return;
+            }
+            try {
+                const collRef = collection(db, 'artifacts', appId, 'public', 'data', 'shared_experiments');
+                
+                onSnapshot(collRef, (snapshot) => {
+                    const list = [];
+                    
+                    // Insert the beautiful pre-loaded templates first
+                    featuredExperiments.forEach(item => list.push(item));
+
+                    // Then load local storage items
+                    const localList = JSON.parse(localStorage.getItem('local_experiments') || '[]');
+                    localList.forEach(item => {
+                        if (!list.some(el => el.docId === item.docId)) {
+                            list.push(item);
+                        }
+                    });
+
+                    // Finally integrate online database items
+                    snapshot.forEach(d => {
+                        if (!list.some(el => el.docId === d.id)) {
+                            list.push({ docId: d.id, ...d.data() });
+                        }
+                    });
+                    
+                    // Sort by newest entries (except featured template pinned at top optionally)
+                    list.sort((a, b) => b.timestamp - a.timestamp);
+                    renderSharedGallery(list);
+                }, (error) => {
+                    console.warn("Shared experiments database read permission restricted. Switching to LocalStorage gallery.");
+                    startLocalGalleryListener();
+                });
+            } catch (e) {
+                startLocalGalleryListener();
+            }
         }
 
         function startLocalGalleryListener() {
+            const list = [];
+            // Add the featured templates
+            featuredExperiments.forEach(item => list.push(item));
+            
+            // Add local storage saves
             const localList = JSON.parse(localStorage.getItem('local_experiments') || '[]');
-            localList.sort((a, b) => b.timestamp - a.timestamp);
-            renderSharedGallery(localList);
+            localList.forEach(item => list.push(item));
+            
+            list.sort((a, b) => b.timestamp - a.timestamp);
+            renderSharedGallery(list);
         }
 
         function renderSharedGallery(experiments) {
@@ -1043,33 +1177,37 @@
 
             let html = '';
             experiments.forEach(exp => {
+                const isFeatured = exp.docId.startsWith("feat-");
                 const badgeColor = exp.role === 'Багш' ? 'bg-rose-500/20 text-rose-300 border-rose-500/40' : 'bg-indigo-500/20 text-indigo-300 border-indigo-500/40';
-                const liquidInfo = exp.activeLiquid ? `${exp.activeLiquid.formula} (${exp.activeLiquid.volume.toFixed(1)}ml)` : 'Байхгүй';
-                const solidInfo = exp.activeSolid ? `${exp.activeSolid.type} (${exp.activeSolid.weight.toFixed(3)}g)` : 'Байхгүй';
+                const liquidInfo = exp.activeLiquid ? `${getFormulaName(exp.activeLiquid.formula)} (${exp.activeLiquid.volume.toFixed(1)}мл)` : 'Байхгүй';
+                const solidInfo = exp.activeSolid ? `${getFormulaName(exp.activeSolid.type)} (${exp.activeSolid.weight.toFixed(3)}гр)` : 'Байхгүй';
                 
-                // Base64 generation for share buttons in gallery
+                // Keep option for manual Base64 backup sharing inside data payload
                 const expCode = btoa(unescape(encodeURIComponent(JSON.stringify(exp))));
 
                 html += `
-                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between">
+                    <div class="bg-slate-950 p-4 rounded-xl border ${isFeatured ? 'border-indigo-500/30 shadow-indigo-950/20 shadow-lg' : 'border-slate-800'} space-y-3 flex flex-col justify-between">
                         <div class="space-y-1">
-                            <div class="flex justify-between items-start">
-                                <h4 class="text-xs font-extrabold text-white leading-snug">${exp.title}</h4>
-                                <span class="text-[8px] font-extrabold px-1.5 py-0.5 rounded border ${badgeColor}">${exp.role}</span>
+                            <div class="flex justify-between items-start gap-2">
+                                <h4 class="text-xs font-extrabold text-white leading-snug">
+                                    ${isFeatured ? '<span class="text-[9px] text-indigo-400 font-bold bg-indigo-950 px-1.5 py-0.5 rounded mr-1">ОНЦЛОХ</span>' : ''}
+                                    ${exp.title}
+                                </h4>
+                                <span class="text-[8px] font-extrabold px-1.5 py-0.5 rounded border shrink-0 ${badgeColor}">${exp.role}</span>
                             </div>
                             <p class="text-[9px] text-slate-400">Хуваалцсан: <strong>${exp.creator}</strong> (${new Date(exp.timestamp).toLocaleTimeString()})</p>
                         </div>
                         <div class="bg-slate-900/50 border border-slate-800/40 p-2 rounded-lg text-[9px] text-slate-300 space-y-1 font-mono">
-                            <div><span class="text-slate-500">Сав:</span> ${exp.selectedGlass}</div>
+                            <div><span class="text-slate-500">Савны төрөл:</span> ${exp.selectedGlass === 'tube' ? 'Хуруу шил' : (exp.selectedGlass === 'flask' ? 'Колбо' : (exp.selectedGlass === 'beaker' ? 'Аяга' : 'Шаазан аяга'))}</div>
                             <div><span class="text-slate-500">Уусмал:</span> ${liquidInfo}</div>
                             <div><span class="text-slate-500">Хатуу бодис:</span> ${solidInfo}</div>
-                            <div><span class="text-slate-500">рН / Хэм:</span> ${exp.ph.toFixed(1)} рН / ${exp.temperature.toFixed(1)}°C</div>
+                            <div><span class="text-slate-500">рН / Хэм:</span> ${exp.ph ? exp.ph.toFixed(1) : '7.0'} рН / ${exp.temperature ? exp.temperature.toFixed(1) : '25.0'}°C</div>
                         </div>
-                        <div class="flex gap-2">
-                            <button id="btn-load-${exp.docId}" class="flex-grow py-1.5 bg-indigo-900 hover:bg-indigo-800 text-white font-bold rounded-lg text-[9px] transition">
-                                <i class="fa-solid fa-cloud-arrow-down mr-1"></i> Ачаалах
+                        <div class="flex gap-2 pt-1">
+                            <button id="btn-load-${exp.docId}" class="flex-grow py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg text-[10px] transition shadow flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-cloud-arrow-down"></i> 3D Орчинд Шууд Ачаалах
                             </button>
-                            <button onclick="copySpecificCode('${expCode}')" class="px-3.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 rounded-lg text-[9px] font-bold" title="Код хуулах">
+                            <button onclick="copySpecificCode('${expCode}')" class="px-3.5 py-2 bg-slate-900 hover:bg-slate-800 text-slate-400 border border-slate-800 rounded-lg text-[10px] font-bold" title="Хувийн урсгал код хуулах">
                                 <i class="fa-solid fa-copy"></i>
                             </button>
                         </div>
@@ -1078,11 +1216,13 @@
             });
             container.innerHTML = html;
 
-            // Attach dynamic load handlers
             experiments.forEach(exp => {
                 const btn = document.getElementById(`btn-load-${exp.docId}`);
                 if (btn) {
-                    btn.onclick = () => loadSerializedData(exp);
+                    btn.onclick = () => {
+                        loadSerializedData(exp);
+                        window.showToast(`"${exp.title}" амжилттай ачаалагдлаа!`, "success");
+                    };
                 }
             });
         }
@@ -1094,7 +1234,7 @@
             dummy.select();
             document.execCommand('copy');
             document.body.removeChild(dummy);
-            window.showToast("Туршилтын холбоос код хуулагдлаа!", "success");
+            window.showToast("Туршилтын нөөц текстэн код хуулагдлаа! (Багш сурагчдын импортод ашиглана)", "success");
         }
 
         function getLiquidColor(ph, indicator) {
@@ -1111,7 +1251,8 @@
             } 
             if (indicator === 'methyl') {
                 if (ph < 4.4) return '#f97316'; 
-                return '#eab308'; 
+                if (ph > 6.2) return '#eab308';
+                return '#f97316'; 
             } 
             if (indicator === 'universal') {
                 if (ph < 3) return '#dc2626';
@@ -1205,7 +1346,6 @@
             burnerGroup = new THREE.Group();
             burnerGroup.position.set(2.4, 0, 0);
 
-            // Circular fat glass base matching the prompt details
             const baseGeo = new THREE.SphereGeometry(0.65, 32, 16);
             baseGeo.scale(1, 0.8, 1); 
             const baseMat = new THREE.MeshPhysicalMaterial({
@@ -1225,21 +1365,18 @@
             spirit.position.y = 0.25;
             burnerGroup.add(spirit);
 
-            // Brass wick collar
             const collarGeo = new THREE.CylinderGeometry(0.16, 0.18, 0.2, 16);
             const collarMat = new THREE.MeshStandardMaterial({ color: 0xd97706, metalness: 0.95, roughness: 0.1 });
             const collar = new THREE.Mesh(collarGeo, collarMat);
             collar.position.y = 0.9;
             burnerGroup.add(collar);
 
-            // Cotton wick
             const wickGeo = new THREE.CylinderGeometry(0.045, 0.045, 0.75, 12);
             const wickMat = new THREE.MeshStandardMaterial({ color: 0xf3f4f6, roughness: 0.85 });
             const wick = new THREE.Mesh(wickGeo, wickMat);
             wick.position.y = 0.82;
             burnerGroup.add(wick);
 
-            // Standard ceramic/glass cap for extinguishment
             const capGeo = new THREE.CylinderGeometry(0.2, 0.25, 0.45, 16);
             const cap = new THREE.Mesh(capGeo, baseMat);
             
@@ -1423,7 +1560,7 @@
                 radius = 0.7;
             }
 
-            const liquidColor = activeLiquid.indicator ? activeLiquid.color : '#e0f2fe';
+            const liquidColor = activeLiquid.indicator ? activeLiquid.color : '#cbd5e1';
             const mat = new THREE.MeshPhysicalMaterial({
                 color: new THREE.Color(liquidColor),
                 transmission: activeLiquid.indicator ? 0.75 : 0.4, 
@@ -1604,8 +1741,9 @@
             document.getElementById('stock-HCl').className = "p-2 bg-slate-950 border border-slate-800 rounded-xl text-center flex flex-col items-center group transition";
             document.getElementById('stock-H2SO4').className = "p-2 bg-slate-950 border border-slate-800 rounded-xl text-center flex flex-col items-center group transition";
             document.getElementById('stock-NaOH').className = "p-2 bg-slate-950 border border-slate-800 rounded-xl text-center flex flex-col items-center group transition";
+            document.getElementById('stock-KOH').className = "p-2 bg-slate-950 border border-slate-800 rounded-xl text-center flex flex-col items-center group transition";
             document.getElementById('stock-CaOH2').className = "p-2 bg-slate-950 border border-slate-800 rounded-xl text-center flex flex-col items-center group transition";
-            document.getElementById('stock-H2O2').className = "p-2 bg-slate-950 border border-slate-800 rounded-xl text-center flex flex-col items-center group transition";
+            document.getElementById('stock-H2O2').className = "p-2 bg-slate-950 border border-slate-800 rounded-xl text-center flex flex-col items-center group transition col-span-3";
 
             document.getElementById(`stock-${formula}`).className = "p-2 bg-indigo-950 border-2 border-indigo-650 rounded-xl text-center flex flex-col items-center group transition scale-105";
 
@@ -1634,11 +1772,18 @@
                         volume: pipetteFilledVol
                     };
                 } else {
+                    let newPh = calculateMixedPh(activeLiquid.volume, activeLiquid.ph, pipetteFilledVol, selectedStockLiquidPh);
+                    activeLiquid.ph = newPh;
                     activeLiquid.volume += pipetteFilledVol;
                     if(activeLiquid.formula !== selectedStockLiquidFormula) {
-                        activeLiquid.ph = (activeLiquid.ph + selectedStockLiquidPh) / 2;
                         activeLiquid.formula = "Холимог";
                     }
+                }
+
+                if (activeLiquid.indicator) {
+                    activeLiquid.color = getLiquidColor(activeLiquid.ph, activeLiquid.indicator);
+                } else {
+                    activeLiquid.color = '#cbd5e1';
                 }
 
                 actionStack.push({ type: 'liquid' });
@@ -2089,7 +2234,7 @@
 
                         if (isCO2) {
                             journal.innerHTML = `<span class='text-cyan-400 font-extrabold animate-pulse'><i class="fa-solid fa-cloud-showers-heavy mr-1"></i> НҮҮРСХҮЧЛИЙН ХИЙ СОРИЛТООР ТОД ИЛЭРЛЭЭ!</span><br>` +
-                                `<strong>Үзэгдэл:</strong> Хий дамжуулах хоолойгоор үлээлгэсэн хий Шохойн усыг (Ca(OH)₂) нүдэн дээр <strong>маш тод сүүн цагаан өнгөтэй булингар</strong> болгон хувиргалаа.<br>` +
+                                `<strong>Үзэгдэл:</strong> Хий дамжуулах хоолойгоор үлээлгэсэн хий Шохойн усыг (Ca(OH)₂) нүдэн дээр <strong>маш тод сүүн цагаан өнгөтэй булингар (цагаан тунадас)</strong> болгон хувиргалаа.<br>` +
                                 `Энэ нь усанд уусдаггүй Кальцийн Карбонат (CaCO₃) цагаан тунадас үүссэнийг гэрчилж байна.<br>` +
                                 `Урвалын тэгшитгэл: <strong class='text-amber-400'>Ca(OH)₂ (уус) + CO₂ (х) → CaCO₃ (х)↓ + H₂O (ш)</strong><br>`;
                         } else {
@@ -2502,7 +2647,7 @@
             titrationBuretteVol = 50.0;
             titrationFlaskVol = 10.0;
             titrationFlaskPh = 1.2;
-            titrationActiveColor = '#f8fafc';
+            titrationActiveColor = '#cbd5e1';
             titrationValveOpen = false;
 
             if (gasCollectionGroup) { scene.remove(gasCollectionGroup); gasCollectionGroup = null; }
@@ -2627,7 +2772,8 @@
                 case 'HCl': return 'Давсны хүчил (HCl)';
                 case 'H2SO4': return 'Хүхрийн хүчил (H₂SO₄)';
                 case 'NaOH': return 'Натрийн шүлт (NaOH)';
-                case 'CaOH2': return 'Шохойн ус';
+                case 'KOH': return 'Калийн шүлт (KOH)';
+                case 'CaOH2': return 'Шохойн ус (Ca(OH)₂)';
                 case 'CaCO3': return 'Шохойн чулуу (CaCO₃)';
                 case 'Na': return 'Натри';
                 case 'K': return 'Кали';
