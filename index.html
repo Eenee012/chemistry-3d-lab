@@ -369,9 +369,49 @@
 
                 <!-- ТАБ В: ХҮЧИЛ-СУУРИЙН ТИТРЛЭЛТ -->
                 <div id="tab-content-titration" class="hidden space-y-4">
-                    <div class="bg-indigo-950/60 p-3 rounded-2xl border border-indigo-900/50 text-[9px] text-indigo-200 leading-relaxed space-y-1">
-                        <span class="font-bold text-indigo-400 block"><i class="fa-solid fa-circle-info mr-1"></i> Титрлэлтийн заавар:</span>
-                        <p>1. Бюреткад шүлтийн уусмал (NaOH) дүүргэнэ.<br>2. Колбонд Хүчлийн уусмал (HCl) болон индикатор хийнэ.<br>3. Цоргыг нээж, ягаан өнгө гарч эхэлтэл дусал дуслаар шүлтийг нэмж саармагжих цэгийг тодорхойлно.</p>
+                    <!-- Титрлэлтийн интерактив зааварчилгаа -->
+                    <div class="bg-indigo-950/60 p-4 rounded-2xl border border-indigo-900/50 space-y-3 shadow-lg">
+                        <span class="text-[10px] font-black text-indigo-400 uppercase tracking-widest block flex items-center gap-1.5">
+                            <i class="fa-solid fa-graduation-cap"></i> Титрлэлтийн зааварчилгаа:
+                        </span>
+                        <div class="space-y-2 text-[9.5px] text-indigo-200 leading-relaxed">
+                            <div class="flex gap-2">
+                                <span class="w-4 h-4 rounded-full bg-indigo-900 text-indigo-300 flex items-center justify-center font-bold text-[8px] shrink-0">1</span>
+                                <p><strong>Бюретка бэлтгэх:</strong> Бюреткад тодорхой концентрацитай шүлтийн уусмал (0.1 M NaOH) дүүргэнэ.</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <span class="w-4 h-4 rounded-full bg-indigo-900 text-indigo-300 flex items-center justify-center font-bold text-[8px] shrink-0">2</span>
+                                <p><strong>Колбо бэлтгэх:</strong> Конусан колбонд 10.0 мл концентраци нь тодорхойгүй хүчлийн уусмал (HCl) хийж, дээр нь фенолфталеин индикатор дусаана.</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <span class="w-4 h-4 rounded-full bg-indigo-900 text-indigo-300 flex items-center justify-center font-bold text-[8px] shrink-0">3</span>
+                                <p><strong>Саармагжуулах:</strong> Бюреткны цоргыг аажим нээж, конусан колбыг тасралтгүй сэгсрэх замаар шүлтийг дусал дуслаар нэмнэ.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Эквивалент цэгийг тодорхойлох удирдамж -->
+                    <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 space-y-2.5 shadow-lg">
+                        <span class="text-[10px] font-black text-rose-400 uppercase tracking-widest block flex items-center gap-1.5">
+                            <i class="fa-solid fa-chart-line"></i> Эквивалент цэг гэж юу вэ?
+                        </span>
+                        <p class="text-[9.5px] text-slate-300 leading-relaxed font-semibold">
+                            Хүчлийн устөрөгчийн ион (H⁺) ба шүлтийн гидроксид ионы (OH⁻) молийн тоо яг тэнцэж, бие биенээ бүрэн саармагжуулах агшныг <strong>эквивалент цэг</strong> гэнэ.
+                        </p>
+                        <div class="p-2.5 bg-slate-950 rounded-xl border border-slate-850 space-y-1.5 text-[9px] text-slate-400 font-semibold">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-slate-500"></span>
+                                <span><strong>рН &lt; 7.0 (Хүчиллэг):</strong> Индикатор өнгөгүй хэвээр байна.</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-pink-400 animate-pulse"></span>
+                                <span><strong>рН ~ 8.2 (Эквивалент цэг):</strong> Уусмал маш бүдэг ягаан туяатай болоод, сэгсрэхэд арилахгүй тогтвортой хадгалагдана. <strong>(Зорилтот агшин!)</strong></span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-600"></span>
+                                <span><strong>рН &gt; 9.0 (Шүлтлэг):</strong> Уусмал тод бөөрөлзгөнө ягаан болно (Эквивалент цэгээс хэтэрсэн).</span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="grid grid-cols-2 gap-3">
@@ -403,6 +443,25 @@
                             <span class="text-[8px] text-slate-500 uppercase font-bold block">Уусмалын рН (Колбо):</span>
                             <span id="flask-ph-val" class="text-xs font-black text-rose-400 font-mono-chem">1.2 (Хүчиллэг)</span>
                         </div>
+                    </div>
+
+                    <!-- Титрлэлтийн үр дүнгээс бодох тооцоот бодлогын хэсэг -->
+                    <div class="bg-gradient-to-r from-cyan-950/40 to-indigo-950/40 p-4 rounded-2xl border border-cyan-800/40 space-y-3 shadow-lg">
+                        <span class="text-[10px] font-black text-cyan-400 uppercase tracking-widest block flex items-center gap-1.5">
+                            <i class="fa-solid fa-calculator animate-pulse"></i> Туршилтын тооцоот бодлого
+                        </span>
+                        <p class="text-[9.5px] text-slate-300 leading-relaxed font-semibold">
+                            <strong>Бодлого:</strong> Конусан колбонд байгаа HCl хүчлийн анхны хэмжээ <strong>10.0 мл</strong> байсан. Саармагжуулахад ашигласан NaOH уусмалын концентраци <strong>0.1 M</strong> бөгөөд уусмал яг бүдэг ягаан өнгөтэй болох (эквивалент цэг) агшинд бюреткаас яг <strong>12.0 мл</strong> NaOH зарцуулагдсан бол хүчлийн анхны концентраци (M)-ийг олно уу.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="window.checkTitrationAnswer(0.06)" class="py-2 bg-slate-950 hover:bg-slate-900 text-slate-300 border border-slate-800 text-[10px] rounded-xl font-bold transition">A. 0.06 M</button>
+                            <button onclick="window.checkTitrationAnswer(0.12)" class="py-2 bg-slate-950 hover:bg-slate-900 text-slate-300 border border-slate-800 text-[10px] rounded-xl font-bold transition">B. 0.12 M</button>
+                            <button onclick="window.checkTitrationAnswer(0.15)" class="py-2 bg-slate-950 hover:bg-slate-900 text-slate-300 border border-slate-800 text-[10px] rounded-xl font-bold transition">C. 0.15 M</button>
+                            <button onclick="window.checkTitrationAnswer(0.24)" class="py-2 bg-slate-950 hover:bg-slate-900 text-slate-300 border border-slate-800 text-[10px] rounded-xl font-bold transition">D. 0.24 M</button>
+                        </div>
+
+                        <div id="titration-quiz-feedback" class="hidden p-3 bg-slate-950 rounded-xl border border-slate-800 text-[9.5px] text-slate-300 space-y-2"></div>
                     </div>
                 </div>
 
@@ -2827,6 +2886,40 @@
             quizScore = 0;
 
             renderQuizQuestion();
+        };
+
+        window.checkTitrationAnswer = function(selectedAnswer) {
+            const feedback = document.getElementById('titration-quiz-feedback');
+            if (!feedback) return;
+
+            feedback.classList.remove('hidden');
+
+            if (selectedAnswer === 0.12) {
+                feedback.innerHTML = `
+                    <div class="text-emerald-400 font-bold flex items-center gap-1.5 mb-1 text-[10px]">
+                        <i class="fa-solid fa-circle-check"></i> ЗӨВ ХАРИУЛЛАА! (0.12 M)
+                    </div>
+                    <div class="leading-relaxed text-slate-300 text-[9px] space-y-1">
+                        <p><strong>Бодолт:</strong></p>
+                        <p>Саармагжих урвалын үндсэн тэгшитгэл:</p>
+                        <p class="font-mono-chem text-cyan-400 bg-slate-900 p-1.5 rounded text-center">C_хүчил × V_хүчил = C_шүлт × V_шүлт</p>
+                        <p>Өгөгдлийг орлуулан бодвол:</p>
+                        <p class="font-mono-chem text-cyan-400 bg-slate-900 p-1.5 rounded text-center">C_хүчил × 10.0 мл = 0.1 M × 12.0 мл</p>
+                        <p class="font-mono-chem text-cyan-400 bg-slate-900 p-1.5 rounded text-center">C_хүчил = 1.2 / 10.0 = 0.12 M</p>
+                    </div>
+                `;
+                window.showToast("Тооцоолол маш зөв байна!", "success");
+            } else {
+                feedback.innerHTML = `
+                    <div class="text-rose-400 font-bold flex items-center gap-1.5 mb-1 text-[10px]">
+                        <i class="fa-solid fa-circle-xmark"></i> БУРУУ ХАРИУЛТ!
+                    </div>
+                    <p class="leading-relaxed text-slate-400 text-[9px]">
+                        <strong>Зөвлөмж:</strong> Саармагжих урвалын үед устөрөгчийн ба гидроксид ионуудын молийн тоо тэнцүү байх хуулийг (<span class="font-mono-chem text-cyan-300">C1 × V1 = C2 × V2</span>) ашиглан хүчлийн концентрацийг олно. Дахин бодож үзнэ үү.
+                    </p>
+                `;
+                window.showToast("Хариулт буруу байна. Томьёогоо дахин шалгаарай.", "error");
+            }
         };
 
         function renderQuizQuestion() {
