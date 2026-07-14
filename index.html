@@ -34,15 +34,8 @@
             border: 1px solid rgba(139, 92, 246, 0.6);
             box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
         }
-        .neon-border-amber {
-            border: 1px solid rgba(245, 158, 11, 0.6);
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
-        }
         .neon-text-cyan {
             text-shadow: 0 0 10px rgba(6, 182, 212, 0.8);
-        }
-        .neon-text-amber {
-            text-shadow: 0 0 10px rgba(245, 158, 11, 0.8);
         }
         /* Glassmorphism scrollbar */
         .custom-scroll::-webkit-scrollbar {
@@ -151,7 +144,7 @@
                     <p id="header-username" class="text-xs font-black text-slate-200">Зочин</p>
                     <p id="header-userrole" class="text-[9px] font-bold text-indigo-400">Сурагч</p>
                 </div>
-                <button onclick="window.logout()" class="p-2.5 rounded-xl bg-rose-950/60 hover:bg-rose-900/80 border border-rose-500/50 text-rose-400 hover:text-white transition" title="Системээс гарах">
+                <button onclick="window.logout()" class="p-2.5 rounded-xl bg-rose-955 hover:bg-rose-900 border border-rose-500/50 text-rose-400 hover:text-white transition" title="Системээс гарах">
                     <i class="fa-solid fa-right-from-bracket"></i>
                 </button>
             </div>
@@ -204,7 +197,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-855 space-y-3 shadow-lg">
+                    <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-850 space-y-3 shadow-lg">
                         <div class="flex justify-between items-center">
                             <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Уусмал бэлтгэх (Пипеткээр):</span>
                             <span id="pipette-vol-lbl" class="text-[9px] font-black text-cyan-400 bg-cyan-950/80 border border-cyan-500/50 px-2 py-0.5 rounded-md">5.0 мл</span>
@@ -212,22 +205,22 @@
                         <input type="range" id="pipette-volume" min="0.5" max="15" step="0.5" value="5.0" oninput="window.updatePipetteLabel()" class="w-full accent-cyan-500 cursor-pointer">
                         <div class="grid grid-cols-2 gap-2 max-h-[120px] overflow-y-auto pr-1 custom-scroll">
                             <button onclick="window.addLiquid('H2O', '#cbd5e1', 7.0)" class="p-2 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition" title="Нэрмэл ус">
-                                <span>Нэрмэл ус (H₂O)</span>
+                                <span>Нэрмэл ус (H<sub>2</sub>O)</span>
                                 <span class="text-[8px] bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded font-mono-chem">7.0</span>
                             </button>
-                            <button onclick="window.addLiquid('HCl', '#cbd5e1', 1.2)" class="p-2 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition" title="Өнгөгүй уусмал">
+                            <button onclick="window.addLiquid('HCl', '#cbd5e1', 1.2)" class="p-2 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition" title="Давсны хүчил">
                                 <span>Давсны хүчил (HCl)</span>
                                 <span class="text-[8px] bg-rose-955 text-rose-400 px-1.5 py-0.5 rounded font-mono-chem">1.2</span>
                             </button>
-                            <button onclick="window.addLiquid('NaOH', '#cbd5e1', 13.0)" class="p-2 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition" title="Өнгөгүй уусмал">
-                                <span>Натрийн гидроксид (NaOH)</span>
+                            <button onclick="window.addLiquid('NaOH', '#cbd5e1', 13.0)" class="p-2 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition" title="Натрийн гидроксид">
+                                <span>Натрийн гидроксид</span>
                                 <span class="text-[8px] bg-indigo-955 text-indigo-400 px-1.5 py-0.5 rounded font-mono-chem">13.0</span>
                             </button>
-                            <button onclick="window.addLiquid('KOH', '#cbd5e1', 13.5)" class="p-2 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition" title="Өнгөгүй уусмал">
-                                <span>Калийн гидроксид (KOH)</span>
+                            <button onclick="window.addLiquid('KOH', '#cbd5e1', 13.5)" class="p-2 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition">
+                                <span>Калийн гидроксид</span>
                                 <span class="text-[8px] bg-indigo-955 text-indigo-400 px-1.5 py-0.5 rounded font-mono-chem">13.5</span>
                             </button>
-                            <button onclick="window.addLiquid('Ca(OH)2', '#cbd5e1', 12.4)" class="p-2 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition" title="Өнгөгүй уусмал">
+                            <button onclick="window.addLiquid('Ca(OH)2', '#cbd5e1', 12.4)" class="p-2 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition">
                                 <span>Кальцийн гидроксид</span>
                                 <span class="text-[8px] bg-indigo-955 text-indigo-400 px-1.5 py-0.5 rounded font-mono-chem">12.4</span>
                             </button>
@@ -254,10 +247,10 @@
                             <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest block">Хатуу бодис нэмэх:</span>
                             <div class="grid grid-cols-1 gap-1.5 max-h-[140px] overflow-y-auto pr-1 custom-scroll font-mono-chem">
                                 <button onclick="window.addSolid('KMnO4', 2.0)" class="p-1.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-lg text-[9px] font-bold text-left transition">
-                                    <i class="fa-solid fa-cubes text-purple-500 mr-1.5"></i> Калийн перманганат (KMnO₄)
+                                    <i class="fa-solid fa-cubes text-purple-500 mr-1.5"></i> Калийн перманганат (KMnO<sub>4</sub>)
                                 </button>
                                 <button onclick="window.addSolid('NH4Cl_CaOH2', 2.5)" class="p-1.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-lg text-[9px] font-bold text-left transition">
-                                    <i class="fa-solid fa-cubes text-yellow-600 mr-1.5"></i> NH₄Cl + Ca(OH)₂ холимог
+                                    <i class="fa-solid fa-cubes text-yellow-600 mr-1.5"></i> NH<sub>4</sub>Cl + Ca(OH)<sub>2</sub> холимог
                                 </button>
                                 <button onclick="window.addSolid('Na', 0.5)" class="p-1.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-lg text-[9px] font-bold text-left transition">
                                     <i class="fa-solid fa-cubes text-slate-400 mr-1.5"></i> Натрийн металл (Na)
@@ -272,13 +265,13 @@
                                     <i class="fa-solid fa-cubes text-amber-700 mr-1.5"></i> Зэсийн үртэс (Cu)
                                 </button>
                                 <button onclick="window.addSolid('CaCO3', 2.0)" class="p-1.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-lg text-[9px] font-bold text-left transition">
-                                    <i class="fa-solid fa-mountain text-stone-400 mr-1.5"></i> Шохойн чулуу (CaCO₃)
+                                    <i class="fa-solid fa-mountain text-stone-400 mr-1.5"></i> Шохойн чулуу (CaCO<sub>3</sub>)
                                 </button>
                                 <button onclick="window.addSolid('Fe', 1.0)" class="p-1.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-lg text-[9px] font-bold text-left transition">
                                     <i class="fa-solid fa-shredder text-slate-400 mr-1.5"></i> Төмрийн үртэс (Fe)
                                 </button>
                                 <button onclick="window.addSolid('MnO2', 0.5)" class="p-1.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-lg text-[9px] font-bold text-left transition">
-                                    <i class="fa-solid fa-circle text-stone-600 mr-1.5"></i> Марганцын диоксид (MnO₂)
+                                    <i class="fa-solid fa-circle text-stone-600 mr-1.5"></i> Марганцын диоксид (MnO<sub>2</sub>)
                                 </button>
                             </div>
                         </div>
@@ -286,7 +279,7 @@
 
                     <!-- GAS METHOD SELECTION WIDGET -->
                     <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-855 space-y-3">
-                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest block"><i class="fa-solid fa-list-check text-cyan-400"></i> ХУРААН АВАХ АРГА СОНГОХ (Ухаалаг Сануулга):</span>
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest block"><i class="fa-solid fa-list-check text-cyan-400"></i> ХУРААН АВАХ АРГА СОНГОХ:</span>
                         
                         <div class="grid grid-cols-1 gap-2">
                             <!-- Card 1 -->
@@ -294,7 +287,7 @@
                                 <div class="p-2 rounded-lg bg-red-950/40 text-red-400 text-base"><i class="fa-solid fa-angles-down"></i></div>
                                 <div class="flex-1 min-w-0">
                                     <p class="text-[9.5px] font-black text-slate-200 truncate">Агаарыг доош шахах арга (Доош үлээх)</p>
-                                    <p class="text-[8.5px] text-slate-400">Агаараас хүнд хийд: CO₂, Cl₂, SO₂</p>
+                                    <p class="text-[8.5px] text-slate-400">Агаараас хүнд хийд: CO<sub>2</sub>, Cl<sub>2</sub>, SO<sub>2</sub></p>
                                 </div>
                             </button>
 
@@ -303,7 +296,7 @@
                                 <div class="p-2 rounded-lg bg-blue-950/40 text-blue-400 text-base"><i class="fa-solid fa-angles-up"></i></div>
                                 <div class="flex-1 min-w-0">
                                     <p class="text-[9.5px] font-black text-slate-200 truncate">Агаарыг дээш шахах арга (Дээш үлээх)</p>
-                                    <p class="text-[8.5px] text-slate-400">Агаараас хөнгөн хийд: NH₃</p>
+                                    <p class="text-[8.5px] text-slate-400">Агаараас хөнгөн хийд: NH<sub>3</sub></p>
                                 </div>
                             </button>
 
@@ -312,7 +305,7 @@
                                 <div class="p-2 rounded-lg bg-cyan-950/40 text-cyan-400 text-base"><i class="fa-solid fa-droplet"></i></div>
                                 <div class="flex-1 min-w-0">
                                     <p class="text-[9.5px] font-black text-slate-200 truncate">Усыг шахан түрж хураах арга</p>
-                                    <p class="text-[8.5px] text-slate-400">Усанд уусдаггүй хийд: O₂, H₂</p>
+                                    <p class="text-[8.5px] text-slate-400">Усанд уусдаггүй хийд: O<sub>2</sub>, H<sub>2</sub></p>
                                 </div>
                             </button>
                         </div>
@@ -363,27 +356,27 @@
                     <div class="grid grid-cols-1 gap-1.5 max-h-[160px] overflow-y-auto pr-1 custom-scroll">
                         <button onclick="window.selectFlameSalt('LiCl', '#ef4444')" id="salt-LiCl" class="p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] flex justify-between items-center transition">
                             <span class="font-bold"><i class="fa-solid fa-bottle-droplet text-red-500 mr-2"></i> Литийн хлорид (LiCl)</span>
-                            <span class="text-[9px] bg-red-950 text-red-400 px-2 py-0.5 rounded-md font-black">Li⁺</span>
+                            <span class="text-[9px] bg-red-950 text-red-400 px-2 py-0.5 rounded-md font-black">Li<sup>+</sup></span>
                         </button>
                         <button onclick="window.selectFlameSalt('NaCl', '#f59e0b')" id="salt-NaCl" class="p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] flex justify-between items-center transition">
                             <span class="font-bold"><i class="fa-solid fa-bottle-droplet text-yellow-500 mr-2"></i> Натрийн хлорид (NaCl)</span>
-                            <span class="text-[9px] bg-yellow-950 text-yellow-400 px-2 py-0.5 rounded-md font-black">Na⁺</span>
+                            <span class="text-[9px] bg-yellow-950 text-yellow-400 px-2 py-0.5 rounded-md font-black">Na<sup>+</sup></span>
                         </button>
                         <button onclick="window.selectFlameSalt('KCl', '#d8b4fe')" id="salt-KCl" class="p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] flex justify-between items-center transition">
                             <span class="font-bold"><i class="fa-solid fa-bottle-droplet text-purple-400 mr-2"></i> Калийн хлорид (KCl)</span>
-                            <span class="text-[9px] bg-purple-950 text-purple-400 px-2 py-0.5 rounded-md font-black">K⁺</span>
+                            <span class="text-[9px] bg-purple-950 text-purple-400 px-2 py-0.5 rounded-md font-black">K<sup>+</sup></span>
                         </button>
                         <button onclick="window.selectFlameSalt('CaCl2', '#f97316')" id="salt-CaCl2" class="p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] flex justify-between items-center transition">
-                            <span class="font-bold"><i class="fa-solid fa-bottle-droplet text-orange-400 mr-2"></i> Кальцийн хлорид (CaCl₂)</span>
-                            <span class="text-[9px] bg-orange-950 text-orange-400 px-2 py-0.5 rounded-md font-black">Ca²⁺</span>
+                            <span class="font-bold"><i class="fa-solid fa-bottle-droplet text-orange-400 mr-2"></i> Кальцийн хлорид (CaCl<sub>2</sub>)</span>
+                            <span class="text-[9px] bg-orange-950 text-orange-400 px-2 py-0.5 rounded-md font-black">Ca<sup>2+</sup></span>
                         </button>
                         <button onclick="window.selectFlameSalt('BaCl2', '#a3e635')" id="salt-BaCl2" class="p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] flex justify-between items-center transition">
-                            <span class="font-bold"><i class="fa-solid fa-bottle-droplet text-lime-400 mr-2"></i> Барийн хлорид (BaCl₂)</span>
-                            <span class="text-[9px] bg-lime-950 text-lime-400 px-2 py-0.5 rounded-md font-black">Ba²⁺</span>
+                            <span class="font-bold"><i class="fa-solid fa-bottle-droplet text-lime-400 mr-2"></i> Барийн хлорид (BaCl<sub>2</sub>)</span>
+                            <span class="text-[9px] bg-lime-950 text-lime-400 px-2 py-0.5 rounded-md font-black">Ba<sup>2+</sup></span>
                         </button>
                         <button onclick="window.selectFlameSalt('CuCl2', '#06b6d4')" id="salt-CuCl2" class="p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] flex justify-between items-center transition">
-                            <span class="font-bold"><i class="fa-solid fa-bottle-droplet text-cyan-400 mr-2"></i> Зэсийн хлорид (CuCl₂)</span>
-                            <span class="text-[9px] bg-cyan-950 text-cyan-400 px-2 py-0.5 rounded-md font-black">Cu²⁺</span>
+                            <span class="font-bold"><i class="fa-solid fa-bottle-droplet text-cyan-400 mr-2"></i> Зэсийн хлорид (CuCl<sub>2</sub>)</span>
+                            <span class="text-[9px] bg-cyan-950 text-cyan-400 px-2 py-0.5 rounded-md font-black">Cu<sup>2+</sup></span>
                         </button>
                     </div>
 
@@ -427,7 +420,7 @@
                         
                         <div class="space-y-1">
                             <div class="flex justify-between items-center text-[9px] font-bold">
-                                <span class="text-slate-400">Колбон дахь HCl хүчлийн хэмжээ (V_хүчил):</span>
+                                <span class="text-slate-400">Колбон дахь HCl хүчлийн хэмжээ (V_acid):</span>
                                 <span id="lbl-set-acid-vol" class="text-cyan-400">10.0 мл</span>
                             </div>
                             <input type="range" id="param-acid-vol" min="5.0" max="25.0" step="1.0" value="10.0" oninput="document.getElementById('lbl-set-acid-vol').innerText = parseFloat(this.value).toFixed(1) + ' мл'" class="w-full accent-cyan-500 cursor-pointer">
@@ -435,7 +428,7 @@
 
                         <div class="space-y-1">
                             <div class="flex justify-between items-center text-[9px] font-bold">
-                                <span class="text-slate-400">Бюретк дахь NaOH шүлтийн концентраци (C_шүлт):</span>
+                                <span class="text-slate-400">Бюретк дахь NaOH шүлтийн концентраци (C_base):</span>
                                 <span id="lbl-set-base-conc" class="text-indigo-400">0.10 M</span>
                             </div>
                             <input type="range" id="param-base-conc" min="0.05" max="0.20" step="0.01" value="0.10" oninput="document.getElementById('lbl-set-base-conc').innerText = parseFloat(this.value).toFixed(2) + ' M'" class="w-full accent-indigo-500 cursor-pointer">
@@ -495,13 +488,13 @@
                         <div class="bg-slate-950/80 p-3 rounded-xl border border-slate-800 space-y-2">
                             <span class="text-[9px] font-black text-indigo-400 uppercase tracking-wider block"><i class="fa-solid fa-graduation-cap"></i> Жишээ бодлого:</span>
                             <p class="text-[9px] text-slate-300 leading-relaxed font-semibold">
-                                Конусан колбонд V_хүчил = 10.0 мл HCl хүчлийн уусмал байв. Дээрээс нь C_шүлт = 0.10 M концентрацитай NaOH шүлтийн уусмалаар титрлэхэд эквивалент цэг хүртэл яг V_шүлт = 12.0 мл шүлт зарцуулагджээ. Хүчлийн концентраци C_хүчил-ийг ол.
+                                Конусан колбонд V_acid = 10.0 мл HCl хүчлийн уусмал байв. Дээрээс нь C_base = 0.10 M концентрацитай NaOH шүлтийн уусмалаар титрлэхэд эквивалент цэг хүртэл яг V_base = 12.0 мл шүлт зарцуулагджээ. Хүчлийн концентраци C_acid-ийг ол.
                             </p>
                             <div class="p-2.5 bg-slate-900/60 rounded-lg border border-slate-800 space-y-1.5 text-[8.5px] text-slate-400 font-mono-chem leading-relaxed">
                                 <p class="text-cyan-400 font-bold">Бодолт:</p>
-                                <p>Саармагжих урвалын үндсэн хууль: C_хүчил &times; V_хүчил = C_шүлт &times; V_шүлт</p>
-                                <p>C_хүчил &times; 10.0 мл = 0.10 M &times; 12.0 мл</p>
-                                <p>C_хүчил = 1.2 / 10.0 = <strong class="text-emerald-400 font-black">0.12 M</strong></p>
+                                <p>Саармагжих урвалын үндсэн хууль: C_acid &times; V_acid = C_base &times; V_base</p>
+                                <p>C_acid &times; 10.0 мл = 0.10 M &times; 12.0 мл</p>
+                                <p>C_acid = 1.2 / 10.0 = <strong class="text-emerald-400 font-black">0.12 M</strong></p>
                             </div>
                         </div>
 
@@ -634,7 +627,7 @@
                 </div>
             </div>
 
-            <!-- ЗҮҮН ТАЛД НЭГТГЭСЭН ХЯНАЛТЫН HUD ХЭСЭГ (LEFT HUD OVERLAY) -->
+            <!-- ЗҮҮН ТАЛД НЭГТГЭСЭН ХНЯАЛТЫН HUD ХЭСЭГ (LEFT HUD OVERLAY) -->
             <div class="absolute left-6 top-32 z-10 flex flex-col gap-4 pointer-events-none w-72">
                 
                 <!-- Хэмжилт ба Дижитал Жинлүүр -->
@@ -881,8 +874,8 @@
             },
             {
                 id: 'co2_production',
-                title: 'Нүүрсхүчлийн хий (CO₂) гарган авах сорил',
-                details: 'Шохойн чулуу (CaCO₃) дээр Давсны хүчил (HCl) нэмж хий гаргаж авна.',
+                title: 'Нүүрсхүчлийн хий (CO2) гарган авах сорил',
+                details: 'Шохойн чулуу (CaCO3) дээр Давсны хүчил (HCl) нэмж хий гаргаж авна.',
                 state: {
                     activeLiquid: { formula: 'HCl', color: '#cbd5e1', ph: 1.2, indicator: null, baseColor: '#cbd5e1', volume: 8.0 },
                     activeSolid: 'CaCO3',
@@ -893,7 +886,7 @@
             {
                 id: 'o2_catalytic',
                 title: 'Устөрөгчийн хэт ислийн каталитик задрал',
-                details: 'H₂O₂ уусмал дээр Төмөр (Fe) нунтаг нэмж Хүчилтөрөгчийн хий (O₂) гаргана.',
+                details: 'H2O2 уусмал дээр Төмөр (Fe) нунтаг нэмж Хүчилтөрөгчийн хий (O2) гаргана.',
                 state: {
                     activeLiquid: { formula: 'H2O2', color: '#cbd5e1', ph: 6.0, indicator: null, baseColor: '#cbd5e1', volume: 7.0 },
                     activeSolid: 'Fe',
@@ -907,14 +900,14 @@
         const quizQuestionsRaw = [
             { q: "Лабораторид нимгэн ханатай шилэн савны усыг халаахдаа ямар дүрэм баримтлах вэ?", a: ["Спиртэн дэн дээр шууд барьж халаана", "Тортой суурь буюу асбест дэвсгэр ашиглан жигд халаана", "Бага дулаанаар хурдан буцалгана", "Халдаггүй тусгай тавиур дээр барина"], correct: 1 },
             { q: "Хүчил дээр ус хийх үү, эсвэл ус дээр хүчил хийх үү?", a: ["Хүчил дээр усыг бага багаар нэмэх", "Ус дээр хүчлийг шилэн савх дагуулан аажим нэмэх", "Хооронд нь хурдтай холих", "Ялгаа байхгүй"], correct: 1 },
-            { q: "Шохойн ус (Ca(OH)₂) нүүрсхүчлийн хийг (CO₂) шингээхэд сүүн цагаан өнгөтэй болон булингартдагийн учир юу вэ?", a: ["Цагаан будаг үүссэн", "Кальцийн карбонат (CaCO₃) тунадасжсан", "Кальцийн гидроксид хайлсан", "Давсны хүчил үүссэн"], correct: 1 },
+            { q: "Шохойн ус (Ca(OH)2) нүүрсхүчлийн хийг (CO2) шингээхэд сүүн цагаан өнгөтэй болон булингартдагийн учир юу вэ?", a: ["Цагаан будаг үүссэн", "Кальцийн карбонат (CaCO3) тунадасжсан", "Кальцийн гидроксид хайлсан", "Давсны хүчил үүссэн"], correct: 1 },
             { q: "Фенолфталеин индикатор нь шүлтлэг орчинд ямар өнгөтэй байдаг вэ?", a: ["Шар", "Хөх", "Ягаан/Бөөрөлзгөнө ягаан", "Өнгогүй"], correct: 2 },
             { q: "Нихром утсаар дөлний сорил хийхийн өмнө утсыг яагаад Давсны хүчлээр (HCl) цэвэрлэдэг вэ?", a: ["Утсыг гялалзуулах гэж", "Урьд өмнөх металлын үлдэгдэл бохирдлыг бүрэн шатааж ууршуулах гэж", "Дөлийг хүчтэй асаах гэж", "Утсыг хайлуулах гэж"], correct: 1 },
-            { q: "Зэсийн давс (Cu²⁺) дөлийг ямар өнгөтэйгөөр будаг вэ?", a: ["Улаан", "Ногоон-цэнхэр туяатай", "Шар", "Тод ягаан"], correct: 1 },
+            { q: "Зэсийн давс (Cu2+) дөлийг ямар өнгөтэйгөөр будаг вэ?", a: ["Улаан", "Ногоон-цэнхэр туяатай", "Шар", "Тод ягаан"], correct: 1 },
             { q: "Бунзений хийн дэнгийн агаарын хаалтыг нээж хөх өнгийн дөл гаргахын давуу тал юу вэ?", a: ["Дөлийг гэрэлтэй болгох", "Хамгийн өндөр хэмтэй халаалт болон өнгөгүй арын дөл авах", "Хийг хэмнэх", "Дөлийг аюулгүй шар болгох"], correct: 1 },
             { q: "Хүчил-суурийн саармагжих урвалын үр дүнд юу үүсдэг вэ?", a: ["Зөвхөн хий", "Давс болон Ус", "Шүлт болон Үртэс", "Ямар ч бодис үүсэхгүй"], correct: 1 },
-            { q: "Хүчилтөрөгч (O₂) хий цучлыг хэрхэн өөрчилдөг вэ?", a: ["Шууд унтраадаг", "Улайссан цучлыг дүрэлзүүлэн тод асаадаг", "Тэсрэлт үүсгэдэг", "Дөлийг ногоон болгодог"], correct: 1 },
-            { q: "Натри металл (Na) устай харилцан үйлчлэхэд ямар хий эрчимтэй ялгардаг вэ?", a: ["Нүүрсхүчлийн хий (CO₂)", "Устөрөгч (H₂)", "Хүчилтөрөгч (O₂)", "Хлор (Cl₂)"], correct: 1 }
+            { q: "Хүчилтөрөгч (O2) хий цучлыг хэрхэн өөрчилдөг вэ?", a: ["Шууд унтраадаг", "Улайссан цучлыг дүрэлзүүлэн тод асаадаг", "Тэсрэлт үүсгэдэг", "Дөлийг ногоон болгодог"], correct: 1 },
+            { q: "Натри металл (Na) устай харилцан үйлчлэхэд ямар хий эрчимтэй ялгардаг вэ?", a: ["Нүүрсхүчлийн хий (CO2)", "Устөрөгч (H2)", "Хүчилтөрөгч (O2)", "Хлор (Cl2)"], correct: 1 }
         ];
 
         /* Variables list initialized */
@@ -1311,7 +1304,7 @@
 
                 if (burnerOn && burnerHeightVal >= 1.25) {
                     document.getElementById('viewport-guide').innerText = "⚠ Анхаар! Хэт ойр халааж байна. Хуруу шил хагарах эрсдэлтэй.";
-                    document.getElementById('viewport-guide').className = "px-3 py-1 rounded-full bg-rose-950 text-rose-400 text-[10px] font-black border border-rose-500 tracking-wider shadow-lg animate-pulse uppercase";
+                    document.getElementById('viewport-guide').className = "px-3 py-1 rounded-full bg-rose-955 text-rose-400 text-[10px] font-black border border-rose-500 tracking-wider shadow-lg animate-pulse uppercase";
                 } else {
                     document.getElementById('viewport-guide').innerText = gasCollectionAssembled ? `Хий цуглуулж байна: ${gasCollectedAmount}%` : "3D Үзүүлэн: Төхөөрөмж бэлэн";
                     document.getElementById('viewport-guide').className = "px-3 py-1 rounded-full bg-slate-950/85 text-cyan-400 text-[10px] font-black border border-cyan-500/40 tracking-wider shadow-lg uppercase";
@@ -2069,21 +2062,21 @@
 
             if (reactionType === 'KMnO4_decomp') {
                 activeGasType = 'O2';
-                journal.innerHTML = "<strong>УРВАЛ: Калийн перманганатын задрал (O₂ гарган авах)</strong><br>" +
-                    "<strong>Тэгшитгэл:</strong> 2KMnO₄(х) —(t°)→ K₂MnO₄(х) + MnO₂(х) + O₂(х)↑<br>" +
+                journal.innerHTML = "<strong>УРВАЛ: Калийн перманганатын задрал (O2 гарган авах)</strong><br>" +
+                    "<strong>Тэгшитгэл:</strong> 2KMnO4(х) —(t°)→ K2MnO4(х) + MnO2(х) + O2(х)↑<br>" +
                     "<strong>Ажиглалт:</strong> Ягаан перманганат налуу хуруу шилэнд задарч хүчилтөрөгч ялгарав.<br>" +
-                    "<strong>Заавар:</strong> Хий хураагдаж дууссаны дараа <strong>дэнг унтрааж</strong>, цучил болон шүдэнзний сорил хийнэ үү.";
+                    "<strong>Заавар:</strong> Хий хураагдаж дууссаны дараа <strong>дэнг унтраэж</strong>, цучил болон шүдэнзний сорил хийнэ үү.";
                 activeSolid = null;
                 if (solidMesh) { scene.remove(solidMesh); solidMesh = null; }
             } else if (reactionType === 'NH4Cl_CaOH2_decomp') {
                 activeGasType = 'NH3';
                 if (gasCollectionMethod === 'water') {
                     journal.innerHTML = "<strong>АНХААРУУЛГА: Аммиакийн хийн уусах чанар</strong><br>" +
-                        "<strong>Тэгшитгэл:</strong> 2NH₄Cl + Ca(OH)₂ —(t°)→ CaCl₂ + 2H₂O + 2NH₃↑<br>" +
-                        "<strong>Ажиглалт:</strong> Аммиак (NH₃) нь усанд маш сайн уусдаг тул усыг түрүүлэх аргаар хурааж авах боломжгүй! Уусмалд шууд уусч байна. Агаар шахах аргыг хэрэглэнэ үү.";
+                        "<strong>Тэгшитгэл:</strong> 2NH4Cl + Ca(OH)2 —(t°)→ CaCl2 + 2H2O + 2NH3↑<br>" +
+                        "<strong>Ажиглалт:</strong> Аммиак (NH3) нь усанд маш сайн уусдаг тул усыг түрүүлэх аргаар хурааж авах боломжгүй! Уусмалд шууд уусч байна. Агаар шахах аргыг хэрэглэнэ үү.";
                 } else {
                     journal.innerHTML = "<strong>УРВАЛ: Аммиак гарган авах дулааны задрал</strong><br>" +
-                        "<strong>Тэгшитгэл:</strong> 2NH₄Cl + Ca(OH)₂ —(t°)→ CaCl₂ + 2H₂O + 2NH₃↑<br>" +
+                        "<strong>Тэгшитгэл:</strong> 2NH4Cl + Ca(OH)2 —(t°)→ CaCl2 + 2H2O + 2NH3↑<br>" +
                         "<strong>Ажиглалт:</strong> Аммиак хий ялгарч агаар шахах аргаар амжилттай хураагдав.";
                 }
                 activeSolid = null;
@@ -2093,7 +2086,7 @@
                 activeLiquid.formula = 'NaOH';
                 activeLiquid.color = getLiquidColor(activeLiquid.ph, activeLiquid.indicator, '#cbd5e1');
                 journal.innerHTML = "<strong>УРВАЛ: Идэвхтэй металл ба усны харилцан үйлчлэл</strong><br>" +
-                    "<strong>Тэгшитгэл:</strong> 2Na + 2H₂O → 2NaOH + H₂↑<br>" +
+                    "<strong>Тэгшитгэл:</strong> 2Na + 2H2O → 2NaOH + H2↑<br>" +
                     "<strong>Ажиглалт:</strong> Натри металл усны гадаргууд бөмбөлөг хэлбэртэй маш хурдтай хөдөлж уусна. Шүлтлэг орчин үүссэн тул фенолфталеин бөөрөлзгөнө ягаан өнгөтэй болов.";
                 activeSolid = null;
                 if (solidMesh) { scene.remove(solidMesh); solidMesh = null; }
@@ -2103,7 +2096,7 @@
                 activeLiquid.formula = 'NaCl';
                 activeLiquid.color = getLiquidColor(activeLiquid.ph, activeLiquid.indicator, '#cbd5e1');
                 journal.innerHTML = "<strong>УРВАЛ: Идэвхтэй металл ба хүчлийн харилцан үйлчлэл</strong><br>" +
-                    "<strong>Тэгшитгэл:</strong> 2Na + 2HCl → 2NaCl + H₂↑<br>" +
+                    "<strong>Тэгшитгэл:</strong> 2Na + 2HCl → 2NaCl + H2↑<br>" +
                     "<strong>Ажиглалт:</strong> Саармаг орчны давс NaCl үүсч, устөрөгч ялгарав.";
                 activeSolid = null;
                 if (solidMesh) { scene.remove(solidMesh); solidMesh = null; }
@@ -2113,7 +2106,7 @@
                 activeLiquid.formula = 'MgCl2';
                 activeLiquid.color = getLiquidColor(activeLiquid.ph, activeLiquid.indicator, '#cbd5e1');
                 journal.innerHTML = "<strong>УРВАЛ: Металл ба Хүчлийн орлуулах урвал</strong><br>" +
-                    "<strong>Тэгшитгэл:</strong> Mg + 2HCl → MgCl₂ + H₂↑<br>" +
+                    "<strong>Тэгшитгэл:</strong> Mg + 2HCl → MgCl2 + H2↑<br>" +
                     "<strong>Ажиглалт:</strong> Магни хүчилд хурдан тогтвортой уусч устөрөгч ялгарав.";
                 activeSolid = null;
                 if (solidMesh) { scene.remove(solidMesh); solidMesh = null; }
@@ -2123,7 +2116,7 @@
                 activeLiquid.formula = 'ZnCl2';
                 activeLiquid.color = getLiquidColor(activeLiquid.ph, activeLiquid.indicator, '#cbd5e1');
                 journal.innerHTML = "<strong>УРВАЛ: Устөрөгч гарган авах стандарт арга</strong><br>" +
-                    "<strong>Тэгшитгэл:</strong> Zn + 2HCl → ZnCl₂ + H₂↑<br>" +
+                    "<strong>Тэгшитгэл:</strong> Zn + 2HCl → ZnCl2 + H2↑<br>" +
                     "<strong>Ажиглалт:</strong> Цайр давсны хүчилтэй урвалд орж устөрөгч тогтвортой ялгаруулав.";
                 activeSolid = null;
                 if (solidMesh) { scene.remove(solidMesh); solidMesh = null; }
@@ -2133,7 +2126,7 @@
                 activeLiquid.formula = 'FeCl2';
                 activeLiquid.color = getLiquidColor(activeLiquid.ph, activeLiquid.indicator, '#cbd5e1');
                 journal.innerHTML = "<strong>УРВАЛ: Төмрийн үртэс ба Хүчлийн урвал</strong><br>" +
-                    "<strong>Тэгшитгэл:</strong> Fe + 2HCl → FeCl₂ + H₂↑<br>" +
+                    "<strong>Тэгшитгэл:</strong> Fe + 2HCl → FeCl2 + H2↑<br>" +
                     "<strong>Ажиглалт:</strong> Төмрийн үртэс хүчилтэй аажмаар харилцан үйлчилж устөрөгчийн хий үүсгэв.";
                 activeSolid = null;
                 if (solidMesh) { scene.remove(solidMesh); solidMesh = null; }
@@ -2143,18 +2136,18 @@
                 activeLiquid.formula = 'CaCl2';
                 activeLiquid.color = getLiquidColor(activeLiquid.ph, activeLiquid.indicator, '#cbd5e1');
                 journal.innerHTML = "<strong>УРВАЛ: Карбонатын давс ба Хүчлийн харилцан үйлчлэл</strong><br>" +
-                    "<strong>Тэгшитгэл:</strong> CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂↑<br>" +
-                    "<strong>Ажиглалт:</strong> Шохойн чулуу давсны хүчилтэй ширүүн хөөсөрч нүүрсхүчлийн хий (CO₂) ялгарав.";
+                    "<strong>Тэгшитгэл:</strong> CaCO3 + 2HCl → CaCl2 + H2O + CO2↑<br>" +
+                    "<strong>Ажиглалт:</strong> Шохойн чулуу давсны хүчилтэй ширүүн хөөсөрч нүүрсхүчлийн хий (CO2) ялгарав.";
                 activeSolid = null;
                 if (solidMesh) { scene.remove(solidMesh); solidMesh = null; }
                 activeGasType = 'CO2';
             } else if (reactionType === 'MnO2_H2O2' || reactionType === 'Fe_H2O2') {
-                const catalyst = reactionType === 'MnO2_H2O2' ? 'MnO₂' : 'Fe';
+                const catalyst = reactionType === 'MnO2_H2O2' ? 'MnO2' : 'Fe';
                 activeLiquid.ph = 6.0;
                 activeLiquid.formula = 'H2O';
                 activeLiquid.color = getLiquidColor(activeLiquid.ph, activeLiquid.indicator, '#cbd5e1');
                 journal.innerHTML = `<strong>УРВАЛ: Хэт ислийн каталитик задрал</strong><br>` +
-                    `<strong>Тэгшитгэл:</strong> 2H₂O₂ —(${catalyst})→ 2H₂O + O₂↑<br>` +
+                    `<strong>Тэгшитгэл:</strong> 2H2O2 —(${catalyst})→ 2H2O + O2↑<br>` +
                     `<strong>Ажиглалт:</strong> Катализаторын нөлөөгөөр устөрөгчийн хэт исэл маш идэвхтэй буцалж задарлаа. Хүчилтөрөгчийн хий суунаглав.`;
                 activeSolid = null;
                 if (solidMesh) { scene.remove(solidMesh); solidMesh = null; }
@@ -2222,7 +2215,7 @@
                     totalPoints += 10;
                     document.getElementById('lbl-total-points').innerText = totalPoints;
                 } else {
-                    explanation = "Анхаар: Устөрөгч ба хүчилтөрөгч нь агаартай холилдвол тэсрэх аюултай тул усыг шахан түрж цуглуулах нь илүү найдвартай арга байдаг.";
+                    explanation = "Анхаар: Устөрөгч ба хүчилтөрөгч нь агаартай холилдвол тэсрэх аюултай тул усыг шахан түрж цуглуулуулах нь илүү найдвартай арга байдаг.";
                 }
             } else if (activeGasType === 'CO2') {
                 if (selectedGasMethodId === 'air_heavy') {
@@ -2231,7 +2224,7 @@
                     totalPoints += 10;
                     document.getElementById('lbl-total-points').innerText = totalPoints;
                 } else {
-                    explanation = "Анхаар: CO₂ нь агаараас хүнд тул дээш үлээх аргаар хураавал савны ёроолоор асгарч хуримтлагдахгүй.";
+                    explanation = "Анхаар: CO2 нь агаараас хүнд тул дээш үлээх аргаар хураавал савны ёроолоор асгарч хуримтлагдахгүй.";
                 }
             } else if (activeGasType === 'NH3') {
                 if (selectedGasMethodId === 'air_light') {
@@ -2570,7 +2563,7 @@
                 journal.innerHTML = `
                     <strong>КАTИОНЫ ДӨЛНИЙ СОРИЛТЫН ТЭМДЭГЛЭЛ:</strong><br>
                     <strong>Шинжлэгдэж буй давс:</strong> ${selectedFlameSalt}<br>
-                    <strong>Илэрсэн катион:</strong> ${selectedFlameSalt === 'LiCl' ? 'Li⁺ (Лити)' : selectedFlameSalt === 'NaCl' ? 'Na⁺ (Натри)' : selectedFlameSalt === 'KCl' ? 'K⁺ (Кали)' : selectedFlameSalt === 'CaCl2' ? 'Ca²⁺ (Кальци)' : selectedFlameSalt === 'BaCl2' ? 'Ba²⁺ (Бари)' : 'Cu²⁺ (Зэс)'}<br>
+                    <strong>Илэрсэн катион:</strong> ${selectedFlameSalt === 'LiCl' ? 'Li<sup>+</sup> (Лити)' : selectedFlameSalt === 'NaCl' ? 'Na<sup>+</sup> (Натри)' : selectedFlameSalt === 'KCl' ? 'K<sup>+</sup> (Кали)' : selectedFlameSalt === 'CaCl2' ? 'Ca<sup>2+</sup> (Кальци)' : selectedFlameSalt === 'BaCl2' ? 'Ba<sup>2+</sup> (Бари)' : 'Cu<sup>2+</sup> (Зэс)'}<br>
                     <strong>Дөлний өнгөний өөрчлөлт:</strong> ${colorMongolian}<br>
                     <strong>Онолын үндэслэл:</strong> Металлын катион нь дөлний өндөр температурт энергийн өдөөгдсөн төлөвт шилжиж, буцаж анхны төлөвтөө орохдоо өөрийн долгионы уртад тохирох өнгөт гэрлийг цацруулдаг онцлогтой.
                 `;
@@ -2615,25 +2608,25 @@
                 if (activeGasType === 'H2') {
                     playPopSound();
                     journal.innerHTML = `
-                        <strong>ИЛРҮҮЛЭГЧИЙН СОРИЛТ (ЦУГЛАРСАН СУУРЬ): Устөрөгчийн хий (H₂)</strong><br>
+                        <strong>ИЛРҮҮЛЭГЧИЙН СОРИЛТ (ЦУГЛАРСАН СУУРЬ): Устөрөгчийн хий (H2)</strong><br>
                         <strong>Ажилбар:</strong> Цугларсан хийтэй хөмөрсөн савны амсарт ассан шүдэнзийг ойртуулав.<br>
                         <strong>Үр дүн:</strong> Маш чанга <strong>"ПОП-ПАТ" (Pop!)</strong> гэсэн өвөрмөц тэсрэлтийн чимээ гарч унтрав.<br>
-                        <strong>Урвалын тайлбар:</strong> 2H₂ + O₂ → 2H₂O. Хүчилтөрөгчтэй микро тэсрэлт үүсгэдэг нь устөрөгчийг таних үндсэн шинж чанар юм.
+                        <strong>Урвалын тайлбар:</strong> 2H2 + O2 → 2H2O. Хүчилтөрөгчтэй микро тэсрэлт үүсгэдэг нь устөрөгчийг таних үндсэн шинж чанар юм.
                     `;
                     window.showToast("ПОП-ПАТ! Устөрөгч хий амжилттай тодорхойлогдлоо.", "success");
                 } else if (activeGasType === 'O2') {
                     playWhooshSound();
                     journal.innerHTML = `
-                        <strong>ИЛРҮҮЛЭГЧИЙН СОРИЛТ (ЦУГЛАРСАН СУУРЬ): Хүчилтөрөгчийн хий (O₂)</strong><br>
+                        <strong>ИЛРҮҮЛЭГЧИЙН СОРИЛТ (ЦУГЛАРСАН СУУРЬ): Хүчилтөрөгчийн хий (O2)</strong><br>
                         <strong>Ажилбар:</strong> Цугларсан савны амсарт улайссан цучлыг оруулав.<br>
                         <strong>Үр дүн:</strong> Улайссан цучил <strong>дүрэлзэн маш тод аслаа</strong>.<br>
-                        <strong>Тайлбар:</strong> Хүчилтөрөгч нь шаталтыг маш хүчтэй дэмждэг хий юм (C + O₂ → CO₂).
+                        <strong>Тайлбар:</strong> Хүчилтөрөгч нь шаталтыг маш хүчтэй дэмждэг хий юм (C + O2 → CO2).
                     `;
                     window.showToast("Цучил дүрэлзэн аслаа! Хүчилтөрөгч батлагдлаа.", "success");
                 } else if (activeGasType === 'CO2') {
                     playHissSound();
                     journal.innerHTML = `
-                        <strong>ИЛРҮҮЛЭГЧИЙН СОРИЛТ (ЦУГЛАРСАН СУУРЬ): Нүүрсхүчлийн хий (CO₂)</strong><br>
+                        <strong>ИЛРҮҮЛЭГЧИЙН СОРИЛТ (ЦУГЛАРСАН СУУРЬ): Нүүрсхүчлийн хий (CO2)</strong><br>
                         <strong>Ажилбар:</strong> Цугларсан савны амсарт ассан шүдэнзийг оруулав.<br>
                         <strong>Үр дүн:</strong> Шүдэнзний гал саванд ормогц <strong>агшин зуурт унтарлаа</strong>.<br>
                         <strong>Тайлбар:</strong> Нүүрсхүчлийн хий нь агаараас хүнд бөгөөд шаталтыг огт дэмждэггүй шинж чанартай.
@@ -2642,7 +2635,7 @@
                 } else if (activeGasType === 'NH3') {
                     playHissSound();
                     journal.innerHTML = `
-                        <strong>ИЛРҮҮЛЭГЧИЙН СОРИЛТ (ЦУГЛАРСАН СУУРЬ): Аммиакийн хий (NH₃)</strong><br>
+                        <strong>ИЛРҮҮЛЭГЧИЙН СОРИЛТ (ЦУГЛАРСАН СУУРЬ): Аммиакийн хий (NH3)</strong><br>
                         <strong>Ажилбар:</strong> Савны амсарт нойтон улаан лакмусын цаас ойртуулав.<br>
                         <strong>Үр дүн:</strong> Улаан лакмусын цаас <strong>тод хөх өнгөтэй</strong> болж хувирлаа.<br>
                         <strong>Тайлбар:</strong> Аммиак нь усанд уусч сул шүлтлэг шинж чанартай Аммонийн гидроксид үүсгэдэг.
@@ -2668,10 +2661,10 @@
             if (activeGasType === 'CO2') {
                 playHissSound();
                 journal.innerHTML = `
-                    <strong>ШОХОЙН УСНЫ СОРИЛТ (ЦУГЛАРСАН СУУРЬ): Нүүрсхүчлийн хий (CO₂)</strong><br>
-                    <strong>Ажилбар:</strong> Ялгарсан хийг тунгалаг шохойн ус (Ca(OH)₂) бүхий уусмалаар нэвтрүүлж үлээлгэв.<br>
+                    <strong>ШОХОЙН УСНЫ СОРИЛТ (ЦУГЛАРСАН СУУРЬ): Нүүрсхүчлийн хий (CO2)</strong><br>
+                    <strong>Ажилбар:</strong> Ялгарсан хийг тунгалаг шохойн ус (Ca(OH)2) бүхий уусмалаар нэвтрүүлж үлээлгэв.<br>
                     <strong>Үр дүн:</strong> Тунгалаг уусмал <strong>сүүн цагаан өнгөтэй булингар</strong> болж өөрчлөгдлөө.<br>
-                    <strong>Тэгшитгэл:</strong> CO₂ + Ca(OH)₂ → CaCO₃↓ + H₂O
+                    <strong>Тэгшитгэл:</strong> CO2 + Ca(OH)2 → CaCO3↓ + H2O
                 `;
                 
                 if (gasCollectionGroup) {
@@ -2770,6 +2763,582 @@
                 window.showToast("Лабораторыг бүрэн цэвэрлэлээ.", "info");
             }
         };
+
+        window.setBurnerType = function(type) {
+            burnerType = type;
+            document.getElementById('btn-burner-spirit').className = "py-1.5 rounded-xl text-[9px] font-bold bg-slate-900 border border-slate-800 text-slate-400";
+            document.getElementById('btn-burner-bunsen').className = "py-1.5 rounded-xl text-[9px] font-bold bg-slate-900 border border-slate-800 text-slate-400";
+            
+            if (type === 'spirit') {
+                document.getElementById('btn-burner-spirit').className = "py-1.5 rounded-xl text-[9px] font-bold bg-indigo-955 border border-indigo-500 text-indigo-300 shadow-md";
+                document.getElementById('bunsen-air-control').classList.add('hidden');
+            } else {
+                document.getElementById('btn-burner-bunsen').className = "py-1.5 rounded-xl text-[9px] font-bold bg-amber-955 border border-amber-500 text-amber-300 shadow-md";
+                document.getElementById('bunsen-air-control').classList.remove('hidden');
+            }
+
+            buildBurner3D();
+        };
+
+        window.setBunsenFlame = function(flameType) {
+            bunsenFlameType = flameType;
+            document.getElementById('btn-bunsen-yellow').className = "py-1 bg-slate-900 text-slate-400 border border-slate-800 rounded text-[8px] font-bold";
+            document.getElementById('btn-bunsen-blue').className = "py-1 bg-slate-900 text-slate-400 border border-slate-800 rounded text-[8px] font-bold";
+            
+            const label = document.getElementById('bunsen-flame-lbl');
+            if (flameType === 'yellow') {
+                document.getElementById('btn-bunsen-yellow').className = "py-1 bg-amber-955/60 text-amber-300 border border-amber-800/50 rounded text-[8px] font-bold shadow";
+                label.innerText = "Шар дөл (Safety)";
+                label.className = "text-amber-400 font-bold";
+            } else {
+                document.getElementById('btn-bunsen-blue').className = "py-1 bg-cyan-955/60 text-cyan-300 border border-cyan-800/50 rounded text-[8px] font-bold shadow";
+                label.innerText = "Хөх дөл (Халаалт)";
+                label.className = "text-cyan-400 font-bold";
+            }
+
+            if (burnerOn) {
+                window.addFire3D();
+            }
+        };
+
+        window.toggleBurner = function(on) {
+            burnerOn = on;
+            const statusLabel = document.getElementById('burner-status-lbl');
+            
+            if (on) {
+                statusLabel.innerText = burnerType === 'spirit' ? "Асаалттай (Спиртэн дэн)" : "Асаалттай (Хийн дэн)";
+                statusLabel.className = "text-[8px] text-emerald-400 font-bold uppercase animate-pulse";
+                window.addFire3D();
+                
+                if (burnerGroup && burnerGroup.userData.spiritCap) {
+                    burnerGroup.userData.spiritCap.position.set(0.8, 0.18, 0.5); 
+                }
+
+                if (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2') {
+                    triggerChemicalReaction();
+                }
+            } else {
+                statusLabel.innerText = "Унтраастай";
+                statusLabel.className = "text-[8px] text-rose-500 font-bold uppercase";
+                if (fireParticles) {
+                    scene.remove(fireParticles);
+                    fireParticles = null;
+                }
+                
+                if (burnerGroup && burnerGroup.userData.spiritCap) {
+                    burnerGroup.userData.spiritCap.position.set(0, 1.0, 0); 
+                }
+                
+                reactionActive = false;
+                createSmokeParticles(burnerGroup.position.x, burnerGroup.position.y + 0.8, 0, 15);
+            }
+        };
+
+        window.addFire3D = function() {
+            if (fireParticles) scene.remove(fireParticles);
+
+            const particleCount = 65;
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const velocities = new Float32Array(particleCount);
+
+            const isDecomp = (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2');
+            const startX = (gasCollectionAssembled && isDecomp) ? -0.6 : 2.4;
+            const startY = (burnerType === 'spirit') ? (0.6 + burnerHeightVal * 0.5) : (0.8 + burnerHeightVal * 0.5);
+
+            for (let i = 0; i < particleCount; i++) {
+                positions[i * 3] = startX + (Math.random() - 0.5) * 0.08;
+                positions[i * 3 + 1] = startY + Math.random() * 0.45;
+                positions[i * 3 + 2] = (Math.random() - 0.5) * 0.08;
+                velocities[i] = 0.01 + Math.random() * 0.012;
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('velocity', new THREE.BufferAttribute(velocities, 1));
+
+            let fireColor = 0xff6600; 
+            if (burnerType === 'bunsen' && bunsenFlameType === 'blue') {
+                fireColor = 0x00d2ff; 
+            } else if (selectedFlameSalt) {
+                fireColor = parseInt(selectedFlameColor.replace('#', '0x'));
+            }
+
+            const material = new THREE.PointsMaterial({
+                color: fireColor,
+                size: 0.14,
+                transparent: true,
+                opacity: 0.85,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false
+            });
+
+            fireParticles = new THREE.Points(geometry, material);
+            scene.add(fireParticles);
+        };
+
+        window.assembleTitration = function() {
+            window.resetLab(true);
+            titrationAssembled = true;
+            titrationBaseUsed = 0.0;
+            titrationFlaskPh = 1.2;
+            titrationEquivalenceReached = false;
+            titrationHasCompleted = false;
+
+            document.getElementById('titration-equivalence-alert').classList.add('hidden');
+            document.getElementById('titration-dynamic-input-area').classList.add('hidden');
+            document.getElementById('titration-dynamic-feedback').classList.add('hidden');
+
+            const acidVolInput = parseFloat(document.getElementById('param-acid-vol').value);
+            titrationAcidVol = acidVolInput;
+            titrationFlaskVol = acidVolInput;
+
+            const baseConcInput = parseFloat(document.getElementById('param-base-conc').value);
+            titrationBaseConc = baseConcInput;
+
+            // Generate random unknown Acid concentration (0.05 to 0.20 M)
+            titrationTargetAcidConc = 0.05 + Math.random() * 0.15;
+            
+            // Calculate precise equivalence point volume
+            titrationEquivalenceVol = (titrationTargetAcidConc * titrationAcidVol) / titrationBaseConc;
+
+            titrationStandMesh = new THREE.Group();
+            
+            // Retort stand base
+            const base = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.1, 1.0), new THREE.MeshStandardMaterial({ color: 0x1e293b, metalness: 0.8 }));
+            base.position.y = 0.05;
+            titrationStandMesh.add(base);
+
+            // Retort rod
+            const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 3.2), new THREE.MeshStandardMaterial({ color: 0xe2e8f0, metalness: 0.9 }));
+            rod.position.set(0, 1.6, 0);
+            titrationStandMesh.add(rod);
+
+            // Double clamps
+            const clamp1 = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.06, 0.06), new THREE.MeshStandardMaterial({ color: 0x475569 }));
+            clamp1.position.set(0.25, 2.2, 0);
+            titrationStandMesh.add(clamp1);
+
+            const clamp2 = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.06, 0.06), new THREE.MeshStandardMaterial({ color: 0x475569 }));
+            clamp2.position.set(0.25, 0.9, 0);
+            titrationStandMesh.add(clamp2);
+
+            scene.add(titrationStandMesh);
+
+            // Burette glass cylinder
+            titrationBuretteMesh = new THREE.Group();
+            const bBody = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 1.8, 16, 1, true), glassMaterial);
+            bBody.position.set(0.5, 2.0, 0);
+            titrationBuretteMesh.add(bBody);
+
+            const bTip = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.01, 0.2, 16), glassMaterial);
+            bTip.position.set(0.5, 1.0, 0);
+            titrationBuretteMesh.add(bTip);
+
+            const valveBody = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.12, 12), new THREE.MeshStandardMaterial({ color: 0xef4444 }));
+            valveBody.rotation.x = Math.PI / 2;
+            valveBody.position.set(0.5, 1.08, 0);
+            titrationBuretteMesh.add(valveBody);
+
+            scene.add(titrationBuretteMesh);
+
+            // Erlenmeyer Flask
+            titrationFlaskMesh = new THREE.Group();
+            const fNeck = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.4, 16, 1, true), glassMaterial);
+            fNeck.position.set(0.5, 0.6, 0);
+            
+            const fBody = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.45, 0.5, 16, 1, true), glassMaterial);
+            fBody.position.set(0.5, 0.15, 0);
+
+            const fBottom = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.45, 0.02, 16), glassMaterial);
+            fBottom.position.set(0.5, 0.01, 0);
+
+            titrationFlaskMesh.add(fNeck, fBody, fBottom);
+            scene.add(titrationFlaskMesh);
+
+            window.showToast("Титрлэлтийн тулгуур багаж болон конусан колбыг бэлтгэлээ.", "success");
+            
+            document.getElementById('lab-journal').innerHTML = `
+                <strong>ТИТРЛЭЛТИЙН БЭЛТГЭЛ АЖИЛ:</strong><br>
+                Колбонд <strong>V_acid = ${titrationAcidVol.toFixed(1)} мл</strong> тодорхойгүй концентрацитай HCl хүчлийг хийж, фенолфталеин индикатор дусаав.<br>
+                <em>Дараагийн алхам: Дээд талын товчлуурыг дарж Бюреткад NaOH шүлтийн уусмалыг дүүргэнэ үү.</em>
+            `;
+
+            updateTitration3D();
+            updateUI();
+        };
+
+        window.fillBurette = function() {
+            if (!titrationAssembled) {
+                window.showToast("Эхлээд титрлэлтийн багажийг угсарна уу!", "warning");
+                return;
+            }
+            titrationBuretteVol = 50.0;
+            titrationBaseUsed = 0.0;
+            titrationFlaskPh = 1.2;
+            titrationEquivalenceReached = false;
+            titrationHasCompleted = false;
+
+            document.getElementById('titration-equivalence-alert').classList.add('hidden');
+            document.getElementById('titration-dynamic-input-area').classList.add('hidden');
+            document.getElementById('titration-dynamic-feedback').classList.add('hidden');
+
+            updateTitration3D();
+            updateUI();
+            window.showToast("Бюреткад 50.0 мл NaOH шүлтийн уусмал дүүргэлээ.", "success");
+
+            document.getElementById('lab-journal').innerHTML = `
+                <strong>БЮРЕТКА ДҮҮРГЭВ:</strong><br>
+                Бюреткад <strong>C_base = ${titrationBaseConc.toFixed(2)} М</strong> концентрацитай NaOH шүлтийг яг 50.0 мл-ийн заалт хүртэл дүүргэлээ.<br>
+                <em>Туршилтыг эхлүүлэх заавар: Цоргоны 'Нээх' товчийг дарж, шүлтийг колбо руу дусал дуслаар оруулан уусмалын өнгө хувиралтыг анхааралтай ажиглана уу!</em>
+            `;
+        };
+
+        function calculateNeutralizationPh() {
+            if (titrationBaseUsed >= titrationEquivalenceVol) {
+                // Excess base, basic environment
+                titrationFlaskPh = 7.0 + (titrationBaseUsed - titrationEquivalenceVol) * 4.5;
+                if (titrationFlaskPh > 12.5) titrationFlaskPh = 12.5;
+            } else {
+                // Acid remains, acidic environment
+                const remainingAcidMoles = (titrationTargetAcidConc * titrationAcidVol / 1000) - (titrationBaseConc * titrationBaseUsed / 1000);
+                const totalVolLiters = (titrationAcidVol + titrationBaseUsed) / 1000;
+                const concH = remainingAcidMoles / totalVolLiters;
+                titrationFlaskPh = -Math.log10(concH);
+                if (isNaN(titrationFlaskPh) || titrationFlaskPh < 1.0) titrationFlaskPh = 1.0;
+            }
+
+            // Check for strict equivalence transition point
+            if (titrationFlaskPh >= 8.2 && !titrationEquivalenceReached) {
+                titrationEquivalenceReached = true;
+                playPopSound();
+                window.showToast("ЭКВИВАЛЕНТ ЦЭГ ТОГТООГДЛОО!", "warning");
+                document.getElementById('titration-equivalence-alert').classList.remove('hidden');
+            }
+        }
+
+        function updateTitration3D() {
+            // Remove previous fluid meshes
+            const prevBLiq = scene.getObjectByName('titrationBuretteLiq');
+            if (prevBLiq) scene.remove(prevBLiq);
+            
+            const prevFLiq = scene.getObjectByName('titrationFlaskLiq');
+            if (prevFLiq) scene.remove(prevFLiq);
+
+            if (!titrationAssembled) return;
+
+            // 1. Burette Fluid mesh
+            if (titrationBuretteVol > 0) {
+                const bLiqHeight = 1.7 * (titrationBuretteVol / 50.0);
+                const bLiqGeo = new THREE.CylinderGeometry(0.075, 0.075, bLiqHeight, 16);
+                const bLiqMat = new THREE.MeshPhysicalMaterial({
+                    color: 0xe0f2fe, 
+                    roughness: 0.1,
+                    transmission: 0.95,
+                    opacity: 0.5,
+                    transparent: true,
+                    emissive: 0xbae6fd,
+                    emissiveIntensity: 0.4
+                });
+                const bLiqMesh = new THREE.Mesh(bLiqGeo, bLiqMat);
+                bLiqMesh.name = 'titrationBuretteLiq';
+                bLiqMesh.position.set(0.5, 1.1 + bLiqHeight / 2, 0);
+                scene.add(bLiqMesh);
+            }
+
+            // 2. Erlenmeyer Flask Fluid mesh
+            if (titrationFlaskVol > 0) {
+                const fLiqHeight = 0.35 * Math.min(1.0, (titrationFlaskVol / 50.0));
+                const fLiqRadiusTop = 0.12 + (1.0 - fLiqHeight/0.35) * 0.3;
+                const fLiqGeo = new THREE.CylinderGeometry(fLiqRadiusTop, 0.43, fLiqHeight, 16);
+                
+                // Color mapping matching pH scale transitions
+                const colorHex = getLiquidColor(titrationFlaskPh, 'phenolphthalein', '#cbd5e1');
+                const parsedColor = parseInt(colorHex.replace('#', '0x'));
+
+                const fLiqMat = new THREE.MeshPhysicalMaterial({
+                    color: parsedColor,
+                    roughness: 0.1,
+                    transmission: 0.85,
+                    opacity: titrationFlaskPh >= 8.2 ? 0.9 : 0.4,
+                    transparent: true,
+                    ior: 1.333,
+                    emissive: parsedColor,
+                    emissiveIntensity: titrationFlaskPh >= 8.2 ? 0.75 : 0.3
+                });
+                const fLiqMesh = new THREE.Mesh(fLiqGeo, fLiqMat);
+                fLiqMesh.name = 'titrationFlaskLiq';
+                fLiqMesh.position.set(0.5, 0.01 + fLiqHeight / 2, 0);
+                scene.add(fLiqMesh);
+            }
+        }
+
+        window.toggleTitrationValve = function(open) {
+            if (!titrationAssembled) {
+                window.showToast("Эхлээд титрлэлтийн багажийг угсарна уу!", "warning");
+                return;
+            }
+            titrationValveOpen = open;
+            
+            const statusVal = document.getElementById('valve-status');
+            if (open) {
+                statusVal.innerText = "Нээлттэй";
+                statusVal.className = "text-emerald-400 uppercase font-black animate-pulse";
+                window.showToast("Цоргыг нээлээ. Шүлт дусаж эхэллээ.", "info");
+                triggerDripsAnimation();
+            } else {
+                statusVal.innerText = "Хаалттай";
+                statusVal.className = "text-rose-400 uppercase font-black";
+                window.showToast("Цоргыг хаалаа.", "warning");
+                
+                // If closed AFTER equivalence point, generate custom titration problem!
+                if (titrationEquivalenceReached && !titrationHasCompleted) {
+                    titrationHasCompleted = true;
+                    generateTitrationChallengeTask();
+                }
+            }
+        };
+
+        function triggerDripsAnimation() {
+            if (!titrationValveOpen || titrationBuretteVol <= 0) return;
+
+            const dripGeo = new THREE.SphereGeometry(0.015, 8, 8);
+            const dripMat = new THREE.MeshBasicMaterial({ color: 0xbae6fd, transparent: true, opacity: 0.9 });
+            const drip = new THREE.Mesh(dripGeo, dripMat);
+            drip.position.set(0.5, 0.98, 0); 
+            scene.add(drip);
+            titrationDrips.push(drip);
+
+            setTimeout(() => {
+                triggerDripsAnimation();
+            }, 320);
+        }
+
+        function generateTitrationChallengeTask() {
+            const taskContainer = document.getElementById('titration-dynamic-task');
+            const inputArea = document.getElementById('titration-dynamic-input-area');
+            
+            if (!taskContainer || !inputArea) return;
+
+            taskContainer.innerHTML = `
+                <strong>Таны туршилтын бодит өгөгдөл:</strong><br>
+                • Колбон дахь HCl хүчлийн эзлэхүүн (V_acid) = <strong class="text-cyan-400">${titrationAcidVol.toFixed(1)} мл</strong><br>
+                • Бюреткээс зарцуулагдсан NaOH шүлтийн эзлэхүүн (V_base) = <strong class="text-emerald-400">${titrationBaseUsed.toFixed(1)} мл</strong><br>
+                • Хэрэглэсэн NaOH шүлтийн концентраци (C_base) = <strong class="text-indigo-400">${titrationBaseConc.toFixed(2)} М</strong><br><br>
+                Саармагжих урвалын үндсэн хуулийг ашиглан <strong>HCl хүчлийн уусмалын концентраци (C_acid)</strong>-ийг олж, хариугаа доорх хэсэгт илгээж шалгаарай (Бутархай 3 орноор нарийвчилна).
+            `;
+
+            inputArea.classList.remove('hidden');
+        }
+
+        window.checkDynamicTitrationAnswer = function() {
+            const userAnsInp = document.getElementById('dynamic-answer-input');
+            const feedback = document.getElementById('titration-dynamic-feedback');
+            
+            if (!userAnsInp || !feedback) return;
+
+            const userAns = parseFloat(userAnsInp.value);
+            if (isNaN(userAns)) {
+                window.showToast("Хариултаа тоон утгаар оруулна уу!", "warning");
+                return;
+            }
+
+            // Correct algebraic solution: C_acid = (C_base * V_base) / V_acid
+            const correctAns = (titrationBaseConc * titrationBaseUsed) / titrationAcidVol;
+            const diff = Math.abs(userAns - correctAns);
+
+            feedback.classList.remove('hidden');
+
+            if (diff <= 0.01) {
+                feedback.innerHTML = `
+                    <p class="text-emerald-400 font-black">🎉 ЗӨВ БАЙНА! (+15 оноо)</p>
+                    <p class="mt-1">Таны бодолт болон тооцоолол шинжлэх ухааны хувьд маш нарийн зөв хийгдлээ.</p>
+                    <p class="text-[8px] text-slate-500 mt-2">Томьёо: C_acid = (C_base &times; V_base) / V_acid</p>
+                    <p class="text-[8px] text-slate-500">C_acid = (${titrationBaseConc.toFixed(2)} &times; ${titrationBaseUsed.toFixed(1)}) / ${titrationAcidVol.toFixed(1)} = ${correctAns.toFixed(3)} M</p>
+                `;
+                window.showToast("Зөв хариуллаа! +15 оноо.", "success");
+                totalPoints += 15;
+                document.getElementById('lbl-total-points').innerText = totalPoints;
+            } else {
+                feedback.innerHTML = `
+                    <p class="text-rose-400 font-bold">❌ ХАРИУ БУРУУ БАЙНА. ДАХИН ОРОЛДОНО УУ!</p>
+                    <p class="mt-1 text-slate-400">Хариуг тооцоолохдоо томьёогоо анхааралтай шалгаж, аравтын бутархайн нарийвчлалыг дахин нягтална уу.</p>
+                `;
+                window.showToast("Хариу буруу байна.", "error");
+            }
+        };
+
+        window.startQuiz = function() {
+            document.getElementById('quiz-intro').classList.add('hidden');
+            document.getElementById('quiz-game').classList.remove('hidden');
+            
+            quizActiveQuestions = [...quizQuestionsRaw].sort(() => Math.random() - 0.5);
+            currentQuestionIdx = 0;
+            quizScore = 0;
+            
+            renderQuizQuestion();
+        };
+
+        function renderQuizQuestion() {
+            const feedback = document.getElementById('quiz-feedback');
+            feedback.classList.add('hidden');
+            document.getElementById('btn-quiz-next').classList.add('hidden');
+
+            const qData = quizActiveQuestions[currentQuestionIdx];
+            document.getElementById('quiz-question-idx').innerText = `${currentQuestionIdx + 1}/10`;
+            document.getElementById('quiz-score-val').innerText = quizScore;
+            document.getElementById('quiz-question-text').innerText = qData.q;
+
+            const optContainer = document.getElementById('quiz-options-container');
+            optContainer.innerHTML = '';
+
+            qData.a.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-slate-300 transition duration-300";
+                btn.innerText = opt;
+                btn.onclick = () => selectQuizAnswer(idx, btn);
+                optContainer.appendChild(btn);
+            });
+        }
+
+        function selectQuizAnswer(selectedIdx, clickedBtn) {
+            const qData = quizActiveQuestions[currentQuestionIdx];
+            const feedback = document.getElementById('quiz-feedback');
+            
+            // Disable further clicks
+            const optButtons = document.getElementById('quiz-options-container').querySelectorAll('button');
+            optButtons.forEach(b => b.disabled = true);
+
+            feedback.classList.remove('hidden');
+
+            if (selectedIdx === qData.correct) {
+                quizScore += 10;
+                totalPoints += 10;
+                document.getElementById('lbl-total-points').innerText = totalPoints;
+                
+                clickedBtn.className = "w-full p-2.5 text-left bg-emerald-950/80 border-2 border-emerald-500 rounded-xl text-[10px] font-bold text-emerald-300 transition";
+                feedback.className = "p-2.5 rounded-xl text-[9px] font-bold text-center border bg-emerald-955/60 text-emerald-400 border-emerald-850";
+                feedback.innerText = "ЗӨВ ХАРИУЛЛАА! (+10 оноо)";
+                playPopSound();
+            } else {
+                clickedBtn.className = "w-full p-2.5 text-left bg-rose-955/80 border-2 border-rose-500 rounded-xl text-[10px] font-bold text-rose-300 transition";
+                feedback.className = "p-2.5 rounded-xl text-[9px] font-bold text-center border bg-rose-955/60 text-rose-400 border-rose-850";
+                feedback.innerText = `БУРУУ ХАРИУЛЛАА! Зөв хариулт нь: "${qData.a[qData.correct]}"`;
+                playHissSound();
+            }
+
+            document.getElementById('btn-quiz-next').classList.remove('hidden');
+        }
+
+        window.nextQuestion = function() {
+            currentQuestionIdx++;
+            if (currentQuestionIdx < 10) {
+                renderQuizQuestion();
+            } else {
+                // Game Over
+                document.getElementById('quiz-game').innerHTML = `
+                    <div class="p-4 bg-gradient-to-r from-emerald-950 to-indigo-950 rounded-2xl border border-emerald-800 text-center space-y-3">
+                        <i class="fa-solid fa-trophy text-3xl text-yellow-500"></i>
+                        <h4 class="text-xs font-black text-white">СОРИЛ ДУУСЛАА!</h4>
+                        <p class="text-[10px] text-slate-300">Та амжилттай оролцож, 10 асуултаас нийт <strong>${quizScore} оноо</strong> авлаа.</p>
+                        <button onclick="window.switchTab('quiz')" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[9px] rounded-xl transition">Дахин эхлэх</button>
+                    </div>
+                `;
+            }
+        };
+
+        function updateUI() {
+            document.getElementById('scale-temp-lbl').innerText = `${temperature.toFixed(1)} °C`;
+            
+            // Weight mapping to simulate digital balance values
+            let wt = 0.0;
+            if (activeLiquid) wt += activeLiquid.volume * 0.98;
+            if (activeSolid === 'KMnO4') wt += 2.0;
+            if (activeSolid === 'NH4Cl_CaOH2') wt += 2.5;
+            if (activeSolid === 'Na') wt += 0.5;
+            if (activeSolid === 'Mg') wt += 0.8;
+            if (activeSolid === 'Zn') wt += 1.2;
+            if (activeSolid === 'Cu') wt += 1.0;
+            if (activeSolid === 'CaCO3') wt += 2.0;
+            if (activeSolid === 'Fe') wt += 1.0;
+            if (activeSolid === 'MnO2') wt += 0.5;
+            if (glasswareType === 'beaker') wt += 45.0;
+            if (glasswareType === 'test_tube') wt += 12.0;
+            if (glasswareType === 'flask') wt += 65.0;
+
+            document.getElementById('scale-weight-lbl').innerText = `${wt.toFixed(2)} гр`;
+
+            // Sequential Checklist steps checking
+            const s1 = document.getElementById('step-1');
+            const s2 = document.getElementById('step-2');
+            const s3 = document.getElementById('step-3');
+            const s4 = document.getElementById('step-4');
+            const s5 = document.getElementById('step-5');
+
+            if (s1 && s2 && s3 && s4 && s5) {
+                // Step 1 check
+                if (activeLiquid || activeSolid) {
+                    s1.className = "flex items-center gap-2 text-emerald-400";
+                    s1.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>Step 1: Урвалж бодисууд нэмэгдсэн</span>`;
+                } else {
+                    s1.className = "flex items-center gap-2 text-rose-400";
+                    s1.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> <span>Step 1: Урвалж бодисууд нэмэх (Дутуу)</span>`;
+                }
+
+                // Step 2 check
+                if (gasCollectionAssembled) {
+                    s2.className = "flex items-center gap-2 text-emerald-400";
+                    s2.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>Step 2: Багаж угсрагдсан (${gasCollectionMethod === 'water' ? 'Усан тэвштэй' : 'Агаар шахах'})</span>`;
+                } else {
+                    s2.className = "flex items-center gap-2 text-slate-500";
+                    s2.innerHTML = `<i class="fa-solid fa-circle-dot"></i> <span>Step 2: Хураах аргыг сонгох & Багаж угсрах</span>`;
+                }
+
+                // Step 3 check
+                if (burnerOn && reactionActive) {
+                    s3.className = "flex items-center gap-2 text-amber-400 animate-pulse";
+                    s3.innerHTML = `<i class="fa-solid fa-fire text-amber-500"></i> <span>Step 3: Халааж байна... Хий ялгарах явц: ${gasCollectedAmount}%</span>`;
+                } else if (gasCollectedAmount >= 100) {
+                    s3.className = "flex items-center gap-2 text-emerald-400";
+                    s3.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>Step 3: Хий хуримтлагдаж дууссан (100%)</span>`;
+                } else {
+                    s3.className = "flex items-center gap-2 text-slate-500";
+                    s3.innerHTML = `<i class="fa-solid fa-circle-dot"></i> <span>Step 3: Дэн асаах / Хий хуримтлуулах</span>`;
+                }
+
+                // Step 4 check
+                if (gasCollectedAmount >= 100 && !burnerOn) {
+                    s4.className = "flex items-center gap-2 text-emerald-400";
+                    s4.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>Step 4: Халаалтыг аюулгүй зогсоосон (Дэн унтраасан)</span>`;
+                } else if (gasCollectedAmount >= 100 && burnerOn) {
+                    s4.className = "flex items-center gap-2 text-rose-400 animate-bounce";
+                    s4.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> <span>Step 4: Аюулгүй байдал: Одоо дэнгээ унтраана уу!</span>`;
+                } else {
+                    s4.className = "flex items-center gap-2 text-slate-500";
+                    s4.innerHTML = `<i class="fa-solid fa-circle-dot"></i> <span>Step 4: Халаалтыг зогсоох (Дэн унтраах)</span>`;
+                }
+
+                // Step 5 check
+                if (gasCollectedAmount >= 100 && !burnerOn) {
+                    s5.className = "flex items-center gap-2 text-purple-400 animate-pulse";
+                    s5.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles"></i> <span>Step 5: Хийг сориход бэлэн! Зүүн талын HUD-ийг ашиглана уу</span>`;
+                } else {
+                    s5.className = "flex items-center gap-2 text-slate-500";
+                    s5.innerHTML = `<i class="fa-solid fa-circle-dot"></i> <span>Step 5: Хий илрүүлэгч сорилтоор сорих</span>`;
+                }
+            }
+
+            // Update Titration parameters UI
+            const bVolVal = document.getElementById('burette-vol-val');
+            const fPhVal = document.getElementById('flask-ph-val');
+            if (bVolVal && fPhVal) {
+                bVolVal.innerText = `${titrationBuretteVol.toFixed(1)} мл`;
+                
+                let envMongolian = "Саармаг орчин";
+                if (titrationFlaskPh < 6.5) envMongolian = `${titrationFlaskPh.toFixed(1)} (Хүчиллэг)`;
+                else if (titrationFlaskPh > 8.0) envMongolian = `${titrationFlaskPh.toFixed(1)} (Шүлтлэг)`;
+                fPhVal.innerText = envMongolian;
+            }
+        }
 
         window.onload = function() {
             runEarlyAuth();
