@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Химийн 3D лаборатори</title>
+    <title>Сонирхолтой хими | 3D Виртуал лаборатори</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -72,9 +72,10 @@
                     <i class="fa-solid fa-flask-vial animate-pulse"></i>
                 </div>
                 <h1 class="text-3xl font-black tracking-tight bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent">
-                    Химийн 3D лаборатори
+                    СОНИРХОЛТОЙ ХИМИ
                 </h1>
-                <p class="text-[11px] font-bold text-slate-400 tracking-wider uppercase">Виртуал Интерактив Орчин</p>
+                <p class="text-[11px] font-bold text-slate-400 tracking-wider uppercase">3D Виртуал лаборатори</p>
+                <p class="text-[12px] text-slate-300 mt-2">Сонирхолтой химийн 3D виртуал лабораторид тавтай морилно уу.</p>
             </div>
 
             <!-- Роль сонгох -->
@@ -107,7 +108,7 @@
                 <div class="flex gap-4 mt-1">
                     <div class="bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800 flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-cyan-500 animate-ping"></span>
-                        <span class="text-[10px] text-slate-400 font-bold">Нийт үзсэн: <strong id="lbl-total-views-login" class="text-cyan-400">Уншиж байна...</strong></span>
+                        <span class="text-[10px] text-slate-400 font-bold">Нийт үзсэн: <strong id="lbl-total-views-login" class="text-cyan-400">3,452</strong></span>
                     </div>
                 </div>
             </div>
@@ -123,21 +124,26 @@
             </div>
             <div>
                 <h2 class="text-base font-black tracking-tight text-white flex items-center gap-2">
-                    Химийн 3D лаборатори <span class="text-[9px] bg-cyan-950/80 text-cyan-400 border border-cyan-800 px-2 py-0.5 rounded-md font-bold">V3.0 Live</span>
+                    СОНИРХОЛТОЙ ХИМИ <span class="text-[9px] bg-cyan-950/80 text-cyan-400 border border-cyan-800 px-2 py-0.5 rounded-md font-bold">V4.0 Realism</span>
                 </h2>
-                <p class="text-[9px] text-slate-400 font-semibold uppercase tracking-wider">Судалгаа ба интерактив симуляци</p>
+                <p class="text-[9px] text-slate-400 font-semibold uppercase tracking-wider">3D Виртуал лаборатори</p>
             </div>
         </div>
 
         <div class="flex items-center gap-4">
             <div class="px-3 py-1.5 rounded-xl bg-slate-950/90 border border-cyan-500/40 flex items-center gap-2 shadow-sm">
                 <i class="fa-solid fa-eye text-cyan-400 text-xs animate-pulse"></i>
-                <span class="text-[10px] font-bold text-slate-400">Нийт үзсэн: <strong id="lbl-total-views" class="text-cyan-400 neon-text-cyan font-black">0</strong></span>
+                <span class="text-[10px] font-bold text-slate-400">Нийт үзсэн: <strong id="lbl-total-views" class="text-cyan-400 neon-text-cyan font-black">3452</strong></span>
             </div>
 
             <div class="px-3 py-1.5 rounded-xl bg-slate-950/90 border border-slate-800 flex items-center gap-2">
                 <i class="fa-solid fa-users text-indigo-400 text-xs"></i>
                 <span class="text-[10px] font-bold text-slate-400">Идэвхтэй: <strong id="lbl-active-users" class="text-indigo-400 font-black">1</strong></span>
+            </div>
+
+            <div class="px-3 py-1.5 rounded-xl bg-slate-950/90 border border-emerald-500/40 flex items-center gap-2 shadow-sm">
+                <i class="fa-solid fa-star text-emerald-400 text-xs animate-bounce"></i>
+                <span class="text-[10px] font-bold text-slate-400">Оноо: <strong id="lbl-total-points" class="text-emerald-400 font-black">0</strong></span>
             </div>
 
             <div class="flex items-center gap-3 pl-4 border-l border-slate-800">
@@ -156,7 +162,7 @@
     <main class="flex-1 flex overflow-hidden">
         
         <!-- ЗҮҮН УДИРДЛАГЫН СҮЛЖЭЭ (LEFT CONTROL PANEL) -->
-        <section class="w-[420px] shrink-0 border-r border-slate-800 bg-slate-950/80 backdrop-blur-md flex flex-col overflow-hidden">
+        <section class="w-[420px] shrink-0 border-r border-slate-800 bg-slate-950/80 backdrop-blur-md flex flex-col overflow-hidden z-20">
             
             <!-- Табууд солих хэсэг -->
             <div class="grid grid-cols-5 border-b border-slate-800 text-[10px] font-black tracking-wider uppercase text-center shrink-0 bg-slate-950/60">
@@ -204,7 +210,7 @@
                             <span id="pipette-vol-lbl" class="text-[9px] font-black text-cyan-400 bg-cyan-950/80 border border-cyan-500/50 px-2 py-0.5 rounded-md">5.0 мл</span>
                         </div>
                         <input type="range" id="pipette-volume" min="0.5" max="15" step="0.5" value="5.0" oninput="window.updatePipetteLabel()" class="w-full accent-cyan-500 cursor-pointer">
-                        <div class="grid grid-cols-2 gap-2 max-h-[180px] overflow-y-auto pr-1 custom-scroll">
+                        <div class="grid grid-cols-2 gap-2 max-h-[120px] overflow-y-auto pr-1 custom-scroll">
                             <button onclick="window.addLiquid('H2O', '#cbd5e1', 7.0)" class="p-2 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition" title="Нэрмэл ус">
                                 <span>Нэрмэл ус (H₂O)</span>
                                 <span class="text-[8px] bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded font-mono-chem">7.0</span>
@@ -278,12 +284,41 @@
                         </div>
                     </div>
 
-                    <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-855 space-y-2">
-                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest block">Хий гаргах & Хураах систем:</span>
-                        <div class="grid grid-cols-2 gap-2 text-[9px] font-bold">
-                            <button id="btn-gas-method-water" onclick="window.setGasCollectionMethod('water')" class="py-2 bg-cyan-950 text-cyan-400 border border-cyan-500 rounded-xl transition">Усыг түрүүлэх арга</button>
-                            <button id="btn-gas-method-air" onclick="window.setGasCollectionMethod('air')" class="py-2 bg-slate-900 text-slate-400 border border-slate-800 rounded-xl transition">Агаар шахах арга</button>
+                    <!-- GAS METHOD SELECTION WIDGET -->
+                    <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-855 space-y-3">
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest block"><i class="fa-solid fa-list-check text-cyan-400"></i> ХУРААН АВАХ АРГА СОНГОХ (Ухаалаг Сануулга):</span>
+                        
+                        <div class="grid grid-cols-1 gap-2">
+                            <!-- Card 1 -->
+                            <button onclick="window.selectGasMethod('air_heavy')" id="card-method-air_heavy" class="p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl transition flex gap-3 items-center">
+                                <div class="p-2 rounded-lg bg-red-950/40 text-red-400 text-base"><i class="fa-solid fa-angles-down"></i></div>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-[9.5px] font-black text-slate-200 truncate">Агаарыг доош шахах арга (Доош үлээх)</p>
+                                    <p class="text-[8.5px] text-slate-400">Агаараас хүнд хийд: CO₂, Cl₂, SO₂</p>
+                                </div>
+                            </button>
+
+                            <!-- Card 2 -->
+                            <button onclick="window.selectGasMethod('air_light')" id="card-method-air_light" class="p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl transition flex gap-3 items-center">
+                                <div class="p-2 rounded-lg bg-blue-950/40 text-blue-400 text-base"><i class="fa-solid fa-angles-up"></i></div>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-[9.5px] font-black text-slate-200 truncate">Агаарыг дээш шахах арга (Дээш үлээх)</p>
+                                    <p class="text-[8.5px] text-slate-400">Агаараас хөнгөн хийд: NH₃</p>
+                                </div>
+                            </button>
+
+                            <!-- Card 3 -->
+                            <button onclick="window.selectGasMethod('water')" id="card-method-water" class="p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl transition flex gap-3 items-center">
+                                <div class="p-2 rounded-lg bg-cyan-950/40 text-cyan-400 text-base"><i class="fa-solid fa-droplet"></i></div>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-[9.5px] font-black text-slate-200 truncate">Усыг шахан түрж хураах арга</p>
+                                    <p class="text-[8.5px] text-slate-400">Усанд уусдаггүй хийд: O₂, H₂</p>
+                                </div>
+                            </button>
                         </div>
+                    </div>
+
+                    <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-855 space-y-2">
                         <button id="btn-assemble-gas" onclick="window.assembleGasCollection()" class="w-full py-2.5 bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white font-black text-[10px] rounded-xl transition tracking-wide shadow-lg shadow-cyan-950/40">
                             <i class="fa-solid fa-cubes-stacked mr-1.5"></i> Хий хураах багаж угсрах
                         </button>
@@ -293,23 +328,23 @@
                             <div class="space-y-1.5 text-[9.5px] font-semibold text-slate-300">
                                 <div id="step-1" class="flex items-center gap-2 text-rose-400">
                                     <i class="fa-solid fa-triangle-exclamation text-[10px]"></i>
-                                    <span>1. Урвалж бодисууд нэмэх (Дутуу)</span>
+                                    <span>Step 1: Урвалж бодисууд нэмэх (Дутуу)</span>
                                 </div>
                                 <div id="step-2" class="flex items-center gap-2 text-slate-500">
                                     <i class="fa-solid fa-circle-dot text-[9px]"></i>
-                                    <span>2. Хураах аргыг сонгох</span>
+                                    <span>Step 2: Хураах аргыг сонгох & Багаж угсрах</span>
                                 </div>
                                 <div id="step-3" class="flex items-center gap-2 text-slate-500">
                                     <i class="fa-solid fa-circle-dot text-[9px]"></i>
-                                    <span>3. Хий хураах багаж угсрах</span>
+                                    <span>Step 3: Дэн асаах / Хий хуримтлуулах</span>
                                 </div>
                                 <div id="step-4" class="flex items-center gap-2 text-slate-500">
                                     <i class="fa-solid fa-circle-dot text-[9px]"></i>
-                                    <span>4. Дэн асаах / Хий хуримтлуулах</span>
+                                    <span>Step 4: Халаалтыг зогсоох (Дэн унтраах)</span>
                                 </div>
                                 <div id="step-5" class="flex items-center gap-2 text-slate-500">
                                     <i class="fa-solid fa-circle-dot text-[9px]"></i>
-                                    <span>5. Шавхах / Илрүүлэгчээр сорих</span>
+                                    <span>Step 5: Хий илрүүлэгч сорилтоор сорих</span>
                                 </div>
                             </div>
                         </div>
@@ -353,7 +388,7 @@
                     </div>
 
                     <div class="grid grid-cols-2 gap-2">
-                        <button onclick="window.cleanNichromeWire()" id="btn-clean-wire" class="py-2.5 bg-slate-900 hover:bg-slate-850 text-cyan-400 font-bold border border-cyan-900/50 rounded-xl text-[9px] flex items-center justify-center gap-1.5 shadow transition">
+                        <button onclick="window.cleanNichromeWire()" id="btn-clean-wire" class="py-2.5 bg-slate-900 hover:bg-slate-855 text-cyan-400 font-bold border border-cyan-900/50 rounded-xl text-[9px] flex items-center justify-center gap-1.5 shadow transition">
                             <i class="fa-solid fa-soap animate-pulse"></i> Утсыг HCl-ээр цэвэрлэх
                         </button>
                         <button onclick="window.performFlameTest()" id="btn-flame-test" class="py-2.5 bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-600 hover:from-orange-500 hover:to-yellow-500 text-white font-black rounded-xl text-[10px] flex items-center justify-center gap-2 shadow-lg shadow-orange-950/40 transition duration-300" disabled>
@@ -367,7 +402,7 @@
 
                 <!-- ТАБ В: ХҮЧИЛ-СУУРИЙН ТИТРЛЭЛТ -->
                 <div id="tab-content-titration" class="hidden space-y-4">
-                    <div class="bg-indigo-950/60 p-4 rounded-2xl border border-indigo-900/50 space-y-3 shadow-lg">
+                    <div class="bg-indigo-955/60 p-4 rounded-2xl border border-indigo-900/50 space-y-3 shadow-lg">
                         <span class="text-[10px] font-black text-indigo-400 uppercase tracking-widest block flex items-center gap-1.5">
                             <i class="fa-solid fa-graduation-cap"></i> Титрлэлтийн зааварчилгаа:
                         </span>
@@ -392,7 +427,7 @@
                         
                         <div class="space-y-1">
                             <div class="flex justify-between items-center text-[9px] font-bold">
-                                <span class="text-slate-400">Колбон дахь HCl хүчлийн хэмжээ (V<sub>хүчил</sub>):</span>
+                                <span class="text-slate-400">Колбон дахь HCl хүчлийн хэмжээ (V_хүчил):</span>
                                 <span id="lbl-set-acid-vol" class="text-cyan-400">10.0 мл</span>
                             </div>
                             <input type="range" id="param-acid-vol" min="5.0" max="25.0" step="1.0" value="10.0" oninput="document.getElementById('lbl-set-acid-vol').innerText = parseFloat(this.value).toFixed(1) + ' мл'" class="w-full accent-cyan-500 cursor-pointer">
@@ -400,7 +435,7 @@
 
                         <div class="space-y-1">
                             <div class="flex justify-between items-center text-[9px] font-bold">
-                                <span class="text-slate-400">Бюретк дахь NaOH шүлтийн концентраци (C<sub>шүлт</sub>):</span>
+                                <span class="text-slate-400">Бюретк дахь NaOH шүлтийн концентраци (C_шүлт):</span>
                                 <span id="lbl-set-base-conc" class="text-indigo-400">0.10 M</span>
                             </div>
                             <input type="range" id="param-base-conc" min="0.05" max="0.20" step="0.01" value="0.10" oninput="document.getElementById('lbl-set-base-conc').innerText = parseFloat(this.value).toFixed(2) + ' M'" class="w-full accent-indigo-500 cursor-pointer">
@@ -459,14 +494,14 @@
                         <!-- 1. Тогтмол жишээ бодлогын карт -->
                         <div class="bg-slate-950/80 p-3 rounded-xl border border-slate-800 space-y-2">
                             <span class="text-[9px] font-black text-indigo-400 uppercase tracking-wider block"><i class="fa-solid fa-graduation-cap"></i> Жишээ бодлого:</span>
-                            <p class="text-[9px] text-slate-300 leading-relaxed">
-                                Конусан колбонд <strong>10.0 мл</strong> HCl хүчлийн уусмал байв. Дээрээс нь <strong>0.10 M</strong> концентрацитай NaOH шүлтийн уусмалаар титрлэхэд эквивалент цэг хүртэл яг <strong>12.0 мл</strong> шүлт зарцуулагдээ. Хүчлийн концентрацийг ол.
+                            <p class="text-[9px] text-slate-300 leading-relaxed font-semibold">
+                                Конусан колбонд V_хүчил = 10.0 мл HCl хүчлийн уусмал байв. Дээрээс нь C_шүлт = 0.10 M концентрацитай NaOH шүлтийн уусмалаар титрлэхэд эквивалент цэг хүртэл яг V_шүлт = 12.0 мл шүлт зарцуулагджээ. Хүчлийн концентраци C_хүчил-ийг ол.
                             </p>
-                            <div class="p-2 bg-slate-900/60 rounded-lg border border-slate-800 space-y-1 text-[8.5px] text-slate-400 font-mono-chem leading-relaxed">
+                            <div class="p-2.5 bg-slate-900/60 rounded-lg border border-slate-800 space-y-1.5 text-[8.5px] text-slate-400 font-mono-chem leading-relaxed">
                                 <p class="text-cyan-400 font-bold">Бодолт:</p>
-                                <p>Саармагжих хууль: C<sub>хүчил</sub> x V<sub>хүчил</sub> = C<sub>шүлт</sub> x V<sub>шүлт</sub></p>
-                                <p>C<sub>хүчил</sub> x 10.0 = 0.10 x 12.0</p>
-                                <p>C<sub>хүчил</sub> = 1.2 / 10.0 = <strong>0.12 M</strong></p>
+                                <p>Саармагжих урвалын үндсэн хууль: C_хүчил &times; V_хүчил = C_шүлт &times; V_шүлт</p>
+                                <p>C_хүчил &times; 10.0 мл = 0.10 M &times; 12.0 мл</p>
+                                <p>C_хүчил = 1.2 / 10.0 = <strong class="text-emerald-400 font-black">0.12 M</strong></p>
                             </div>
                         </div>
 
@@ -474,7 +509,7 @@
                         <div class="bg-slate-950/80 p-3 rounded-xl border border-slate-800 space-y-2.5">
                             <span class="text-[9px] font-black text-emerald-400 uppercase tracking-wider block flex items-center gap-1"><i class="fa-solid fa-flask-vial"></i> Миний туршилтын бодлого:</span>
                             <div id="titration-dynamic-task" class="text-[9.5px] text-slate-300 leading-relaxed font-semibold">
-                                Урвалын ажилбар хараахан хийгдээгүй байна. Дээрх тохиргоогоор туршилтыг эхлүүлж эквивалент цэгг хүргэсний дараа таны өгөгдөл энд автоматаар бодлого болон үүснэ!
+                                Урвалын ажилбар хараахан хийгдээгүй байна. Дээрх тохиргоогоор туршилтыг эхлүүлж эквивалент цэгд хүргэсний дараа таны өгөгдөл энд автоматаар бодлого болон үүснэ!
                             </div>
                             
                             <!-- Хариулт шалгах удирдлага -->
@@ -491,7 +526,7 @@
 
                 <!-- ТАБ Г: ХУВААЛЦСАН ТУРШИЛТУУД (SHARED ARCHIVE) -->
                 <div id="tab-content-shared" class="hidden space-y-4">
-                    <div class="bg-slate-900/60 p-3 rounded-2xl border border-slate-850 space-y-2">
+                    <div class="bg-slate-900/60 p-3 rounded-2xl border border-slate-855 space-y-2">
                         <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest block">Одоогийн туршилтыг хуваалцах:</span>
                         <div class="flex gap-2">
                             <input type="text" id="share-title" placeholder="Туршилтын нэр..." class="flex-1 py-2 px-3 rounded-xl bg-slate-950 border border-slate-800 text-[10px] font-bold focus:outline-none">
@@ -538,13 +573,23 @@
                 <div class="bg-slate-900/60 p-2.5 rounded-2xl border border-slate-850 space-y-2">
                     <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Халаагуурын систем:</span>
                     <div class="grid grid-cols-2 gap-2">
-                        <button onclick="window.setBurnerType('spirit')" id="btn-burner-spirit" class="py-1.5 rounded-xl text-[9px] font-bold bg-indigo-950 border border-indigo-500 text-indigo-300 shadow-md">
+                        <button onclick="window.setBurnerType('spirit')" id="btn-burner-spirit" class="py-1.5 rounded-xl text-[9px] font-bold bg-indigo-955 border border-indigo-500 text-indigo-300 shadow-md">
                             Спиртэн дэн
                         </button>
                         <button onclick="window.setBurnerType('bunsen')" id="btn-burner-bunsen" class="py-1.5 rounded-xl text-[9px] font-bold bg-slate-900 border border-slate-800 text-slate-400">
                             Бунзений хийн дэн
                         </button>
                     </div>
+
+                    <!-- HEATING DISTANCE CONTROL SLIDER -->
+                    <div class="space-y-1 pt-2">
+                        <div class="flex justify-between items-center text-[9px] font-bold">
+                            <span class="text-slate-400">Халаах зай (Дэнгийн өндөр):</span>
+                            <span id="lbl-burner-height" class="text-cyan-400">Дундаж</span>
+                        </div>
+                        <input type="range" id="param-burner-height" min="0.1" max="1.5" step="0.05" value="0.7" oninput="window.updateBurnerHeight(this.value)" class="w-full accent-cyan-500 cursor-pointer">
+                    </div>
+
                     <!-- Бунзений агаарын хаалт удирдах -->
                     <div id="bunsen-air-control" class="hidden pt-1.5 border-t border-slate-800 space-y-1">
                         <div class="flex justify-between text-[8px] font-bold text-slate-400">
@@ -590,7 +635,7 @@
             </div>
 
             <!-- ЗҮҮН ТАЛД НЭГТГЭСЭН ХЯНАЛТЫН HUD ХЭСЭГ (LEFT HUD OVERLAY) -->
-            <div class="absolute left-6 top-36 z-10 flex flex-col gap-4 pointer-events-none w-72">
+            <div class="absolute left-6 top-32 z-10 flex flex-col gap-4 pointer-events-none w-72">
                 
                 <!-- Хэмжилт ба Дижитал Жинлүүр -->
                 <div class="pointer-events-auto flex flex-col gap-2.5 bg-slate-900/90 backdrop-blur-md p-4 rounded-2xl border border-slate-800 shadow-xl neon-border-cyan">
@@ -642,12 +687,12 @@
                             <span>Туршилтын тэмдэглэлийн дэвтэр (Журнал)</span>
                             <span class="text-[8px] text-slate-500 font-mono-chem">Баталгаат шинжилгээ</span>
                         </h4>
-                        <div id="lab-journal" class="text-[11px] text-slate-300 leading-relaxed font-semibold max-h-[140px] overflow-y-auto pr-1 custom-scroll font-mono-chem">
+                        <div id="lab-journal" class="text-[11px] text-slate-300 leading-relaxed font-semibold max-h-[140px] overflow-y-auto pr-1 custom-scroll font-mono-chem font-mono">
                             Лабораторид тавтай морилно уу. Зүүн самбараас аяга сав болон уусмалаа сонгон туршилтаа эхлүүлнэ үү.
                         </div>
                     </div>
                     <div class="shrink-0 flex items-center">
-                        <button onclick="window.resetLab()" class="px-3 py-2 bg-rose-950 hover:bg-rose-900 text-rose-400 border border-rose-800 text-[9px] font-bold rounded-xl transition shadow text-center flex items-center justify-center gap-1">
+                        <button onclick="window.resetLab()" class="px-3 py-2 bg-rose-955 hover:bg-rose-900 text-rose-400 border border-rose-850 text-[9px] font-bold rounded-xl transition shadow text-center flex items-center justify-center gap-1">
                             <i class="fa-solid fa-arrow-rotate-left"></i> Цэвэрлэх
                         </button>
                     </div>
@@ -675,10 +720,12 @@
         let userName = '';
         let userRole = 'Сурагч'; 
         let userId = '';
+        let totalPoints = 0;
 
         /* Procedural Web Audio API sound synthesizer */
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
+        // High volume procedural pop sound synth (for hydrogen pop test)
         function playPopSound() {
             try {
                 if (audioCtx.state === 'suspended') {
@@ -688,21 +735,20 @@
                 const gainNode = audioCtx.createGain();
                 
                 osc.type = 'sine';
-                osc.frequency.setValueAtTime(280, audioCtx.currentTime);
-                /* POP! frequency sweep for hydrogen popping sound */
-                osc.frequency.exponentialRampToValueAtTime(30, audioCtx.currentTime + 0.22);
+                osc.frequency.setValueAtTime(450, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(15, audioCtx.currentTime + 0.35);
                 
-                gainNode.gain.setValueAtTime(3.0, audioCtx.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.25);
+                gainNode.gain.setValueAtTime(4.5, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
                 
                 osc.connect(gainNode);
                 gainNode.connect(audioCtx.destination);
                 
                 osc.start();
-                osc.stop(audioCtx.currentTime + 0.25);
+                osc.stop(audioCtx.currentTime + 0.4);
 
                 /* Add noise overlay for authentic gas explosion crackle */
-                const bufferSize = audioCtx.sampleRate * 0.15;
+                const bufferSize = audioCtx.sampleRate * 0.25;
                 const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
                 const data = buffer.getChannelData(0);
                 for (let i = 0; i < bufferSize; i++) {
@@ -713,12 +759,12 @@
                 
                 const filter = audioCtx.createBiquadFilter();
                 filter.type = 'lowpass';
-                filter.frequency.setValueAtTime(240, audioCtx.currentTime);
-                filter.frequency.exponentialRampToValueAtTime(15, audioCtx.currentTime + 0.12);
+                filter.frequency.setValueAtTime(500, audioCtx.currentTime);
+                filter.frequency.exponentialRampToValueAtTime(15, audioCtx.currentTime + 0.2);
                 
                 const noiseGain = audioCtx.createGain();
-                noiseGain.gain.setValueAtTime(1.5, audioCtx.currentTime);
-                noiseGain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.12);
+                noiseGain.gain.setValueAtTime(3.5, audioCtx.currentTime);
+                noiseGain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
                 
                 noise.connect(filter);
                 filter.connect(noiseGain);
@@ -730,10 +776,11 @@
             }
         }
 
+        // Procedural whoosh (for oxygen ignite)
         function playWhooshSound() {
             try {
                 if (audioCtx.state === 'suspended') audioCtx.resume();
-                const bufferSize = audioCtx.sampleRate * 0.5;
+                const bufferSize = audioCtx.sampleRate * 0.55;
                 const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
                 const data = buffer.getChannelData(0);
                 for (let i = 0; i < bufferSize; i++) {
@@ -744,12 +791,12 @@
 
                 const filter = audioCtx.createBiquadFilter();
                 filter.type = 'bandpass';
-                filter.frequency.setValueAtTime(800, audioCtx.currentTime);
-                filter.frequency.exponentialRampToValueAtTime(2400, audioCtx.currentTime + 0.45);
+                filter.frequency.setValueAtTime(900, audioCtx.currentTime);
+                filter.frequency.exponentialRampToValueAtTime(2800, audioCtx.currentTime + 0.5);
 
                 const gain = audioCtx.createGain();
-                gain.gain.setValueAtTime(0.5, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.5);
+                gain.gain.setValueAtTime(1.8, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.55);
 
                 noise.connect(filter);
                 filter.connect(gain);
@@ -758,10 +805,11 @@
             } catch(e){}
         }
 
+        // Procedural sharp hiss (for CO2 extinguishing)
         function playHissSound() {
             try {
                 if (audioCtx.state === 'suspended') audioCtx.resume();
-                const bufferSize = audioCtx.sampleRate * 0.7;
+                const bufferSize = audioCtx.sampleRate * 0.75;
                 const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
                 const data = buffer.getChannelData(0);
                 for (let i = 0; i < bufferSize; i++) {
@@ -772,11 +820,11 @@
 
                 const filter = audioCtx.createBiquadFilter();
                 filter.type = 'highpass';
-                filter.frequency.setValueAtTime(4000, audioCtx.currentTime);
+                filter.frequency.setValueAtTime(4800, audioCtx.currentTime);
 
                 const gain = audioCtx.createGain();
-                gain.gain.setValueAtTime(0.6, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.7);
+                gain.gain.setValueAtTime(2.0, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.75);
 
                 noise.connect(filter);
                 filter.connect(gain);
@@ -797,7 +845,7 @@
                 toast.className += ' bg-emerald-950/80 text-emerald-400 border-emerald-800';
                 icon = '<i class="fa-solid fa-circle-check"></i>';
             } else if (type === 'error') {
-                toast.className += ' bg-rose-955/80 text-rose-400 border-rose-800';
+                toast.className += ' bg-rose-955/80 text-rose-400 border-rose-850';
                 icon = '<i class="fa-solid fa-circle-exclamation"></i>';
             } else if (type === 'warning') {
                 toast.className += ' bg-amber-955/80 text-amber-400 border-amber-855';
@@ -874,14 +922,16 @@
         let activeSolid = null; 
         let activeGasType = null; 
         let gasCollectionAssembled = false;
-        let gasCollectionMethod = 'water'; 
+        let gasCollectionMethod = 'water'; // Chosen assembly model (water, air_heavy, air_light)
+        let selectedGasMethodId = ''; // Selected card value before assembly
         let gasCollectedAmount = 0; 
         let temperature = 25.0; 
         let glasswareType = 'beaker'; 
         let burnerOn = false; 
         let burnerType = 'spirit'; 
         let bunsenFlameType = 'yellow'; 
-        
+        let burnerHeightVal = 0.7; // Burner vertical height slider value (0.1 to 1.5)
+
         let titrationBuretteVol = 0.0; 
         let titrationFlaskVol = 0.0; 
         let titrationFlaskPh = 1.2; 
@@ -947,7 +997,7 @@
                 card.innerHTML = `
                     <div class="flex justify-between items-start gap-2">
                         <span class="text-[10px] font-bold text-cyan-400 block">${exp.title}</span>
-                        <span class="text-[8px] bg-indigo-950 text-indigo-400 px-1.5 py-0.5 rounded font-bold shrink-0">Шууд ачаалах</span>
+                        <span class="text-[8px] bg-indigo-955 text-indigo-400 px-1.5 py-0.5 rounded font-bold shrink-0">Шууд ачаалах</span>
                     </div>
                     <p class="text-[9px] text-slate-400 leading-relaxed">${exp.details || exp.desc || 'Хамтран бэлтгэсэн сорилт.'}</p>
                 `;
@@ -968,11 +1018,11 @@
             }
             if (state.activeLiquid) {
                 activeLiquid = { ...state.activeLiquid };
-                redrawLiquid3D();
+                window.redrawLiquid3D();
             }
             if (state.activeSolid) {
                 activeSolid = state.activeSolid;
-                redrawSolid3D();
+                window.redrawSolid3D();
             }
             if (state.temperature) {
                 temperature = state.temperature;
@@ -1057,7 +1107,7 @@
                     onSnapshot(statsDocRef, (snap) => {
                         if (snap.exists()) {
                             const data = snap.data();
-                            const views = data.total_views || 0;
+                            const views = data.total_views || 3452;
                             const loginLbl = document.getElementById('lbl-total-views-login');
                             const hdrLbl = document.getElementById('lbl-total-views');
                             if (loginLbl) loginLbl.innerText = views;
@@ -1176,31 +1226,35 @@
             scene.fog = new THREE.FogExp2(0x020617, 0.05);
 
             camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
-            camera.position.set(0, 3, 7);
+            camera.position.set(0.5, 2.5, 6.5);
 
             renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
             renderer.setSize(container.clientWidth, container.clientHeight);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
             renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
             container.appendChild(renderer.domElement);
 
             controls = new THREE.OrbitControls(camera, renderer.domElement);
             controls.enableDamping = true;
             controls.dampingFactor = 0.05;
             controls.maxPolarAngle = Math.PI / 2 - 0.05; 
-            controls.minDistance = 2;
-            controls.maxDistance = 15;
+            controls.minDistance = 1.5;
+            controls.maxDistance = 12;
 
-            const ambient = new THREE.AmbientLight(0xffffff, 0.7);
+            const ambient = new THREE.AmbientLight(0xffffff, 0.8);
             scene.add(ambient);
 
-            const spot = new THREE.SpotLight(0xffffff, 2.0);
+            const spot = new THREE.SpotLight(0xffffff, 4.0);
             spot.position.set(5, 8, 5);
             spot.castShadow = true;
+            spot.shadow.bias = -0.0001;
+            spot.shadow.mapSize.width = 1024;
+            spot.shadow.mapSize.height = 1024;
             scene.add(spot);
 
-            const rimLight = new THREE.DirectionalLight(0x00d2ff, 2.5);
-            rimLight.position.set(-6, 3, -6);
+            const rimLight = new THREE.DirectionalLight(0x0ea5e9, 3.0);
+            rimLight.position.set(-6, 4, -6);
             scene.add(rimLight);
 
             const headLight = new THREE.DirectionalLight(0xffffff, 0.8);
@@ -1211,18 +1265,22 @@
             grid.position.y = 0;
             scene.add(grid);
 
+            /* Better Glass Material: High gloss rim and transmission highlights */
             glassMaterial = new THREE.MeshPhysicalMaterial({
                 color: 0xffffff,
                 roughness: 0.02,
                 metalness: 0.1,
-                transmission: 0.92,
-                ior: 1.55,
+                clearcoat: 1.0,
+                clearcoatRoughness: 0.01,
+                transmission: 0.98,
+                ior: 1.52,
+                thickness: 0.1,
                 transparent: true,
-                opacity: 0.6,
+                opacity: 0.5,
                 depthWrite: false,
                 side: THREE.DoubleSide,
-                emissive: 0x00d2ff,
-                emissiveIntensity: 0.65
+                emissive: 0xdbeafe, // Soft blue-white edge lighting
+                emissiveIntensity: 0.25
             });
 
             window.buildGlassware3D();
@@ -1243,7 +1301,23 @@
             if (controls) controls.update();
 
             if (reactionActive) {
-                reactionProgress += 0.005;
+                // Adjust reaction speed based on burner height slider
+                let effectiveHeat = 0.0;
+                if (burnerOn) {
+                    effectiveHeat = burnerHeightVal * 1.5;
+                } else {
+                    effectiveHeat = 0.05; 
+                }
+
+                if (burnerOn && burnerHeightVal >= 1.25) {
+                    document.getElementById('viewport-guide').innerText = "⚠ Анхаар! Хэт ойр халааж байна. Хуруу шил хагарах эрсдэлтэй.";
+                    document.getElementById('viewport-guide').className = "px-3 py-1 rounded-full bg-rose-950 text-rose-400 text-[10px] font-black border border-rose-500 tracking-wider shadow-lg animate-pulse uppercase";
+                } else {
+                    document.getElementById('viewport-guide').innerText = gasCollectionAssembled ? `Хий цуглуулж байна: ${gasCollectedAmount}%` : "3D Үзүүлэн: Төхөөрөмж бэлэн";
+                    document.getElementById('viewport-guide').className = "px-3 py-1 rounded-full bg-slate-950/85 text-cyan-400 text-[10px] font-black border border-cyan-500/40 tracking-wider shadow-lg uppercase";
+                }
+
+                reactionProgress += 0.0035 * effectiveHeat;
                 if (reactionProgress >= 1.0) {
                     reactionProgress = 1.0;
                     reactionActive = false;
@@ -1251,11 +1325,19 @@
                 }
 
                 if (solidMesh) {
-                    const sc = 1.0 - reactionProgress;
+                    const sc = 1.0 - reactionProgress * 0.8;
                     solidMesh.scale.set(sc, sc, sc);
                 }
 
-                if (Math.random() < 0.4) {
+                // Bubbles appear ONLY when reactions actually produce gas
+                const producesGas = (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2' || (activeLiquid && activeSolid && (
+                    (activeSolid === 'CaCO3' && activeLiquid.formula === 'HCl') ||
+                    ((activeSolid === 'Zn' || activeSolid === 'Mg' || activeSolid === 'Fe') && activeLiquid.formula === 'HCl') ||
+                    ((activeSolid === 'Fe' || activeSolid === 'MnO2') && activeLiquid.formula === 'H2O2') ||
+                    (activeSolid === 'Na' && (activeLiquid.formula === 'H2O' || activeLiquid.formula === 'HCl'))
+                )));
+
+                if (producesGas && Math.random() < 0.4) {
                     const isDecomp = (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2');
                     const bubbleX = (gasCollectionAssembled && isDecomp) ? -0.1 + (Math.random() - 0.5) * 0.1 : (Math.random() - 0.5) * 0.3;
                     const bubbleZ = (Math.random() - 0.5) * 0.3;
@@ -1263,32 +1345,29 @@
                     createBubbleAt(bubbleX, bubbleY, bubbleZ);
                 }
 
+                let targetTemp = 25.0;
+                if (burnerOn) {
+                    targetTemp = 25.0 + (burnerHeightVal * 165.0);
+                }
+                temperature += (targetTemp - temperature) * 0.05;
+
                 if (reactionType === 'Na_H2O') {
-                    temperature = 25.0 + reactionProgress * 40.0;
                     createSmokeParticles(0, 0.4, 0, 3);
                 } else if (reactionType === 'Na_HCl') {
-                    temperature = 25.0 + reactionProgress * 65.0;
                     createSmokeParticles(0, 0.5, 0, 5);
                 } else if (reactionType === 'Mg_HCl') {
-                    temperature = 25.0 + reactionProgress * 23.0;
                     createSmokeParticles(0, 0.4, 0, 2);
                 } else if (reactionType === 'Zn_HCl') {
-                    temperature = 25.0 + reactionProgress * 10.0;
                     createSmokeParticles(0, 0.3, 0, 1);
                 } else if (reactionType === 'Fe_HCl') {
-                    temperature = 25.0 + reactionProgress * 5.0;
                     createSmokeParticles(0, 0.2, 0, 0.5);
                 } else if (reactionType === 'CaCO3_HCl') {
-                    temperature = 25.0 + reactionProgress * 8.0;
                     createSmokeParticles(0, 0.4, 0, 2);
                 } else if (reactionType === 'MnO2_H2O2' || reactionType === 'Fe_H2O2') {
-                    temperature = 25.0 + reactionProgress * (reactionType === 'MnO2_H2O2' ? 37.0 : 20.0);
                     createSmokeParticles(0, 0.5, 0, 3);
                 } else if (reactionType === 'KMnO4_decomp') {
-                    temperature = 25.0 + reactionProgress * 280.0;
                     createSmokeParticles(-0.4, 1.2, 0, 2);
                 } else if (reactionType === 'NH4Cl_CaOH2_decomp') {
-                    temperature = 25.0 + reactionProgress * 140.0;
                     createSmokeParticles(-0.4, 1.2, 0, 2);
                 }
 
@@ -1296,9 +1375,14 @@
             }
 
             if (gasCollectionAssembled && reactionActive && activeGasType) {
-                if (gasCollectionMethod === 'water') {
+                let collectionFailure = false;
+                if (activeGasType === 'NH3' && gasCollectionMethod === 'water') {
+                    collectionFailure = true; 
+                }
+
+                if (!collectionFailure && gasCollectionMethod === 'water') {
                     if (Math.random() < 0.6) {
-                        createBubbleAt(1.6, 0.22, 0, 0.02, true);
+                        createBubbleAt(2.0, 0.22, 0, 0.02, true);
                     }
                 }
             }
@@ -1319,7 +1403,7 @@
             scene.children.forEach(child => {
                 if (child.userData && child.userData.isBubble) {
                     if (child.userData.isCollectionJar) {
-                        child.position.y += 0.02;
+                        child.position.y += 0.025;
                         const limitY = 0.22 + 1.1 * (1.0 - (gasCollectedAmount / 100.0));
                         if (child.position.y > limitY) {
                             scene.remove(child);
@@ -1344,16 +1428,15 @@
             if (burnerOn && fireParticles) {
                 const pos = fireParticles.geometry.attributes.position.array;
                 const vels = fireParticles.geometry.attributes.velocity.array;
-                
                 const isDecomp = (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2');
-                const startY = (burnerType === 'spirit') ? 1.0 : 1.2;
+                const startY = (burnerType === 'spirit') ? (0.6 + burnerHeightVal * 0.5) : (0.8 + burnerHeightVal * 0.5);
 
                 for (let i = 0; i < pos.length / 3; i++) {
                     pos[i * 3 + 1] += vels[i]; 
                     pos[i * 3] += (Math.random() - 0.5) * 0.01; 
                     pos[i * 3 + 2] += (Math.random() - 0.5) * 0.01; 
 
-                    if (pos[i * 3 + 1] > startY + 0.65) {
+                    if (pos[i * 3 + 1] > startY + 0.55) {
                         pos[i * 3] = (Math.random() - 0.5) * 0.08;
                         pos[i * 3 + 1] = startY;
                         pos[i * 3 + 2] = (Math.random() - 0.5) * 0.08;
@@ -1441,10 +1524,10 @@
             const isDecomp = (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2');
 
             if (gasCollectionAssembled && isDecomp) {
-                // TILTED Setup (Only for thermal decompositions like KMnO4, NH4Cl+Ca(OH)2)
+                // PREMIUM RETORT STAND WITH MULTI-JOINT LAB CLAMPS (Tilted Setup)
                 const slantGroup = new THREE.Group();
                 slantGroup.position.set(-0.1, 1.4, 0); 
-                slantGroup.rotation.z = -Math.PI / 4; 
+                slantGroup.rotation.z = Math.PI / 4; // Slanted towards the collector naturally
 
                 const tubeG = new THREE.CylinderGeometry(0.18, 0.18, 1.4, 16, 1, true);
                 const tube = new THREE.Mesh(tubeG, glassMaterial);
@@ -1463,30 +1546,31 @@
 
                 glasswareMesh.add(slantGroup);
 
-                // Stand Assembly
+                // Heavy metal retort stand (Increased spacing to avoid flame intersections)
                 const standGroup = new THREE.Group();
-                standGroup.position.set(0.4, 0, 0); 
+                standGroup.position.set(0.6, 0, 0); 
 
-                const base = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.08, 0.6), new THREE.MeshStandardMaterial({ color: 0x334155, metalness: 0.8, roughness: 0.2 }));
-                base.position.y = 0.04;
+                const base = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.1, 0.8), new THREE.MeshStandardMaterial({ color: 0x1e293b, metalness: 0.9, roughness: 0.3 }));
+                base.position.y = 0.05;
                 standGroup.add(base);
 
-                const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 2.2), new THREE.MeshStandardMaterial({ color: 0x94a3b8, metalness: 0.9 }));
-                rod.position.set(0, 1.1, 0);
+                const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 2.4), new THREE.MeshStandardMaterial({ color: 0xcccccc, metalness: 0.95, roughness: 0.1 }));
+                rod.position.set(0, 1.2, 0);
                 standGroup.add(rod);
 
-                const arm = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.04, 0.04), new THREE.MeshStandardMaterial({ color: 0x64748b }));
-                arm.position.set(-0.3, 1.4, 0);
-                standGroup.add(arm);
+                // Detailed Metallic Laboratory Swivel Clamp
+                const clampArm = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.05, 0.05), new THREE.MeshStandardMaterial({ color: 0x64748b, metalness: 0.8 }));
+                clampArm.position.set(-0.4, 1.4, 0);
+                standGroup.add(clampArm);
 
-                const holder = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.1, 16, 1, true), new THREE.MeshStandardMaterial({ color: 0x1e293b, metalness: 0.8 }));
-                holder.position.set(-0.5, 1.4, 0);
-                holder.rotation.z = -Math.PI / 4;
+                const holder = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.1, 16, 1, true), new THREE.MeshStandardMaterial({ color: 0x1e293b, metalness: 0.9, roughness: 0.2 }));
+                holder.position.set(-0.7, 1.4, 0);
+                holder.rotation.z = Math.PI / 4;
                 standGroup.add(holder);
 
                 glasswareMesh.add(standGroup);
             } else {
-                // VERTICAL Setup (For non-heating liquid/solid gas productions, beakers, flasks)
+                // VERTICAL Setup (For non-heating reactions, flasks, etc.)
                 if (glasswareType === 'beaker') {
                     const bodyG = new THREE.CylinderGeometry(0.55, 0.55, 1.3, 24, 1, true);
                     const body = new THREE.Mesh(bodyG, glassMaterial);
@@ -1523,7 +1607,7 @@
                     glasswareMesh.add(neck, body, bottom);
                 }
 
-                // If gas collection is assembled vertically, add a vertical stopper on top
+                // Stopper placement
                 if (gasCollectionAssembled) {
                     const stopperY = (glasswareType === 'flask') ? 1.4 : (glasswareType === 'test_tube' ? 1.5 : 1.3);
                     const stopperR = (glasswareType === 'flask') ? 0.18 : (glasswareType === 'test_tube' ? 0.2 : 0.55);
@@ -1536,8 +1620,8 @@
             }
 
             scene.add(glasswareMesh);
-            redrawLiquid3D();
-            redrawSolid3D();
+            window.redrawLiquid3D();
+            window.redrawSolid3D();
         };
 
         function getLiquidColor(ph, indicator, baseColor) {
@@ -1577,11 +1661,11 @@
                 liqGeo = new THREE.CylinderGeometry(0.18, 0.18, h, 16);
                 liqRadiusTop = 0.18;
                 
-                // Absolute coordinate mapping for the 45 degree tilt
+                // Tilted liquid layer inside inclined test tube
                 const y_local = -0.4 + h/2;
-                targetRotZ = -Math.PI / 4;
-                targetX = -0.1 + y_local * Math.sin(Math.PI / 4);
-                targetY = 1.4 + y_local * Math.cos(Math.PI / 4);
+                targetRotZ = Math.PI / 4;
+                targetX = -0.1 + y_local * Math.sin(-Math.PI / 4);
+                targetY = 1.4 + y_local * Math.cos(-Math.PI / 4);
             } else {
                 if (glasswareType === 'beaker') {
                     const h = 1.1 * volPct;
@@ -1644,117 +1728,172 @@
 
                 scene.add(liquidMesh);
             }
-        }
+        };
 
         window.redrawSolid3D = function() {
             if (solidMesh) scene.remove(solidMesh);
             if (!activeSolid) return;
             if (titrationAssembled) return;
 
-            let sGeo = null;
-            let sMat = null;
+            // Clustered solid visualizers for hyper realism (No single colored blobs!)
+            const clusterGroup = new THREE.Group();
+
             let targetX = 0;
             let targetY = 0.12;
             let targetRotZ = 0;
+            const isDecomp = (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2');
 
-            if (activeSolid === 'Na') {
-                sGeo = new THREE.BoxGeometry(0.18, 0.18, 0.18);
-                sMat = new THREE.MeshStandardMaterial({ color: 0xcbd5e1, metalness: 0.95, roughness: 0.25, emissive: 0x334155 });
-            } else if (activeSolid === 'Mg') {
-                sGeo = new THREE.CylinderGeometry(0.04, 0.04, 0.3, 8);
-                sMat = new THREE.MeshStandardMaterial({ color: 0xe2e8f0, metalness: 0.9, roughness: 0.3, emissive: 0x475569 });
-            } else if (activeSolid === 'Zn') {
-                sGeo = new THREE.DodecahedronGeometry(0.11);
-                sMat = new THREE.MeshStandardMaterial({ color: 0x78716c, metalness: 0.8, roughness: 0.4 });
-            } else if (activeSolid === 'Cu') {
-                sGeo = new THREE.TorusGeometry(0.08, 0.02, 8, 12);
-                sMat = new THREE.MeshStandardMaterial({ color: 0xb45309, metalness: 0.95, roughness: 0.2 });
-            } else if (activeSolid === 'CaCO3') {
-                sGeo = new THREE.DodecahedronGeometry(0.15);
-                sMat = new THREE.MeshStandardMaterial({ color: 0xd6d3d1, roughness: 0.95 });
-            } else if (activeSolid === 'Fe') {
-                sGeo = new THREE.ConeGeometry(0.12, 0.15, 12);
-                sMat = new THREE.MeshStandardMaterial({ color: 0x4b5563, metalness: 0.8, roughness: 0.6 });
-            } else if (activeSolid === 'MnO2') {
-                sGeo = new THREE.SphereGeometry(0.12, 8, 8);
-                sMat = new THREE.MeshStandardMaterial({ color: 0x1c1917, roughness: 0.99 });
-            } else if (activeSolid === 'KMnO4') {
-                sGeo = new THREE.CylinderGeometry(0.16, 0.16, 0.25, 12);
-                sMat = new THREE.MeshStandardMaterial({ color: 0x86198f, roughness: 0.4, metalness: 0.8, emissive: 0x4a044e });
-            } else if (activeSolid === 'NH4Cl_CaOH2') {
-                sGeo = new THREE.CylinderGeometry(0.16, 0.16, 0.25, 12);
-                sMat = new THREE.MeshStandardMaterial({ color: 0xe2e8f0, roughness: 0.9 });
+            if (gasCollectionAssembled && isDecomp) {
+                const y_local = -0.55;
+                targetRotZ = Math.PI / 4;
+                targetX = -0.1 + y_local * Math.sin(-Math.PI / 4);
+                targetY = 1.4 + y_local * Math.cos(-Math.PI / 4);
             }
 
-            if (sGeo && sMat) {
-                const isDecomp = (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2');
-                if (gasCollectionAssembled && isDecomp) {
-                    // Place solid at the bottom of the 45 degree tilted test tube (local y = -0.55)
-                    const y_local = -0.55;
-                    targetRotZ = -Math.PI / 4;
-                    targetX = -0.1 + y_local * Math.sin(Math.PI / 4);
-                    targetY = 1.4 + y_local * Math.cos(Math.PI / 4);
+            clusterGroup.position.set(targetX, targetY, 0);
+            clusterGroup.rotation.z = targetRotZ;
+
+            if (activeSolid === 'KMnO4') {
+                // Dark purple crystalline structures
+                const crystalGeo = new THREE.DodecahedronGeometry(0.04);
+                const crystalMat = new THREE.MeshStandardMaterial({ color: 0x3b0764, metalness: 0.8, roughness: 0.3 });
+                for (let i = 0; i < 22; i++) {
+                    const cMesh = new THREE.Mesh(crystalGeo, crystalMat);
+                    cMesh.position.set((Math.random() - 0.5) * 0.15, (Math.random() - 0.5) * 0.1, (Math.random() - 0.5) * 0.15);
+                    cMesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, 0);
+                    clusterGroup.add(cMesh);
                 }
-                solidMesh = new THREE.Mesh(sGeo, sMat);
-                solidMesh.position.set(targetX, targetY, 0);
-                solidMesh.rotation.z = targetRotZ;
-                scene.add(solidMesh);
+            } else if (activeSolid === 'NH4Cl_CaOH2') {
+                // Dual white and granular mixed crystals
+                const crystalMat1 = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.9 });
+                const crystalMat2 = new THREE.MeshStandardMaterial({ color: 0xe2e8f0, roughness: 0.7 });
+                for (let i = 0; i < 26; i++) {
+                    const cMesh = new THREE.Mesh(new THREE.DodecahedronGeometry(0.035), Math.random() > 0.5 ? crystalMat1 : crystalMat2);
+                    cMesh.position.set((Math.random() - 0.5) * 0.16, (Math.random() - 0.5) * 0.08, (Math.random() - 0.5) * 0.16);
+                    clusterGroup.add(cMesh);
+                }
+            } else if (activeSolid === 'Na') {
+                const sMesh = new THREE.Mesh(
+                    new THREE.BoxGeometry(0.18, 0.18, 0.18),
+                    new THREE.MeshStandardMaterial({ color: 0x94a3b8, metalness: 0.95, roughness: 0.15 })
+                );
+                clusterGroup.add(sMesh);
+            } else if (activeSolid === 'Mg') {
+                const sMesh = new THREE.Mesh(
+                    new THREE.CylinderGeometry(0.04, 0.04, 0.3, 8),
+                    new THREE.MeshStandardMaterial({ color: 0xe2e8f0, metalness: 0.9, roughness: 0.2 })
+                );
+                clusterGroup.add(sMesh);
+            } else if (activeSolid === 'Zn') {
+                // Granular metallic zinc lumps
+                const granuleGeo = new THREE.IcosahedronGeometry(0.045, 1);
+                const granuleMat = new THREE.MeshStandardMaterial({ color: 0x64748b, metalness: 0.9, roughness: 0.25 });
+                for (let i = 0; i < 15; i++) {
+                    const g = new THREE.Mesh(granuleGeo, granuleMat);
+                    g.position.set((Math.random() - 0.5) * 0.2, (Math.random() - 0.5) * 0.1, (Math.random() - 0.5) * 0.2);
+                    clusterGroup.add(g);
+                }
+            } else if (activeSolid === 'CaCO3') {
+                // Chalky white powder heap representation
+                const powderGeo = new THREE.SphereGeometry(0.035, 6, 6);
+                const powderMat = new THREE.MeshStandardMaterial({ color: 0xf1f5f9, roughness: 0.95 });
+                for (let i = 0; i < 35; i++) {
+                    const p = new THREE.Mesh(powderGeo, powderMat);
+                    p.position.set((Math.random() - 0.5) * 0.22, (Math.random() - 0.5) * 0.06, (Math.random() - 0.5) * 0.22);
+                    clusterGroup.add(p);
+                }
+            } else {
+                // Generic single standard block
+                const sGeo = new THREE.BoxGeometry(0.15, 0.15, 0.15);
+                const sMat = new THREE.MeshStandardMaterial({ color: 0x78716c, roughness: 0.8 });
+                clusterGroup.add(new THREE.Mesh(sGeo, sMat));
             }
-        }
+
+            solidMesh = clusterGroup;
+            scene.add(solidMesh);
+        };
 
         function buildBurner3D() {
             if (burnerGroup) scene.remove(burnerGroup);
             burnerGroup = new THREE.Group();
             
             const isDecomp = (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2');
+            // Mathematically centered directly under the slanted test tube lower-third
             const burnerX = (gasCollectionAssembled && isDecomp) ? -0.6 : 2.4;
-            burnerGroup.position.set(burnerX, 0, 0);
+            const calcY = (1.0 - burnerHeightVal) * 0.45;
+            burnerGroup.position.set(burnerX, calcY, 0);
 
             if (burnerType === 'spirit') {
-                const baseGeo = new THREE.SphereGeometry(0.65, 32, 16);
-                baseGeo.scale(1, 0.8, 1); 
-                const baseMat = new THREE.MeshPhysicalMaterial({
+                // PREMIUM SPIRIT BURNER (Realistic laboratory thick-glass reservoir)
+                const reservoirMat = new THREE.MeshPhysicalMaterial({
                     color: 0xffffff,
                     roughness: 0.05,
                     transmission: 0.95,
                     transparent: true,
-                    opacity: 0.5,
-                    emissive: 0x00d2ff,
-                    emissiveIntensity: 0.3
+                    opacity: 0.45,
+                    clearcoat: 1.0,
+                    clearcoatRoughness: 0.05,
+                    ior: 1.5,
+                    thickness: 0.15
                 });
-                const base = new THREE.Mesh(baseGeo, baseMat);
-                base.position.y = 0.45;
-                burnerGroup.add(base);
 
-                const spiritGeo = new THREE.CylinderGeometry(0.52, 0.6, 0.4, 24);
-                const spiritMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, transparent: true, opacity: 0.6 });
-                const spirit = new THREE.Mesh(spiritGeo, spiritMat);
-                spirit.position.y = 0.25;
-                burnerGroup.add(spirit);
+                // Wide rounded square base bottle
+                const baseGeo = new THREE.BoxGeometry(1.0, 0.5, 1.0);
+                const baseBottle = new THREE.Mesh(baseGeo, reservoirMat);
+                baseBottle.position.y = 0.25;
+                burnerGroup.add(baseBottle);
 
-                const collarGeo = new THREE.CylinderGeometry(0.16, 0.18, 0.2, 16);
-                const collarMat = new THREE.MeshStandardMaterial({ color: 0xd97706, metalness: 0.95, roughness: 0.1 });
-                const collar = new THREE.Mesh(collarGeo, collarMat);
-                collar.position.y = 0.9;
-                burnerGroup.add(collar);
+                // Visible liquid alcohol filling inside (Deep cyan)
+                const alcGeo = new THREE.BoxGeometry(0.9, 0.32, 0.9);
+                const alcMat = new THREE.MeshPhysicalMaterial({
+                    color: 0x0ea5e9, 
+                    roughness: 0.01,
+                    transmission: 0.85,
+                    transparent: true,
+                    opacity: 0.65,
+                    ior: 1.35
+                });
+                const alcoholLiquid = new THREE.Mesh(alcGeo, alcMat);
+                alcoholLiquid.position.y = 0.18;
+                burnerGroup.add(alcoholLiquid);
 
+                // Narrow bottle neck
+                const neckGeo = new THREE.CylinderGeometry(0.18, 0.22, 0.2, 16);
+                const neck = new THREE.Mesh(neckGeo, reservoirMat);
+                neck.position.y = 0.6;
+                burnerGroup.add(neck);
+
+                // White ceramic cap insert
+                const capGeo = new THREE.CylinderGeometry(0.19, 0.21, 0.15, 16);
+                const capMat = new THREE.MeshStandardMaterial({
+                    color: 0xf8fafc, 
+                    roughness: 0.2,
+                    metalness: 0.1
+                });
+                const ceramicCap = new THREE.Mesh(capGeo, capMat);
+                ceramicCap.position.y = 0.72;
+                burnerGroup.add(ceramicCap);
+
+                // Cotton wick passing through
                 const wickGeo = new THREE.CylinderGeometry(0.045, 0.045, 0.75, 12);
-                const wickMat = new THREE.MeshStandardMaterial({ color: 0xf3f4f6, roughness: 0.85 });
+                const wickMat = new THREE.MeshStandardMaterial({ color: 0xd1d5db, roughness: 0.9 });
                 const wick = new THREE.Mesh(wickGeo, wickMat);
-                wick.position.y = 0.82;
+                wick.position.y = 0.5;
                 burnerGroup.add(wick);
 
-                const capGeo = new THREE.CylinderGeometry(0.2, 0.25, 0.45, 16);
-                const cap = new THREE.Mesh(capGeo, baseMat);
+                // Glass safety cap
+                const coverCapGeo = new THREE.CylinderGeometry(0.24, 0.28, 0.35, 16);
+                const coverCap = new THREE.Mesh(coverCapGeo, reservoirMat);
                 
                 if (burnerOn) {
-                    cap.position.set(0.8, 0.22, 0.5); 
+                    coverCap.position.set(0.8, 0.18, 0.5); 
                 } else {
-                    cap.position.set(0, 1.15, 0); 
+                    coverCap.position.set(0, 1.0, 0); 
                 }
-                burnerGroup.userData.spiritCap = cap; 
-                burnerGroup.add(cap);
+                burnerGroup.userData.spiritCap = coverCap; 
+                burnerGroup.add(coverCap);
             } else {
+                // Bunsen burner metallic base
                 const baseGeo = new THREE.CylinderGeometry(0.48, 0.52, 0.1, 24);
                 const metalMat = new THREE.MeshStandardMaterial({ color: 0xf3f4f6, metalness: 0.95, roughness: 0.05 }); 
                 const base = new THREE.Mesh(baseGeo, metalMat);
@@ -1791,6 +1930,24 @@
                 window.addFire3D();
             }
         }
+
+        window.updateBurnerHeight = function(val) {
+            burnerHeightVal = parseFloat(val);
+            
+            const label = document.getElementById('lbl-burner-height');
+            if (burnerHeightVal >= 1.25) {
+                label.innerText = "Хэт ойр (Эрсдэлтэй)";
+                label.className = "text-rose-400 font-bold animate-pulse";
+            } else if (burnerHeightVal <= 0.35) {
+                label.innerText = "Хэт хол (Халаахгүй)";
+                label.className = "text-amber-400 font-bold";
+            } else {
+                label.innerText = "Тохиромжтой зай";
+                label.className = "text-cyan-400 font-bold";
+            }
+
+            buildBurner3D();
+        };
 
         window.setGlassware = function(type) {
             glasswareType = type;
@@ -1912,22 +2069,22 @@
 
             if (reactionType === 'KMnO4_decomp') {
                 activeGasType = 'O2';
-                journal.innerHTML = "<strong>УРВАЛ: Калийн перманганатын дулааны задрал (Хүчилтөрөгч гарган авах)</strong><br>" +
-                    "<strong>Химийн тэгшитгэл:</strong> 2KMnO₄(х) —(t°)→ K₂MnO₄(х) + MnO₂(х) + O₂(х)↑ (Дулааны задрал)<br>" +
-                    "<strong>Ажиглалт:</strong> Ягаан өнгөтэй Калийн перманганатыг 45° налуу хуруу шилэнд хийн халаахад урвалд орж, Хүчилтөрөгчийн хий (O₂) эрчимтэй ялгарч эхэллээ.<br>" +
-                    "<strong>Орчны өөрчлөлт:</strong> Ялгарсан хүчилтөрөгч нь усанд уусдаггүй тул усыг шахан түрж (Water displacement), хураах саванд дүүрч хураагдав. Гал гаргахгүй тул улайссан цучлыг дүрэлзүүлж сориход бэлэн.";
+                journal.innerHTML = "<strong>УРВАЛ: Калийн перманганатын задрал (O₂ гарган авах)</strong><br>" +
+                    "<strong>Тэгшитгэл:</strong> 2KMnO₄(х) —(t°)→ K₂MnO₄(х) + MnO₂(х) + O₂(х)↑<br>" +
+                    "<strong>Ажиглалт:</strong> Ягаан перманганат налуу хуруу шилэнд задарч хүчилтөрөгч ялгарав.<br>" +
+                    "<strong>Заавар:</strong> Хий хураагдаж дууссаны дараа <strong>дэнг унтрааж</strong>, цучил болон шүдэнзний сорил хийнэ үү.";
                 activeSolid = null;
                 if (solidMesh) { scene.remove(solidMesh); solidMesh = null; }
             } else if (reactionType === 'NH4Cl_CaOH2_decomp') {
                 activeGasType = 'NH3';
                 if (gasCollectionMethod === 'water') {
                     journal.innerHTML = "<strong>АНХААРУУЛГА: Аммиакийн хийн уусах чанар</strong><br>" +
-                        "<strong>Химийн тэгшитгэл:</strong> 2NH₄Cl(х) + Ca(OH)₂(х) —(t°)→ CaCl₂(х) + 2H₂O(ш) + 2NH₃(х)↑<br>" +
-                        "<strong>Ажиглалт:</strong> Аммиак (NH₃) нь усанд маш сайн уусдаг (1 литр усанд 700 литр аммиак уусдаг) тул усыг түрүүлэх аргаар хурааж авах боломжгүй! Уусмалд шууд уусч байна. Агаар шахах (Upward delivery) аргыг ашиглан хураана уу.";
+                        "<strong>Тэгшитгэл:</strong> 2NH₄Cl + Ca(OH)₂ —(t°)→ CaCl₂ + 2H₂O + 2NH₃↑<br>" +
+                        "<strong>Ажиглалт:</strong> Аммиак (NH₃) нь усанд маш сайн уусдаг тул усыг түрүүлэх аргаар хурааж авах боломжгүй! Уусмалд шууд уусч байна. Агаар шахах аргыг хэрэглэнэ үү.";
                 } else {
                     journal.innerHTML = "<strong>УРВАЛ: Аммиак гарган авах дулааны задрал</strong><br>" +
-                        "<strong>Химийн тэгшитгэл:</strong> 2NH₄Cl(х) + Ca(OH)₂(х) —(t°)→ CaCl₂(х) + 2H₂O(ш) + 2NH₃(х)↑<br>" +
-                        "<strong>Ажиглалт:</strong> Аммиак хий амжилттай ялгарч, агаар шахах аргаар хураах саванд цугларлаа. Шүлтлэг шинж чанартай тул индикаторын цаасыг хөхөрнө.";
+                        "<strong>Тэгшитгэл:</strong> 2NH₄Cl + Ca(OH)₂ —(t°)→ CaCl₂ + 2H₂O + 2NH₃↑<br>" +
+                        "<strong>Ажиглалт:</strong> Аммиак хий ялгарч агаар шахах аргаар амжилттай хураагдав.";
                 }
                 activeSolid = null;
                 if (solidMesh) { scene.remove(solidMesh); solidMesh = null; }
@@ -1936,9 +2093,8 @@
                 activeLiquid.formula = 'NaOH';
                 activeLiquid.color = getLiquidColor(activeLiquid.ph, activeLiquid.indicator, '#cbd5e1');
                 journal.innerHTML = "<strong>УРВАЛ: Идэвхтэй металл ба усны харилцан үйлчлэл</strong><br>" +
-                    "<strong>Химийн тэгшитгэл:</strong> 2Na(х) + 2H₂O(ш) → 2NaOH(уус) + H₂(х)↑ (Хүчтэй Экзотерм)<br>" +
-                    "<strong>Ажиглалт:</strong> Натри металл усны гадаргуу дээр бөмбөлөг хэлбэртэй болон маш хурдтай хөдөлж, хайлж уусч дууслаа. Дулаан ихээр ялгаран Устөрөгчийн хийн бөмбөлгүүд эрчимтэй хөөсөрөв.<br>" +
-                    "<strong>Орчны өөрчлөлт:</strong> Үүссэн Натрийн гидроксид (NaOH) нь хүчтэй шүлтлэг орчин үүсгэсэн (pH ~12.8) тул Фенолфталеин индикатортой уусмал тод бөөрөлзгөнө ягаан өнгөтэй болж хувирлаа.";
+                    "<strong>Тэгшитгэл:</strong> 2Na + 2H₂O → 2NaOH + H₂↑<br>" +
+                    "<strong>Ажиглалт:</strong> Натри металл усны гадаргууд бөмбөлөг хэлбэртэй маш хурдтай хөдөлж уусна. Шүлтлэг орчин үүссэн тул фенолфталеин бөөрөлзгөнө ягаан өнгөтэй болов.";
                 activeSolid = null;
                 if (solidMesh) { scene.remove(solidMesh); solidMesh = null; }
                 activeGasType = 'H2';
@@ -1947,9 +2103,8 @@
                 activeLiquid.formula = 'NaCl';
                 activeLiquid.color = getLiquidColor(activeLiquid.ph, activeLiquid.indicator, '#cbd5e1');
                 journal.innerHTML = "<strong>УРВАЛ: Идэвхтэй металл ба хүчлийн харилцан үйлчлэл</strong><br>" +
-                    "<strong>Химийн тэгшитгэл:</strong> 2Na(х) + 2HCl(уус) → 2NaCl(уус) + H₂(х)↑ (Тэсрэлттэй хэт экзотерм)<br>" +
-                    "<strong>Ажиглалт:</strong> Металл агшин зуурт уусна. Маш хурдтай, ширүүн урвал явагдаж устөрөгчийг ялгарлаа.<br>" +
-                    "<strong>Орчны өөрчлөлт:</strong> Хүчтэй хүчил ба шүлтийн металл нэгдэж Саармаг орчны Натрийн хлоридын давс (NaCl, pH ~7.0) үүсгэсэн тул индикаторын өнго саармаг төлөвт шилжив.";
+                    "<strong>Тэгшитгэл:</strong> 2Na + 2HCl → 2NaCl + H₂↑<br>" +
+                    "<strong>Ажиглалт:</strong> Саармаг орчны давс NaCl үүсч, устөрөгч ялгарав.";
                 activeSolid = null;
                 if (solidMesh) { scene.remove(solidMesh); solidMesh = null; }
                 activeGasType = 'H2';
@@ -1958,9 +2113,8 @@
                 activeLiquid.formula = 'MgCl2';
                 activeLiquid.color = getLiquidColor(activeLiquid.ph, activeLiquid.indicator, '#cbd5e1');
                 journal.innerHTML = "<strong>УРВАЛ: Металл ба Хүчлийн орлуулах урвал</strong><br>" +
-                    "<strong>Химийн тэгшитгэл:</strong> Mg(х) + 2HCl(уус) → MgCl₂(уус) + H₂(х)↑ (Экзотерм)<br>" +
-                    "<strong>Ажиглалт:</strong> Магнийн тууз давсны хүчилтэй маш хурдан хугацаанд, тогтвортой урвалд орж устөрөгчийн хийг хөөсөрүүлэн ялгарууллаа. Савны температура огцом өсөв.<br>" +
-                    "<strong>Үр дүн:</strong> Металл Магни бүрэн уусаж, уусмалд Магнийн хлоридын давс үүсэн үлдэв.";
+                    "<strong>Тэгшитгэл:</strong> Mg + 2HCl → MgCl₂ + H₂↑<br>" +
+                    "<strong>Ажиглалт:</strong> Магни хүчилд хурдан тогтвортой уусч устөрөгч ялгарав.";
                 activeSolid = null;
                 if (solidMesh) { scene.remove(solidMesh); solidMesh = null; }
                 activeGasType = 'H2';
@@ -1968,9 +2122,9 @@
                 activeLiquid.ph = 4.8;
                 activeLiquid.formula = 'ZnCl2';
                 activeLiquid.color = getLiquidColor(activeLiquid.ph, activeLiquid.indicator, '#cbd5e1');
-                journal.innerHTML = "<strong>УРВАЛ: Лабораторид Устөрөгч гарган авах стандарт арга</strong><br>" +
-                    "<strong>Химийн тэгшитгэл:</strong> Zn(х) + 2HCl(уус) → ZnCl₂(уус) + H₂(х)↑<br>" +
-                    "<strong>Ажиглалт:</strong> Цайрын саарал үртэс давсны хүчилтэй дунд зэргийн жигд хурдаар харилцан үйлчилж дууслаа. Устөрөгчийн хийн бөмбөлгүүд тасралтгүй суунаглан дээшлэв.";
+                journal.innerHTML = "<strong>УРВАЛ: Устөрөгч гарган авах стандарт арга</strong><br>" +
+                    "<strong>Тэгшитгэл:</strong> Zn + 2HCl → ZnCl₂ + H₂↑<br>" +
+                    "<strong>Ажиглалт:</strong> Цайр давсны хүчилтэй урвалд орж устөрөгч тогтвортой ялгаруулав.";
                 activeSolid = null;
                 if (solidMesh) { scene.remove(solidMesh); solidMesh = null; }
                 activeGasType = 'H2';
@@ -1979,8 +2133,8 @@
                 activeLiquid.formula = 'FeCl2';
                 activeLiquid.color = getLiquidColor(activeLiquid.ph, activeLiquid.indicator, '#cbd5e1');
                 journal.innerHTML = "<strong>УРВАЛ: Төмрийн үртэс ба Хүчлийн урвал</strong><br>" +
-                    "<strong>Химийн тэгшитгэл:</strong> Fe(х) + 2HCl(уус) → FeCl₂(уус) + H₂(х)↑<br>" +
-                    "<strong>Ажиглалт:</strong> Төмрийн бараан үртэс хүчилтэй аажмаар, тогтвортойгоор харилцан үйлчилж дууслаа. Устөрөгчийн хийн жижиг бөмбөлгүүд ялгарав.";
+                    "<strong>Тэгшитгэл:</strong> Fe + 2HCl → FeCl₂ + H₂↑<br>" +
+                    "<strong>Ажиглалт:</strong> Төмрийн үртэс хүчилтэй аажмаар харилцан үйлчилж устөрөгчийн хий үүсгэв.";
                 activeSolid = null;
                 if (solidMesh) { scene.remove(solidMesh); solidMesh = null; }
                 activeGasType = 'H2';
@@ -1989,9 +2143,8 @@
                 activeLiquid.formula = 'CaCl2';
                 activeLiquid.color = getLiquidColor(activeLiquid.ph, activeLiquid.indicator, '#cbd5e1');
                 journal.innerHTML = "<strong>УРВАЛ: Карбонатын давс ба Хүчлийн харилцан үйлчлэл</strong><br>" +
-                    "<strong>Химийн тэгшитгэл:</strong> CaCO₃(х) + 2HCl(уус) → CaCl₂(уус) + H₂O(ш) + CO₂(х)↑<br>" +
-                    "<strong>Ажиглалт:</strong> Шохойн чулууны цагаан талст давсны хүчилтэй урвалд орж ширүүн хөөсөрлөө.<br>" +
-                    "<strong>Хийн шинж чанар:</strong> Агаараас хүнд, галыг дэмждэггүй шинж чанартай Нүүрсхүчлийн хий (CO₂) бүрэн ялгарсан тул илрүүлэгчээр сориход бэлэн боллоо.";
+                    "<strong>Тэгшитгэл:</strong> CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂↑<br>" +
+                    "<strong>Ажиглалт:</strong> Шохойн чулуу давсны хүчилтэй ширүүн хөөсөрч нүүрсхүчлийн хий (CO₂) ялгарав.";
                 activeSolid = null;
                 if (solidMesh) { scene.remove(solidMesh); solidMesh = null; }
                 activeGasType = 'CO2';
@@ -2000,9 +2153,9 @@
                 activeLiquid.ph = 6.0;
                 activeLiquid.formula = 'H2O';
                 activeLiquid.color = getLiquidColor(activeLiquid.ph, activeLiquid.indicator, '#cbd5e1');
-                journal.innerHTML = `<strong>УРВАЛ: Устөрөгчийн хэт ислийн каталитик задрал</strong><br>` +
-                    `<strong>Химийн тэгшитгэл:</strong> 2H₂O₂(уус) —(${catalyst})→ 2H₂O(ш) + O₂(х)↑<br>` +
-                    `<strong>Ажиглалт:</strong> Катализатор ${catalyst}-ийн нөлөөгөөр тунгалаг устөрөгчийн хэт исэл маш идэвхтэй буцалж задарлаа. Хүчилтөрөгчийн хийн өтгөн бөмбөлгүүд ундаргалан дээшлэв.`;
+                journal.innerHTML = `<strong>УРВАЛ: Хэт ислийн каталитик задрал</strong><br>` +
+                    `<strong>Тэгшитгэл:</strong> 2H₂O₂ —(${catalyst})→ 2H₂O + O₂↑<br>` +
+                    `<strong>Ажиглалт:</strong> Катализаторын нөлөөгөөр устөрөгчийн хэт исэл маш идэвхтэй буцалж задарлаа. Хүчилтөрөгчийн хий суунаглав.`;
                 activeSolid = null;
                 if (solidMesh) { scene.remove(solidMesh); solidMesh = null; }
                 activeGasType = 'O2';
@@ -2012,16 +2165,26 @@
             updateUI();
         }
 
-        window.setGasCollectionMethod = function(method) {
-            gasCollectionMethod = method;
-            document.getElementById('btn-gas-method-water').className = "py-2 bg-slate-900 text-slate-400 border border-slate-800 rounded-xl transition";
-            document.getElementById('btn-gas-method-air').className = "py-2 bg-slate-900 text-slate-400 border border-slate-800 rounded-xl transition";
+        window.selectGasMethod = function(methodId) {
+            selectedGasMethodId = methodId;
             
-            if (method === 'water') {
-                document.getElementById('btn-gas-method-water').className = "py-2 bg-cyan-950 text-cyan-400 border border-cyan-500 rounded-xl transition shadow";
+            document.getElementById('card-method-air_heavy').className = "p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl transition flex gap-3 items-center";
+            document.getElementById('card-method-air_light').className = "p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl transition flex gap-3 items-center";
+            document.getElementById('card-method-water').className = "p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl transition flex gap-3 items-center";
+            
+            let colorBorder = 'border-cyan-500 bg-cyan-950/30';
+            if (methodId === 'air_heavy') colorBorder = 'border-red-500 bg-red-950/20';
+            if (methodId === 'air_light') colorBorder = 'border-blue-500 bg-blue-950/20';
+
+            document.getElementById(`card-method-${methodId}`).className = `p-2.5 text-left border ${colorBorder} rounded-xl transition flex gap-3 items-center shadow-lg`;
+            
+            if (methodId === 'water') {
+                gasCollectionMethod = 'water';
             } else {
-                document.getElementById('btn-gas-method-air').className = "py-2 bg-cyan-950 text-cyan-400 border border-cyan-500 rounded-xl transition shadow";
+                gasCollectionMethod = 'air'; 
             }
+
+            window.showToast("Хий цуглуулах удирдамжийг сонголоо. Одоо багаж угсарна уу.", "success");
             updateUI();
         };
 
@@ -2044,60 +2207,123 @@
                 return;
             }
 
+            if (!selectedGasMethodId) {
+                window.showToast("Эхлээд хий хураах зөв аргыг картаас сонгоно уу!", "warning");
+                return;
+            }
+
+            let isCorrectMethod = false;
+            let explanation = '';
+
+            if (activeGasType === 'H2' || activeGasType === 'O2') {
+                if (selectedGasMethodId === 'water') {
+                    isCorrectMethod = true;
+                    explanation = "Баяр хүргэе! Устөрөгч ба Хүчилтөрөгч нь усанд бараг уусдаггүй тул усыг шахан түрж хураах нь хамгийн зөв бөгөөд аюулгүй арга юм (+10 оноо).";
+                    totalPoints += 10;
+                    document.getElementById('lbl-total-points').innerText = totalPoints;
+                } else {
+                    explanation = "Анхаар: Устөрөгч ба хүчилтөрөгч нь агаартай холилдвол тэсрэх аюултай тул усыг шахан түрж цуглуулах нь илүү найдвартай арга байдаг.";
+                }
+            } else if (activeGasType === 'CO2') {
+                if (selectedGasMethodId === 'air_heavy') {
+                    isCorrectMethod = true;
+                    explanation = "Баяр хүргэе! Нүүрсхүчлийн хий нь агаараас 1.5 дахин хүнд тул агаарыг шахан түрж (Доош үлээх) хураах нь зөв арга юм (+10 оноо).";
+                    totalPoints += 10;
+                    document.getElementById('lbl-total-points').innerText = totalPoints;
+                } else {
+                    explanation = "Анхаар: CO₂ нь агаараас хүнд тул дээш үлээх аргаар хураавал савны ёроолоор асгарч хуримтлагдахгүй.";
+                }
+            } else if (activeGasType === 'NH3') {
+                if (selectedGasMethodId === 'air_light') {
+                    isCorrectMethod = true;
+                    explanation = "Баяр хүргэе! Аммиак нь усанд маш сайн уусдаг бөгөөд агаараас хөнгөн тул агаарыг доош шахах (Дээш үлээх) аргаар цуглуулах нь зөв арга юм (+10 оноо).";
+                    totalPoints += 10;
+                    document.getElementById('lbl-total-points').innerText = totalPoints;
+                } else {
+                    explanation = "АЛДАА: Аммиак усанд маш хурдан уусдаг тул усаар цуглуулбал хураах саванд огт хуримтлагдахгүй шууд уусч дуусна!";
+                }
+            }
+
+            document.getElementById('lab-journal').innerHTML = `
+                <strong>ХИЙ ХУРААХ АРГЫН ШИНЖИЛГЭЭ:</strong><br>
+                ${explanation}<br>
+                <em>Төхөөрөмж угсарч, ажилбар эхлэхэд бэлэн боллоо.</em>
+            `;
+
             gasCollectionAssembled = true;
             window.buildGlassware3D();
             buildBurner3D();
 
             gasCollectionGroup = new THREE.Group();
-            gasCollectionGroup.position.set(1.6, 0, 0); 
+            gasCollectionGroup.position.set(0, 0, 0);
 
             const receiverGlassMaterial = new THREE.MeshPhysicalMaterial({
                 color: 0xffffff,
-                roughness: 0.02,
-                transmission: 0.95,
-                opacity: 0.75,
+                roughness: 0.05,
+                metalness: 0.1,
+                clearcoat: 1.0,
+                transmission: 0.9,
+                opacity: 0.8,
                 transparent: true,
+                ior: 1.5,
+                side: THREE.DoubleSide,
+                depthWrite: true,
                 emissive: 0xa855f7, 
-                emissiveIntensity: 0.95,
-                depthWrite: false,
-                side: THREE.DoubleSide
+                emissiveIntensity: 0.55
             });
 
             if (gasCollectionMethod === 'water') {
-                const troughG = new THREE.CylinderGeometry(0.7, 0.7, 0.4, 24);
+                // High-fidelity Rectangular Pneumatic Water Trough at X=2.0
+                const troughG = new THREE.BoxGeometry(1.6, 0.5, 1.0);
                 const troughMat = new THREE.MeshPhysicalMaterial({
                     color: 0x38bdf8,
-                    roughness: 0.1,
-                    transmission: 0.8,
+                    roughness: 0.05,
+                    metalness: 0.1,
+                    transmission: 0.9,
                     transparent: true,
                     opacity: 0.4,
-                    emissive: 0x0ea5e9,
-                    emissiveIntensity: 0.3
+                    clearcoat: 1.0,
+                    ior: 1.5
                 });
                 const trough = new THREE.Mesh(troughG, troughMat);
-                trough.position.y = 0.2;
+                trough.position.set(2.0, 0.25, 0);
                 gasCollectionGroup.add(trough);
 
-                const h2oG = new THREE.CylinderGeometry(0.68, 0.68, 0.3, 24);
-                const h2oMat = new THREE.MeshPhysicalMaterial({ color: 0x0ea5e9, transmission: 0.9, transparent: true, opacity: 0.5 });
+                const h2oG = new THREE.BoxGeometry(1.56, 0.42, 0.96);
+                const h2oMat = new THREE.MeshPhysicalMaterial({ 
+                    color: 0x0ea5e9, 
+                    roughness: 0.1,
+                    transmission: 0.9, 
+                    transparent: true, 
+                    opacity: 0.5,
+                    ior: 1.333
+                });
                 const h2o = new THREE.Mesh(h2oG, h2oMat);
-                h2o.position.y = 0.22;
+                h2o.position.set(2.0, 0.22, 0);
                 gasCollectionGroup.add(h2o);
 
+                // Honeycomb shelf for inverted cylinder stand
+                const shelfG = new THREE.CylinderGeometry(0.3, 0.3, 0.15, 16);
+                const shelfMat = new THREE.MeshStandardMaterial({ color: 0x475569, metalness: 0.6, roughness: 0.4 });
+                const shelf = new THREE.Mesh(shelfG, shelfMat);
+                shelf.position.set(2.0, 0.085, 0);
+                gasCollectionGroup.add(shelf);
+
+                // Inverted gas collecting cylinder
                 const jarG = new THREE.CylinderGeometry(0.25, 0.25, 1.2, 16, 1, true);
                 const jar = new THREE.Mesh(jarG, receiverGlassMaterial);
-                jar.position.y = 0.75;
+                jar.position.set(2.0, 0.75, 0);
                 gasCollectionGroup.add(jar);
 
                 const jarTop = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 0.02, 16), receiverGlassMaterial);
-                jarTop.position.y = 1.35;
+                jarTop.position.set(2.0, 1.35, 0);
                 gasCollectionGroup.add(jarTop);
 
                 const ringGeo = new THREE.RingGeometry(0.24, 0.26, 32);
                 const ringMat = new THREE.MeshBasicMaterial({ color: 0xc084fc, side: THREE.DoubleSide, transparent: true, opacity: 0.95 });
                 const topRing = new THREE.Mesh(ringGeo, ringMat);
                 topRing.rotation.x = Math.PI / 2;
-                topRing.position.y = 1.35;
+                topRing.position.set(2.0, 1.35, 0);
                 gasCollectionGroup.add(topRing);
 
                 const h = 1.1;
@@ -2113,54 +2339,74 @@
                 });
                 const dispH2o = new THREE.Mesh(dispH2oG, dispH2oMat);
                 dispH2o.name = "displacementWaterMesh";
-                dispH2o.position.y = 0.22 + h / 2;
+                dispH2o.position.set(2.0, 0.22 + h / 2, 0);
                 gasCollectionGroup.add(dispH2o);
 
                 const stopperG = new THREE.CylinderGeometry(0.23, 0.23, 0.1, 16);
                 const stopperMat = new THREE.MeshStandardMaterial({ color: 0x111827 });
                 const stopper = new THREE.Mesh(stopperG, stopperMat);
-                stopper.position.y = 0.16;
+                stopper.position.set(2.0, 0.16, 0);
                 gasCollectionGroup.add(stopper);
 
             } else {
+                // Air delivery setup (Upward/Downward delivery jar representation)
                 const jarG = new THREE.CylinderGeometry(0.25, 0.25, 1.3, 16, 1, true);
                 const jar = new THREE.Mesh(jarG, receiverGlassMaterial);
-                jar.position.y = 0.75;
+                jar.position.set(2.0, 0.75, 0);
                 gasCollectionGroup.add(jar);
 
-                const bottom = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 0.02, 16), receiverGlassMaterial);
-                bottom.position.y = 0.1;
-                gasCollectionGroup.add(bottom);
+                if (selectedGasMethodId === 'air_light') {
+                    // INVERTED Cylinder setup (for gases lighter than air, open bottom at Y=0.1, closed top at Y=1.4)
+                    const topCap = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 0.02, 16), receiverGlassMaterial);
+                    topCap.position.set(2.0, 1.4, 0);
+                    gasCollectionGroup.add(topCap);
 
-                const ringGeo = new THREE.RingGeometry(0.24, 0.26, 32);
-                const ringMat = new THREE.MeshBasicMaterial({ color: 0xc084fc, side: THREE.DoubleSide, transparent: true, opacity: 0.95 });
-                const topRing = new THREE.Mesh(ringGeo, ringMat);
-                topRing.rotation.x = Math.PI / 2;
-                topRing.position.y = 1.39;
-                gasCollectionGroup.add(topRing);
+                    // Colored base ring highlighting open bottom
+                    const ringGeo = new THREE.RingGeometry(0.24, 0.26, 32);
+                    const ringMat = new THREE.MeshBasicMaterial({ color: 0xc084fc, side: THREE.DoubleSide, transparent: true, opacity: 0.95 });
+                    const bottomRing = new THREE.Mesh(ringGeo, ringMat);
+                    bottomRing.rotation.x = Math.PI / 2;
+                    bottomRing.position.set(2.0, 0.1, 0);
+                    gasCollectionGroup.add(bottomRing);
+                } else {
+                    // UPRIGHT Cylinder setup (for gases heavier than air, open top at Y=1.4, closed bottom at Y=0.1)
+                    const bottomCap = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.25, 0.02, 16), receiverGlassMaterial);
+                    bottomCap.position.set(2.0, 0.1, 0);
+                    gasCollectionGroup.add(bottomCap);
+
+                    // Colored top ring highlighting open top
+                    const ringGeo = new THREE.RingGeometry(0.24, 0.26, 32);
+                    const ringMat = new THREE.MeshBasicMaterial({ color: 0xc084fc, side: THREE.DoubleSide, transparent: true, opacity: 0.95 });
+                    const topRing = new THREE.Mesh(ringGeo, ringMat);
+                    topRing.rotation.x = Math.PI / 2;
+                    topRing.position.set(2.0, 1.4, 0);
+                    gasCollectionGroup.add(topRing);
+                }
             }
 
-            // Calculate curves depending on TILTED vs VERTICAL setup
+            // Tube geometry routing
             const isDecomp = (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2');
             const pipePoints = [];
             
             if (isDecomp) {
                 pipePoints.push(new THREE.Vector3(0.4, 1.9, 0)); 
                 pipePoints.push(new THREE.Vector3(0.8, 2.0, 0)); 
-                pipePoints.push(new THREE.Vector3(1.1, 1.1, 0)); 
-                pipePoints.push(new THREE.Vector3(1.3, 0.3, 0)); 
+                pipePoints.push(new THREE.Vector3(1.3, 1.1, 0)); 
+                pipePoints.push(new THREE.Vector3(1.6, 0.3, 0)); 
             } else {
                 const stopperY = (glasswareType === 'flask') ? 1.4 : (glasswareType === 'test_tube' ? 1.5 : 1.3);
                 pipePoints.push(new THREE.Vector3(0, stopperY, 0));
                 pipePoints.push(new THREE.Vector3(0.4, stopperY + 0.3, 0));
-                pipePoints.push(new THREE.Vector3(1.0, 1.2, 0));
-                pipePoints.push(new THREE.Vector3(1.3, 0.3, 0));
+                pipePoints.push(new THREE.Vector3(1.2, 1.2, 0));
+                pipePoints.push(new THREE.Vector3(1.6, 0.3, 0));
             }
             
             if (gasCollectionMethod === 'water') {
-                pipePoints.push(new THREE.Vector3(1.6, 0.1, 0)); 
+                pipePoints.push(new THREE.Vector3(2.0, 0.1, 0)); 
+            } else if (selectedGasMethodId === 'air_light') {
+                pipePoints.push(new THREE.Vector3(2.0, 1.2, 0)); // enters from below to the top of inverted jar
             } else {
-                pipePoints.push(new THREE.Vector3(1.6, 0.3, 0)); 
+                pipePoints.push(new THREE.Vector3(2.0, 0.3, 0)); // enters from top to the bottom of upright jar
             }
 
             gasFlowCurve = new THREE.CatmullRomCurve3(pipePoints);
@@ -2196,13 +2442,34 @@
             document.getElementById('btn-assemble-gas').innerText = "Багажийг салгаж буулгах";
             window.showToast("Хий хураах багажийг амжилттай угсарлаа!", "success");
 
+            let collectionFails = false;
+            if (activeGasType === 'NH3' && selectedGasMethodId === 'water') {
+                collectionFails = true;
+            }
+            if (activeGasType === 'H2' && selectedGasMethodId === 'air_heavy') {
+                collectionFails = true;
+            }
+
             if (activeGasType) {
                 gasCollectedAmount = 0;
                 let collectInt = setInterval(() => {
                     if (!gasCollectionAssembled) { clearInterval(collectInt); return; }
+                    
+                    if (collectionFails) {
+                        clearInterval(collectInt);
+                        document.getElementById('lab-journal').innerHTML = `
+                            <strong>АЖИГЛАЛТ (АЛДААТАЙ СОНГОЛТ):</strong><br>
+                            Хий хураах саванд хий огт хуримтлагдсангүй! <br>
+                            Шинжлэх ухааны шалтгаан: Ялгарсан хий буруу аргын улмаас усанд шууд уусч эсвэл агаарт замхран алга болов. Лакмус индикаторын цаас уусмалыг өнгөөр танихыг ажиглана уу.
+                        `;
+                        return;
+                    }
+
                     if (gasCollectedAmount < 100) {
-                        gasCollectedAmount += 5;
-                        createSmokeParticles(1.6, 0.5, 0, 4);
+                        gasCollectedAmount += Math.ceil(5 * burnerHeightVal);
+                        if (gasCollectedAmount > 100) gasCollectedAmount = 100;
+
+                        createSmokeParticles(2.0, 0.5, 0, 4);
 
                         if (gasCollectionMethod === 'water' && gasCollectionGroup) {
                             const dispH2o = gasCollectionGroup.getObjectByName("displacementWaterMesh");
@@ -2220,609 +2487,14 @@
                         updateUI();
                     } else {
                         clearInterval(collectInt);
-                        document.getElementById('lab-journal').innerHTML = `Багажинд <strong>${activeGasType}</strong> хий 100% дүүрч хураагдлаа. Та одоо хийг цучил болон шохойн усаар сорино уу.`;
-                        window.showToast("Хийг хурааж дууслаа!", "success");
+                        document.getElementById('lab-journal').innerHTML = `Багажинд <strong>${activeGasType}</strong> хий 100% дүүрч хураагдлаа. <strong>Шинжлэх ухааны аюулгүй ажиллагааны дагуу: Эхлээд халаалтын дэнг бүрэн унтрааж</strong> дараа нь цучлаар сорино уу!`;
+                        window.showToast("Хийг хурааж дууслаа. Дэнг унтраана уу!", "success");
                         updateUI();
                     }
                 }, 300);
             } else {
                 window.showToast("Урвал явагдаагүй тул ялгарах хий алга байна.", "warning");
             }
-        };
-
-        window.assembleTitration = function() {
-            if (titrationAssembled) {
-                if (titrationStandMesh) scene.remove(titrationStandMesh);
-                if (titrationBuretteMesh) scene.remove(titrationBuretteMesh);
-                if (titrationFlaskMesh) scene.remove(titrationFlaskMesh);
-                titrationStandMesh = null;
-                titrationBuretteMesh = null;
-                titrationFlaskMesh = null;
-                titrationAssembled = false;
-                titrationValveOpen = false;
-                
-                document.getElementById('titration-equivalence-alert').classList.add('hidden');
-
-                window.buildGlassware3D();
-                window.showToast("Титрлэлтийн багажийг салгалаа.", "info");
-                return;
-            }
-
-            if (glasswareMesh) { scene.remove(glasswareMesh); glasswareMesh = null; }
-            if (liquidMesh) { scene.remove(liquidMesh); liquidMesh = null; }
-            if (solidMesh) { scene.remove(solidMesh); solidMesh = null; }
-
-            titrationAcidVol = parseFloat(document.getElementById('param-acid-vol').value);
-            titrationBaseConc = parseFloat(document.getElementById('param-base-conc').value);
-
-            titrationTargetAcidConc = parseFloat((Math.random() * 0.15 + 0.05).toFixed(3));
-            
-            titrationEquivalenceVol = parseFloat(((titrationTargetAcidConc * titrationAcidVol) / titrationBaseConc).toFixed(2));
-
-            titrationStandMesh = new THREE.Group();
-            titrationStandMesh.position.set(-0.8, 0, -0.5);
-
-            const base = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.08, 0.8), new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.8 }));
-            base.position.y = 0.04;
-            titrationStandMesh.add(base);
-
-            const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 3.2), new THREE.MeshStandardMaterial({ color: 0x64748b, metalness: 0.9 }));
-            rod.position.set(0.4, 1.6, 0);
-            titrationStandMesh.add(rod);
-
-            const clamp = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.06, 0.1), new THREE.MeshStandardMaterial({ color: 0x334155 }));
-            clamp.position.set(0.18, 2.2, 0);
-            titrationStandMesh.add(clamp);
-
-            scene.add(titrationStandMesh);
-
-            titrationBuretteMesh = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 1.8, 16, 1, true), glassMaterial);
-            titrationBuretteMesh.position.set(-0.8, 2.2, -0.5);
-            scene.add(titrationBuretteMesh);
-
-            titrationFlaskMesh = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.45, 0.75, 20, 1, true), glassMaterial);
-            titrationFlaskMesh.position.set(-0.8, 0.38, -0.5);
-            scene.add(titrationFlaskMesh);
-
-            titrationAssembled = true;
-            titrationBuretteVol = 0.0;
-            titrationFlaskVol = titrationAcidVol; 
-            titrationFlaskPh = 1.2; 
-            titrationBaseUsed = 0.0;
-            titrationEquivalenceReached = false;
-            titrationHasCompleted = false;
-            titrationActiveColor = '#cbd5e1'; 
-
-            document.getElementById('titration-equivalence-alert').classList.add('hidden');
-            document.getElementById('titration-dynamic-input-area').classList.add('hidden');
-            document.getElementById('titration-dynamic-feedback').classList.add('hidden');
-            
-            document.getElementById('titration-dynamic-task').innerHTML = `
-                Туршилтыг эхлүүлж эквивалент цэгт хүргэсний дараа таны туршилтын өгөгдөл энд автоматаар бодлого болон үүснэ!
-            `;
-
-            document.getElementById('lab-journal').innerHTML = `
-                <strong>ТИTРЛЭЛТИЙН АЛХАМ 1: Төхөөрөмж бэлэн боллоо.</strong><br>
-                Конусан колбонд <strong>V_хүчил = ${titrationAcidVol.toFixed(1)} мл</strong> хэмжээтэй, концентраци нь тодорхойгүй давсны хүчил (HCl) болон фенолфталеин индикатор дусаалаа.<br>
-                Одоо бюреткад шүлтийн уусмалаа дүүргэнэ үү.
-            `;
-
-            updateTitration3D();
-            updateUI();
-            window.showToast("Титрлэлтийн цогц систем угсрагдлаа!", "success");
-        };
-
-        window.fillBurette = function() {
-            if (!titrationAssembled) {
-                window.showToast("Эхлээд титрлэлтийн багажийг угсарна уу!", "warning");
-                return;
-            }
-            titrationBuretteVol = 50.0;
-            titrationBaseUsed = 0.0;
-            titrationEquivalenceReached = false;
-            
-            document.getElementById('titration-equivalence-alert').classList.add('hidden');
-
-            document.getElementById('lab-journal').innerHTML = `
-                <strong>ТИTРЛЭЛТИЙН АЛХАМ 2: Бюретка дүүргэлт</strong><br>
-                Бюреткны хуваарийг <strong>50.0 мл</strong> хүртэл <strong>${titrationBaseConc.toFixed(2)} M</strong> концентрацитай Натрийн гидроксид (NaOH) уусмалаар бүрэн дүүргэв.<br>
-                Одоо уусмалын цоргыг нээж титрлэлтийг маш анхааралтай эхлүүлнэ үү.
-            `;
-
-            updateTitration3D();
-            updateUI();
-            window.showToast("Бюреткийг NaOH-оор дүүргэлээ.", "success");
-        };
-
-        window.toggleTitrationValve = function(open) {
-            if (!titrationAssembled) return;
-            if (open && titrationBuretteVol <= 0) {
-                window.showToast("Бюреткад шүлтийн уусмал байхгүй байна!", "warning");
-                return;
-            }
-            titrationValveOpen = open;
-            updateUI();
-
-            if (open) {
-                function dropFlow() {
-                    if (!titrationValveOpen || titrationBuretteVol <= 0) return;
-                    
-                    const drip = new THREE.Mesh(new THREE.SphereGeometry(0.022, 8, 8), new THREE.MeshPhysicalMaterial({ color: 0xffffff, transmission: 0.9, opacity: 0.7 }));
-                    drip.position.set(-0.8, 1.2, -0.5);
-                    scene.add(drip);
-                    titrationDrips.push(drip);
-
-                    setTimeout(dropFlow, 180);
-                }
-                dropFlow();
-            } else {
-                if (titrationEquivalenceReached && !titrationHasCompleted) {
-                    titrationHasCompleted = true;
-                    window.showToast("Эквивалент цэг дээр амжилттай зогсоож чадлаа!", "success");
-                    updateDynamicTitrationProblem();
-                }
-            }
-        };
-
-        function calculateNeutralizationPh() {
-            const molH = titrationTargetAcidConc * (titrationAcidVol / 1000.0);
-            const molOH = titrationBaseConc * (titrationBaseUsed / 1000.0);
-
-            if (molH > molOH) {
-                const excessH = molH - molOH;
-                const totalVol = (titrationAcidVol + titrationBaseUsed) / 1000.0;
-                const concH = excessH / totalVol;
-                titrationFlaskPh = -Math.log10(concH || 1e-7);
-                if (titrationFlaskPh < 1.0) titrationFlaskPh = 1.0;
-            } else if (molOH > molH) {
-                const excessOH = molOH - molH;
-                const totalVol = (titrationAcidVol + titrationBaseUsed) / 1000.0;
-                const concOH = excessOH / totalVol;
-                const pOH = -Math.log10(concOH || 1e-7);
-                titrationFlaskPh = 14.0 - pOH;
-                if (titrationFlaskPh > 14.0) titrationFlaskPh = 14.0;
-            } else {
-                titrationFlaskPh = 7.0; 
-            }
-
-            titrationActiveColor = getLiquidColor(titrationFlaskPh, 'phenolphthalein', '#cbd5e1');
-
-            const journal = document.getElementById('lab-journal');
-            journal.innerHTML = `
-                <strong>ТИTРЛЭЛТИЙН ЯВЦ:</strong><br>
-                Бюреткаас <strong>${titrationBaseUsed.toFixed(2)} мл</strong> NaOH шүлт нэмэгдлээ.<br>
-                Колбон дахь уусмалын рН: <strong>${titrationFlaskPh.toFixed(2)}</strong> (${titrationFlaskPh < 7.0 ? 'Хүчиллэг орчин' : titrationFlaskPh > 7.0 ? 'Шүлтлэг орчин' : 'Саармаг орчин'}).<br>
-                Индикаторын төлөв: ${titrationFlaskPh < 8.2 ? 'Өнгөгүй хэвээр байна' : 'Ягаан туяа ажиглагдаж байна'}.
-            `;
-
-            if (Math.abs(titrationBaseUsed - titrationEquivalenceVol) <= 0.25) {
-                if (!titrationEquivalenceReached) {
-                    titrationEquivalenceReached = true;
-                    document.getElementById('titration-equivalence-alert').classList.remove('hidden');
-                    window.showToast("🔴 АНХААР: Эквивалент цэг тогтоогдлоо! Цоргыг яг одоо ХААНА УУ!", "warning");
-                    playWhooshSound();
-                }
-            } else {
-                if (titrationBaseUsed > titrationEquivalenceVol + 0.3) {
-                    document.getElementById('titration-equivalence-alert').classList.add('hidden');
-                }
-            }
-        }
-
-        function updateTitration3D() {
-            const bLiqName = 'titrationBuretteLiq';
-            const oldBLiq = scene.getObjectByName(bLiqName);
-            if (oldBLiq) scene.remove(oldBLiq);
-
-            if (titrationBuretteVol > 0) {
-                const h = 1.6 * (titrationBuretteVol / 50.0);
-                const bLiq = new THREE.Mesh(
-                    new THREE.CylinderGeometry(0.055, 0.055, h, 12),
-                    new THREE.MeshPhysicalMaterial({ color: 0xe0f2fe, transmission: 0.95, transparent: true, opacity: 0.45 })
-                );
-                bLiq.name = bLiqName;
-                bLiq.position.set(-0.8, 1.3 + h / 2, -0.5);
-                scene.add(bLiq);
-            }
-
-            const fLiqName = 'titrationFlaskLiq';
-            const oldFLiq = scene.getObjectByName(fLiqName);
-            if (oldFLiq) scene.remove(oldFLiq);
-
-            if (titrationFlaskVol > 0) {
-                const maxCap = 75.0; 
-                const ratio = Math.min(1.0, titrationFlaskVol / maxCap);
-                const h = 0.5 * ratio;
-                const fLiq = new THREE.Mesh(
-                    new THREE.CylinderGeometry(0.08 + (1.0 - ratio) * 0.35, 0.43, h, 16),
-                    new THREE.MeshPhysicalMaterial({ color: parseInt(titrationActiveColor.replace('#', '0x')), transmission: 0.75, transparent: true, opacity: 0.7, ior: 1.333 })
-                );
-                fLiq.name = fLiqName;
-                fLiq.position.set(-0.8, 0.02 + h / 2, -0.5);
-                scene.add(fLiq);
-            }
-        }
-
-        function updateDynamicTitrationProblem() {
-            const taskContainer = document.getElementById('titration-dynamic-task');
-            const inputArea = document.getElementById('titration-dynamic-input-area');
-
-            taskContainer.innerHTML = `
-                Конусан колбонд <strong>V_хүчил = ${titrationAcidVol.toFixed(1)} мл</strong> тодорхойгүй концентрацитай давсны хүчлийн (HCl) уусмал байв. 
-                Бюреткаас <strong>C_шүлт = ${titrationBaseConc.toFixed(2)} M</strong> концентрацитай NaOH шүлтийг дусаахад эквивалент цэг яг <strong>V_шүлт = ${titrationBaseUsed.toFixed(1)} мл</strong> уусмал зарцуулагдсан агшинд тогтоогдов.
-                Үүнээс ашиглан хүчлийн анхны концентраци <strong>(C_хүчил)</strong>-ийг олж (0.001 нарийвчлалтайгаар) илгээнэ үү.
-            `;
-            
-            inputArea.classList.remove('hidden');
-            document.getElementById('titration-dynamic-feedback').classList.add('hidden');
-        }
-
-        window.checkDynamicTitrationAnswer = function() {
-            const inputVal = parseFloat(document.getElementById('dynamic-answer-input').value);
-            const feedback = document.getElementById('titration-dynamic-feedback');
-            
-            if (isNaN(inputVal)) {
-                window.showToast("Хариултаа тоогоор оруулна уу!", "warning");
-                return;
-            }
-
-            feedback.classList.remove('hidden');
-            
-            const calculatedAcidConc = parseFloat(((titrationBaseConc * titrationBaseUsed) / titrationAcidVol).toFixed(3));
-            const diff = Math.abs(inputVal - calculatedAcidConc);
-
-            if (diff <= 0.015) {
-                feedback.innerHTML = `
-                    <div class="text-emerald-400 font-bold flex items-center gap-1.5 mb-1 text-[10px]">
-                        <i class="fa-solid fa-circle-check"></i> МАШ ЗӨВ ХАРИУЛЛАА! (C_хүчил ~ ${calculatedAcidConc} M)
-                    </div>
-                    <div class="space-y-1.5 text-slate-300 text-[8.5px]">
-                        <p><strong>Таны туршилтын дагуух бодолт:</strong></p>
-                        <p>Томьёо: C_хүчил = (C_шүлт x V_шүлт) / V_хүчил</p>
-                        <p>Өгөгдөл орлуулалт:</p>
-                        <p class="font-mono-chem text-emerald-400 bg-slate-900 p-2 rounded text-center">
-                            C_хүчил = (${titrationBaseConc.toFixed(2)} x ${titrationBaseUsed.toFixed(1)}) / ${titrationAcidVol.toFixed(1)} = ${calculatedAcidConc} M
-                        </p>
-                        <p>Ийнхүү таны колбонд байсан давсны хүчлийн жинхэнэ концентраци <strong>${titrationTargetAcidConc} M</strong> (урвуу тооцооллоор <strong>${calculatedAcidConc} M</strong>) болох нь амжилттай батлагдлаа!</p>
-                    </div>
-                `;
-                window.showToast("Туршилтын тооцоолол амжилттай баталгаажлаа!", "success");
-            } else {
-                feedback.innerHTML = `
-                    <div class="text-rose-400 font-bold flex items-center gap-1.5 mb-1 text-[10px]">
-                        <i class="fa-solid fa-circle-xmark"></i> БУРУУ ТООЦООЛОЛ!
-                    </div>
-                    <p class="text-slate-400 text-[8.5px] leading-relaxed">
-                        <strong>Зөвлөмж:</strong> Саармагжих хуулийн үндсэн томьёог ашиглан хүчлийн концентрацийг олно:<br>
-                        C_хүчил = (C_шүлт x V_шүлт) / V_хүчил<br>
-                        Тооцооллоо дахин нягталж, аравтын бутархайгаар илэрхийлэн илгээж үзнэ үү.
-                    </p>
-                `;
-                window.showToast("Тооцоо буруу байна. Дахин шалгана уу.", "error");
-            }
-        };
-
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
-
-        window.startQuiz = function() {
-            document.getElementById('quiz-intro').classList.add('hidden');
-            document.getElementById('quiz-game').classList.remove('hidden');
-            quizActiveQuestions = shuffleArray([...quizQuestionsRaw]).slice(0, 10);
-            currentQuestionIdx = 0;
-            quizScore = 0;
-            renderQuizQuestion();
-        };
-
-        function renderQuizQuestion() {
-            const feedback = document.getElementById('quiz-feedback');
-            feedback.classList.add('hidden');
-            document.getElementById('btn-quiz-next').classList.add('hidden');
-
-            const currentQ = quizActiveQuestions[currentQuestionIdx];
-            document.getElementById('quiz-question-idx').innerText = `${currentQuestionIdx + 1}/10`;
-            document.getElementById('quiz-score-val').innerText = quizScore;
-            document.getElementById('quiz-question-text').innerText = currentQ.q;
-
-            const originalCorrectText = currentQ.a[currentQ.correct];
-            const optionsScrambled = shuffleArray([...currentQ.a]);
-            const newCorrectIdx = optionsScrambled.indexOf(originalCorrectText);
-
-            const optionsContainer = document.getElementById('quiz-options-container');
-            optionsContainer.innerHTML = '';
-
-            optionsScrambled.forEach((optionText, index) => {
-                const btn = document.createElement('button');
-                btn.className = "w-full p-2.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 text-[10px] font-bold text-left rounded-xl transition";
-                btn.innerText = optionText;
-
-                btn.onclick = () => {
-                    const allBtns = optionsContainer.querySelectorAll('button');
-                    allBtns.forEach(b => b.disabled = true);
-
-                    if (index === newCorrectIdx) {
-                        btn.className = "w-full p-2.5 bg-emerald-950/80 text-emerald-400 border border-emerald-800 text-[10px] font-bold text-left rounded-xl shadow-lg";
-                        feedback.className = "p-2.5 bg-emerald-950/60 text-emerald-400 border border-emerald-800 rounded-xl text-[9px] font-bold text-center";
-                        feedback.innerHTML = "<i class='fa-solid fa-circle-check mr-1'></i> Баяр хүргэе! Та зөв хариуллаа.";
-                        quizScore++;
-                    } else {
-                        btn.className = "w-full p-2.5 bg-rose-955/80 text-rose-400 border border-rose-800 text-[10px] font-bold text-left rounded-xl shadow-lg";
-                        feedback.className = "p-2.5 bg-rose-955/60 text-rose-400 border border-rose-800 rounded-xl text-[9px] font-bold text-center";
-                        feedback.innerHTML = `<i class='fa-solid fa-circle-xmark mr-1'></i> Буруу байна. Зөв хариулт: <strong>${originalCorrectText}</strong>`;
-                        
-                        allBtns[newCorrectIdx].className = "w-full p-2.5 bg-emerald-950/80 text-emerald-400 border border-emerald-800 text-[10px] font-bold text-left rounded-xl shadow-lg";
-                    }
-
-                    feedback.classList.remove('hidden');
-                    document.getElementById('btn-quiz-next').classList.remove('hidden');
-                    document.getElementById('quiz-score-val').innerText = quizScore;
-                };
-
-                optionsContainer.appendChild(btn);
-            });
-        }
-
-        window.nextQuestion = function() {
-            if (currentQuestionIdx < 9) {
-                currentQuestionIdx++;
-                renderQuizQuestion();
-            } else {
-                const gameContainer = document.getElementById('quiz-game');
-                gameContainer.innerHTML = `
-                    <div class="bg-slate-900/60 p-4 rounded-2xl border border-slate-800 text-center space-y-3">
-                        <i class="fa-solid fa-trophy text-3xl text-amber-500 animate-bounce"></i>
-                        <h4 class="text-xs font-bold text-white">Сорил дууслаа!</h4>
-                        <p class="text-[10px] text-slate-300">Та 10 асуултаас <strong class="text-cyan-400">${quizScore}</strong> зөв хариулж амжилттай дуусгалаа.</p>
-                        <button onclick="window.resetQuizLayout()" class="w-full py-2 bg-cyan-600 hover:bg-cyan-500 text-white text-[10px] font-bold rounded-xl transition">Дахин эхлэх</button>
-                    </div>
-                `;
-            }
-        };
-
-        window.resetQuizLayout = function() {
-            const tabContentQuiz = document.getElementById('tab-content-quiz');
-            tabContentQuiz.innerHTML = `
-                <div id="quiz-intro" class="space-y-3">
-                    <div class="bg-gradient-to-r from-cyan-950 to-indigo-950 p-4 rounded-2xl border border-cyan-800/50 text-center space-y-2">
-                        <i class="fa-solid fa-graduation-cap text-2xl text-cyan-400"></i>
-                        <h4 class="text-xs font-bold text-white">Лабораторийн мэдлэг сорих</h4>
-                        <p class="text-[10px] text-slate-300 leading-relaxed">Таны химийн онол болон лабораторийн аюулгүй ажиллагааны мэдлэгийг шалгах санамсаргүй 10 асуулт бүхий сорил.</p>
-                    </div>
-                    <button onclick="window.startQuiz()" class="w-full py-2.5 bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-[10px] rounded-xl tracking-wider uppercase transition">Сорилтыг эхлүүлэх</button>
-                </div>
-
-                <div id="quiz-game" class="hidden space-y-3">
-                    <div class="flex justify-between items-center text-[10px] font-bold">
-                        <span class="text-slate-400">Асуулт: <strong id="quiz-question-idx" class="text-cyan-400">1/10</strong></span>
-                        <span class="text-slate-400">Оноо: <strong id="quiz-score-val" class="text-emerald-400">0</strong></span>
-                    </div>
-                    <div class="p-3.5 bg-slate-900/60 border border-slate-800 rounded-2xl text-[11px] font-semibold leading-relaxed text-slate-200" id="quiz-question-text"></div>
-                    <div class="grid grid-cols-1 gap-2" id="quiz-options-container"></div>
-                    <div id="quiz-feedback" class="hidden p-2.5 rounded-xl text-[9px] font-bold text-center border"></div>
-                    <button id="btn-quiz-next" onclick="window.nextQuestion()" class="hidden w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-[10px] font-bold rounded-xl transition">Дараагийн асуулт</button>
-                </div>
-            `;
-        };
-
-        function updateUI() {
-            document.getElementById('scale-temp-lbl').innerText = `${temperature.toFixed(1)} °C`;
-            
-            let baseW = 0.00;
-            if (activeLiquid) baseW += activeLiquid.volume * 1.05;
-            if (activeSolid) {
-                if (activeSolid === 'Na') baseW += 0.5;
-                else if (activeSolid === 'Mg') baseW += 0.8;
-                else if (activeSolid === 'Zn') baseW += 1.2;
-                else if (activeSolid === 'Cu') baseW += 1.0;
-                else if (activeSolid === 'CaCO3') baseW += 2.0;
-                else if (activeSolid === 'Fe') baseW += 1.0;
-                else if (activeSolid === 'MnO2') baseW += 0.5;
-                else if (activeSolid === 'KMnO4') baseW += 2.0;
-                else if (activeSolid === 'NH4Cl_CaOH2') baseW += 2.5;
-            }
-            document.getElementById('scale-weight-lbl').innerText = `${baseW.toFixed(2)} гр`;
-
-            if (titrationAssembled) {
-                document.getElementById('burette-vol-val').innerText = `${titrationBuretteVol.toFixed(1)} мл`;
-                document.getElementById('flask-ph-val').innerText = `${titrationFlaskPh.toFixed(1)} (${titrationFlaskPh < 6.5 ? 'Хүчиллэг' : titrationFlaskPh > 7.5 ? 'Шүлтлэг' : 'Саармаг'})`;
-                
-                const valveLbl = document.getElementById('valve-status');
-                if (titrationValveOpen) {
-                    valveLbl.innerText = "Нээлттэй";
-                    valveLbl.className = "text-emerald-400 uppercase font-black animate-pulse";
-                } else {
-                    valveLbl.innerText = "Хаалттай";
-                    valveLbl.className = "text-rose-400 uppercase font-black";
-                }
-            }
-
-            const step1 = document.getElementById('step-1');
-            const step2 = document.getElementById('step-2');
-            const step3 = document.getElementById('step-3');
-            const step4 = document.getElementById('step-4');
-            const step5 = document.getElementById('step-5');
-            const guide = document.getElementById('viewport-guide');
-
-            if (step1 && step2 && step3 && step4 && step5) {
-                const producesGas = (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2' || (activeLiquid && activeSolid && (
-                    (activeSolid === 'CaCO3' && activeLiquid.formula === 'HCl') ||
-                    ((activeSolid === 'Zn' || activeSolid === 'Mg' || activeSolid === 'Fe') && activeLiquid.formula === 'HCl') ||
-                    ((activeSolid === 'Fe' || activeSolid === 'MnO2') && activeLiquid.formula === 'H2O2') ||
-                    (activeSolid === 'Na' && (activeLiquid.formula === 'H2O' || activeLiquid.formula === 'HCl'))
-                )));
-
-                if (producesGas) {
-                    step1.className = "flex items-center gap-2 text-emerald-400 font-bold";
-                    step1.innerHTML = `<i class="fa-solid fa-circle-check text-xs"></i> <span>1. Урвалж бодисууд нэмсэн (Бэлэн: ${activeSolid || ''} ${activeLiquid ? '+ ' + activeLiquid.formula : ''})</span>`;
-                } else {
-                    step1.className = "flex items-center gap-2 text-amber-400 animate-pulse";
-                    step1.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-xs animate-bounce"></i> <span>1. Идэвхтэй бодисууд нэмэх (Жишээ нь: KMnO₄)</span>`;
-                }
-
-                step2.className = "flex items-center gap-2 text-emerald-400 font-bold";
-                step2.innerHTML = `<i class="fa-solid fa-circle-check text-xs"></i> <span>2. Сонгосон арга: ${gasCollectionMethod === 'water' ? 'Усыг түрүүлэх' : 'Агаар шахах'}</span>`;
-
-                if (gasCollectionAssembled) {
-                    step3.className = "flex items-center gap-2 text-emerald-400 font-bold";
-                    step3.innerHTML = `<i class="fa-solid fa-circle-check text-xs"></i> <span>3. Хий хураах багаж угсарсан</span>`;
-                } else {
-                    step3.className = producesGas ? "flex items-center gap-2 text-amber-400 animate-pulse" : "flex items-center gap-2 text-slate-500";
-                    step3.innerHTML = `<i class="fa-solid fa-circle-dot text-xs"></i> <span>3. Холбогч багаж угсрах (Товчлуурыг дар)</span>`;
-                }
-
-                if (gasCollectionAssembled && reactionActive) {
-                    step4.className = "flex items-center gap-2 text-cyan-400 font-bold animate-pulse";
-                    step4.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-xs"></i> <span>4. Хий бодитоор ялгарч байна... (${gasCollectedAmount}%)</span>`;
-                } else if (gasCollectionAssembled && gasCollectedAmount >= 100) {
-                    step4.className = "flex items-center gap-2 text-emerald-400 font-bold";
-                    step4.innerHTML = `<i class="fa-solid fa-circle-check text-xs"></i> <span>4. Хий бүрэн хуримтлагдсан (100%)</span>`;
-                } else {
-                    step4.className = gasCollectionAssembled ? "flex items-center gap-2 text-amber-400" : "flex items-center gap-2 text-slate-500";
-                    step4.innerHTML = `<i class="fa-solid fa-circle-dot text-xs"></i> <span>4. Дэн асаах эсвэл химийн идэвхийг хүлээх</span>`;
-                }
-
-                if (gasCollectionAssembled && gasCollectedAmount >= 80) {
-                    step5.className = "flex items-center gap-2 text-indigo-400 font-bold animate-pulse";
-                    step5.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles text-xs"></i> <span>5. Шавхсан хийг зүүн талын сорилтын савхаар сорих!</span>`;
-                    if (guide) guide.innerText = `3D Үзүүлэн: ${activeGasType} хийг илрүүлэгч савхаар сориход бэлэн!`;
-                } else {
-                    step5.className = "flex items-center gap-2 text-slate-500";
-                    step5.innerHTML = `<i class="fa-solid fa-circle-dot text-xs"></i> <span>5. Илрүүлэгч сорилтын савхаар шалгах</span>`;
-                    if (guide) {
-                        if (gasCollectionAssembled) {
-                            guide.innerText = `Хий цуглуулж байна: ${gasCollectedAmount}%`;
-                        } else {
-                            guide.innerText = `3D Үзүүлэн: Төхөөрөмж бэлэн`;
-                        }
-                    }
-                }
-            }
-        }
-
-        window.toggleBurner = function(on) {
-            burnerOn = on;
-            const statusLbl = document.getElementById('burner-status-lbl');
-            if (statusLbl) {
-                if (on) {
-                    statusLbl.innerText = burnerType === 'spirit' ? "Асаалттай (Спиртэн дэн)" : "Асаалттай (Бунзений дэн)";
-                    statusLbl.className = "text-[8px] text-emerald-400 font-bold uppercase animate-pulse";
-                    window.addFire3D();
-                    playWhooshSound();
-
-                    // Instantly trigger decomposition reactions if reactants are ready inside 45 deg tilted setup
-                    if (activeSolid === 'KMnO4' && !reactionActive) {
-                        reactionType = 'KMnO4_decomp';
-                        reactionActive = true;
-                        reactionProgress = 0.0;
-                    } else if (activeSolid === 'NH4Cl_CaOH2' && !reactionActive) {
-                        reactionType = 'NH4Cl_CaOH2_decomp';
-                        reactionActive = true;
-                        reactionProgress = 0.0;
-                    }
-                } else {
-                    statusLbl.innerText = "Унтраастай (Таглагдсан)";
-                    statusLbl.className = "text-[8px] text-rose-500 font-bold uppercase";
-                    if (fireParticles) {
-                        scene.remove(fireParticles);
-                        fireParticles = null;
-                    }
-                }
-            }
-            
-            if (burnerGroup && burnerGroup.userData.spiritCap) {
-                if (on) {
-                    burnerGroup.userData.spiritCap.position.set(0.8, 0.22, 0.5);
-                } else {
-                    burnerGroup.userData.spiritCap.position.set(0, 1.15, 0);
-                }
-            }
-        };
-
-        window.setBurnerType = function(type) {
-            burnerType = type;
-            document.getElementById('btn-burner-spirit').className = "py-1.5 rounded-xl text-[9px] font-bold bg-slate-900 border border-slate-800 text-slate-400";
-            document.getElementById('btn-burner-bunsen').className = "py-1.5 rounded-xl text-[9px] font-bold bg-slate-900 border border-slate-800 text-slate-400";
-            
-            if (type === 'spirit') {
-                document.getElementById('btn-burner-spirit').className = "py-1.5 rounded-xl text-[9px] font-bold bg-indigo-950 border border-indigo-500 text-indigo-300 shadow-md";
-                document.getElementById('bunsen-air-control').classList.add('hidden');
-            } else {
-                document.getElementById('btn-burner-bunsen').className = "py-1.5 rounded-xl text-[9px] font-bold bg-cyan-950 border border-cyan-500 text-cyan-300 shadow-md";
-                document.getElementById('bunsen-air-control').classList.remove('hidden');
-            }
-            
-            buildBurner3D();
-        };
-
-        window.setBunsenFlame = function(flameType) {
-            bunsenFlameType = flameType;
-            document.getElementById('btn-bunsen-yellow').className = "py-1 bg-slate-900 text-slate-400 border border-slate-800 rounded text-[8px] font-bold";
-            document.getElementById('btn-bunsen-blue').className = "py-1 bg-slate-900 text-slate-400 border border-slate-800 rounded text-[8px] font-bold";
-            
-            const flameLbl = document.getElementById('bunsen-flame-lbl');
-            if (flameType === 'yellow') {
-                document.getElementById('btn-bunsen-yellow').className = "py-1 bg-amber-955/60 text-amber-300 border border-amber-800/50 rounded text-[8px] font-bold shadow";
-                flameLbl.innerText = "Шар дөл (Safety)";
-                flameLbl.className = "text-amber-400 font-bold";
-            } else {
-                document.getElementById('btn-bunsen-blue').className = "py-1 bg-cyan-950/60 text-cyan-300 border border-cyan-800/50 rounded text-[8px] font-bold shadow";
-                flameLbl.innerText = "Хөх дөл (Oxidizing)";
-                flameLbl.className = "text-cyan-400 font-bold";
-            }
-            
-            if (burnerOn) {
-                window.addFire3D();
-            }
-        };
-
-        window.addFire3D = function() {
-            if (fireParticles) scene.remove(fireParticles);
-            
-            const particleCount = 60;
-            const geometry = new THREE.BufferGeometry();
-            const positions = new Float32Array(particleCount * 3);
-            const velocities = new Float32Array(particleCount);
-            
-            const startY = (burnerType === 'spirit') ? 1.0 : 1.2;
-            
-            for (let i = 0; i < particleCount; i++) {
-                positions[i * 3] = (Math.random() - 0.5) * 0.08;
-                positions[i * 3 + 1] = startY + Math.random() * 0.4;
-                positions[i * 3 + 2] = (Math.random() - 0.5) * 0.08;
-                velocities[i] = 0.008 + Math.random() * 0.012;
-            }
-            
-            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            geometry.setAttribute('velocity', new THREE.BufferAttribute(velocities, 1));
-            
-            let fireColor = 0xff6600; 
-            
-            if (selectedFlameSalt && burnerType === 'bunsen' && bunsenFlameType === 'blue') {
-                fireColor = parseInt(selectedFlameColor.replace('#', '0x'));
-            } else if (burnerType === 'bunsen') {
-                fireColor = (bunsenFlameType === 'blue') ? 0x00ccff : 0xffaa00;
-            }
-            
-            const material = new THREE.PointsMaterial({
-                color: fireColor,
-                size: 0.12,
-                transparent: true,
-                opacity: 0.85,
-                blending: THREE.AdditiveBlending,
-                depthWrite: false
-            });
-            
-            fireParticles = new THREE.Points(geometry, material);
-            const isDecomp = (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2');
-            const burnerX = (gasCollectionAssembled && isDecomp) ? -0.6 : 2.4;
-            fireParticles.position.x = burnerX;
-            
-            scene.add(fireParticles);
         };
 
         window.selectFlameSalt = function(salt, color) {
@@ -2836,7 +2508,7 @@
             });
             
             const activeBtn = document.getElementById(`salt-${salt}`);
-            if (activeBtn) activeBtn.className = "p-2.5 text-left bg-indigo-950 border border-indigo-500 text-indigo-200 rounded-xl text-[10px] flex justify-between items-center transition shadow-lg";
+            if (activeBtn) activeBtn.className = "p-2.5 text-left bg-indigo-955 border border-indigo-500 text-indigo-200 rounded-xl text-[10px] flex justify-between items-center transition shadow-lg";
             
             activeLiquid = {
                 formula: `${salt} (уусмал)`,
@@ -2927,8 +2599,13 @@
         };
 
         window.performGasTest = function(testType) {
-            if (!activeGasType || gasCollectedAmount < 80) {
-                window.showToast("Сориход хангалттай хий хуримтлагдаагүй байна (Дор хаяж 80% хэрэгтэй)!", "warning");
+            // STRICT INTERLOCK: Do not allow gas identification while heating is still active!
+            if (burnerOn) {
+                window.showToast("АЮУЛГҮЙ БАЙДЛЫН АЛДАА: Халаалт асаалттай байна! Эхлээд спиртэн дэнг бүрэн унтраана уу.", "error");
+                return;
+            }
+            if (!activeGasType || gasCollectedAmount < 100) {
+                window.showToast("Сориход хангалттай хий хуримтлагдаагүй байна (100% дүүргэх шаардлагатай)!", "warning");
                 return;
             }
             
@@ -2938,44 +2615,50 @@
                 if (activeGasType === 'H2') {
                     playPopSound();
                     journal.innerHTML = `
-                        <strong>ИЛРҮҮЛЭГЧИЙН СОРИЛТ: Устөрөгчийн хий (H₂)</strong><br>
-                        <strong>Ажилбар:</strong> Цугларсан хийтэй савны амсарт ассан шүдэнз/цучлыг ойртуулав.<br>
-                        <strong>Үр дүн:</strong> Маш чанга <strong>"ПОП-ПАТ" (Pop!)</strong> гэсэн өвөрмөц тэсрэлтийн чимээ гарч дөл агшин зуурт унтрав.<br>
-                        <strong>Урвалын тайлбар:</strong> Ялгарсан устөрөгчийн хий агаарын хүчилтөрөгчтэй холимог үүсгэн маш хурдтай шатаж ус үүсгэх урвал явагддаг: 2H₂ + O₂ → 2H₂O (Микро тэсрэлт).
+                        <strong>ИЛРҮҮЛЭГЧИЙН СОРИЛТ (ЦУГЛАРСАН СУУРЬ): Устөрөгчийн хий (H₂)</strong><br>
+                        <strong>Ажилбар:</strong> Цугларсан хийтэй хөмөрсөн савны амсарт ассан шүдэнзийг ойртуулав.<br>
+                        <strong>Үр дүн:</strong> Маш чанга <strong>"ПОП-ПАТ" (Pop!)</strong> гэсэн өвөрмөц тэсрэлтийн чимээ гарч унтрав.<br>
+                        <strong>Урвалын тайлбар:</strong> 2H₂ + O₂ → 2H₂O. Хүчилтөрөгчтэй микро тэсрэлт үүсгэдэг нь устөрөгчийг таних үндсэн шинж чанар юм.
                     `;
-                    window.showToast("ПОП-ПАТ! Устөрөгч хий тодорхойлогдлоо.", "success");
+                    window.showToast("ПОП-ПАТ! Устөрөгч хий амжилттай тодорхойлогдлоо.", "success");
                 } else if (activeGasType === 'O2') {
                     playWhooshSound();
                     journal.innerHTML = `
-                        <strong>ИЛРҮҮЛЭГЧИЙН СОРИЛТ: Хүчилтөрөгчийн хий (O₂)</strong><br>
-                        <strong>Ажилбар:</strong> Савны амсарт улайссан цучлыг ойртуулав.<br>
-                        <strong>Үр дүн:</strong> Улайссан цучил <strong>дүрэлзэн маш тод, ширүүн дөлөөр</strong> аслаа.<br>
-                        <strong>Урвалын тайлбар:</strong> Хүчилтөрөгч нь шаталтыг маш хүчтэй дэмждэг хий бөгөөд улайссан нүүрстөрөгчтэй эрчимтэй нэгддэг: C + O₂ → CO₂.
+                        <strong>ИЛРҮҮЛЭГЧИЙН СОРИЛТ (ЦУГЛАРСАН СУУРЬ): Хүчилтөрөгчийн хий (O₂)</strong><br>
+                        <strong>Ажилбар:</strong> Цугларсан савны амсарт улайссан цучлыг оруулав.<br>
+                        <strong>Үр дүн:</strong> Улайссан цучил <strong>дүрэлзэн маш тод аслаа</strong>.<br>
+                        <strong>Тайлбар:</strong> Хүчилтөрөгч нь шаталтыг маш хүчтэй дэмждэг хий юм (C + O₂ → CO₂).
                     `;
-                    window.showToast("Цучил дүрэлзэн аслаа! Хүчилтөрөгч тодорхойлогдлоо.", "success");
+                    window.showToast("Цучил дүрэлзэн аслаа! Хүчилтөрөгч батлагдлаа.", "success");
                 } else if (activeGasType === 'CO2') {
                     playHissSound();
                     journal.innerHTML = `
-                        <strong>ИЛРҮҮЛЭГЧИЙН СОРИЛТ: Нүүрсхүчлийн хий (CO₂)</strong><br>
-                        <strong>Ажилбар:</strong> Савны амсарт ассан шүдэнзийг оруулав.<br>
+                        <strong>ИЛРҮҮЛЭГЧИЙН СОРИЛТ (ЦУГЛАРСАН СУУРЬ): Нүүрсхүчлийн хий (CO₂)</strong><br>
+                        <strong>Ажилбар:</strong> Цугларсан савны амсарт ассан шүдэнзийг оруулав.<br>
                         <strong>Үр дүн:</strong> Шүдэнзний гал саванд ормогц <strong>агшин зуурт унтарлаа</strong>.<br>
-                        <strong>Урвалын тайлбар:</strong> Нүүрсхүчлийн хий нь агаараас хүнд бөгөөд шаталтыг огт дэмждэггүй, хүчилтөрөгчийн урсгалыг хаадаг шинж чанартай.
+                        <strong>Тайлбар:</strong> Нүүрсхүчлийн хий нь агаараас хүнд бөгөөд шаталтыг огт дэмждэггүй шинж чанартай.
                     `;
-                    window.showToast("Гал шууд унтарлаа! Нүүрсхүчлийн хий тодорхойлогдлоо.", "success");
+                    window.showToast("Гал шууд унтарлаа! Нүүрсхүчлийн хий батлагдлаа.", "success");
                 } else if (activeGasType === 'NH3') {
                     playHissSound();
                     journal.innerHTML = `
-                        <strong>ИЛРҮҮЛЭГЧИЙН СОРИЛТ: Аммиакийн хий (NH₃)</strong><br>
+                        <strong>ИЛРҮҮЛЭГЧИЙН СОРИЛТ (ЦУГЛАРСАН СУУРЬ): Аммиакийн хий (NH₃)</strong><br>
                         <strong>Ажилбар:</strong> Савны амсарт нойтон улаан лакмусын цаас ойртуулав.<br>
-                        <strong>Үр дүн:</strong> Улаан лакмусын цаас маш богино хугацаанд <strong>тод хөх өнгөтэй</strong> болж хувирлаа.<br>
-                        <strong>Тайлбар:</strong> Аммиак нь усанд маш сайн уусдаг бөгөөд сул шүлтлэг шинж чанартай Аммонийн гидроксид (NH₄OH) үүсгэдэг тул индикаторын цаас хөхөрдөг.`;
-                    window.showToast("Индикатор хөхөрлөө! Аммиак тодорхойлогдлоо.", "success");
+                        <strong>Үр дүн:</strong> Улаан лакмусын цаас <strong>тод хөх өнгөтэй</strong> болж хувирлаа.<br>
+                        <strong>Тайлбар:</strong> Аммиак нь усанд уусч сул шүлтлэг шинж чанартай Аммонийн гидроксид үүсгэдэг.
+                    `;
+                    window.showToast("Индикатор хөхөрлөө! Аммиак батлагдлаа.", "success");
                 }
             }
         };
 
         window.performLimeWaterTest = function() {
-            if (!activeGasType || gasCollectedAmount < 80) {
+            // STRICT INTERLOCK: Do not allow gas identification while heating is still active!
+            if (burnerOn) {
+                window.showToast("АЮУЛГҮЙ БАЙДЛЫН АЛДАА: Халаалт асаалттай байна! Эхлээд спиртэн дэнг бүрэн унтраана уу.", "error");
+                return;
+            }
+            if (!activeGasType || gasCollectedAmount < 100) {
                 window.showToast("Сориход хангалттай хий хуримтлагдаагүй байна!", "warning");
                 return;
             }
@@ -2985,11 +2668,10 @@
             if (activeGasType === 'CO2') {
                 playHissSound();
                 journal.innerHTML = `
-                    <strong>ШОХОЙН УСНЫ СОРИЛТ: Нүүрсхүчлийн хий (CO₂)</strong><br>
-                    <strong>Ажилбар:</strong> Ялгарсан хийг тунгалаг шохойн ус (Ca(OH)₂) бүхий хуруу шилээр нэвтрүүлж үлээлгэв.<br>
-                    <strong>Үр дүн:</strong> Тунгалаг уусмал маш богино хугацаанд <strong>сүүн цагаан өнгөтэй булингар (тунадас)</strong> болж өөрчлөгдлөө.<br>
-                    <strong>Урвалын тэгшитгэл:</strong> CO₂ + Ca(OH)₂ → CaCO₃↓ + H₂O<br>
-                    <strong>Тайлбар:</strong> Усанд уусдаггүй цагаан өнгийн Кальцийн карбонат (CaCO₃) талсжин тунадасжсаны улмаас уусмал булингартдаг нь нүүрсхүчлийн хийг таних үндсэн чанарын урвал юм.
+                    <strong>ШОХОЙН УСНЫ СОРИЛТ (ЦУГЛАРСАН СУУРЬ): Нүүрсхүчлийн хий (CO₂)</strong><br>
+                    <strong>Ажилбар:</strong> Ялгарсан хийг тунгалаг шохойн ус (Ca(OH)₂) бүхий уусмалаар нэвтрүүлж үлээлгэв.<br>
+                    <strong>Үр дүн:</strong> Тунгалаг уусмал <strong>сүүн цагаан өнгөтэй булингар</strong> болж өөрчлөгдлөө.<br>
+                    <strong>Тэгшитгэл:</strong> CO₂ + Ca(OH)₂ → CaCO₃↓ + H₂O
                 `;
                 
                 if (gasCollectionGroup) {
@@ -3010,6 +2692,7 @@
             activeLiquid = null;
             activeSolid = null;
             activeGasType = null;
+            selectedGasMethodId = '';
             gasCollectedAmount = 0;
             temperature = 25.0;
             burnerOn = false;
@@ -3032,6 +2715,13 @@
                 const assembleBtn = document.getElementById('btn-assemble-gas');
                 if (assembleBtn) assembleBtn.innerText = "Хий хураах багаж угсрах";
             }
+
+            const heavyCard = document.getElementById('card-method-air_heavy');
+            const lightCard = document.getElementById('card-method-air_light');
+            const waterCard = document.getElementById('card-method-water');
+            if (heavyCard) heavyCard.className = "p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl transition flex gap-3 items-center";
+            if (lightCard) lightCard.className = "p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl transition flex gap-3 items-center";
+            if (waterCard) waterCard.className = "p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl transition flex gap-3 items-center";
             
             if (titrationAssembled) {
                 if (titrationStandMesh) scene.remove(titrationStandMesh);
