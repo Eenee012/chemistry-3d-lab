@@ -18,8 +18,8 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #030712;
-            color: #f3f4f6;
+            background-color: #020617;
+            color: #f1f5f9;
             overflow: hidden;
         }
         .font-mono-chem {
@@ -68,7 +68,7 @@
 <body class="h-screen w-screen flex flex-col overflow-hidden">
 
     <!-- ХЯЛБАРШУУЛСАН НЭВТРЭХ ЦОНХ -->
-    <div id="login-container" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/98 backdrop-blur-xl transition-all duration-500 overflow-y-auto">
+    <div id="login-container" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-955/98 backdrop-blur-xl transition-all duration-500 overflow-y-auto">
         <div class="relative w-full max-w-sm p-8 rounded-3xl bg-slate-900/90 border border-slate-800/85 shadow-2xl neon-border-cyan flex flex-col gap-6 text-center">
             
             <div class="space-y-2">
@@ -82,7 +82,7 @@
                 <p class="text-xs text-slate-300">Нэрээ оруулаад лаборатори руу шууд нэвтэрнэ үү.</p>
             </div>
 
-            <!-- Хялбаршуулсан бүртгэл (зурагт заасан олон бөглөх хэсгийг цөөлөв) -->
+            <!-- Хялбаршуулсан бүртгэл -->
             <div class="space-y-4 text-left text-xs font-semibold text-slate-400">
                 <div class="space-y-1.5">
                     <span class="text-[10px] font-bold uppercase tracking-wider">Таны үүрэг:</span>
@@ -112,7 +112,7 @@
             </button>
 
             <div class="pt-3 border-t border-slate-800/80 flex items-center justify-center">
-                <div class="bg-slate-950 px-3.5 py-1.5 rounded-xl border border-slate-850 flex items-center gap-2">
+                <div class="bg-slate-950 px-3.5 py-1.5 rounded-xl border border-slate-855 flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-cyan-500 animate-ping"></span>
                     <span class="text-[9px] text-slate-400 font-bold">Холболтын статус: <strong class="text-cyan-400">Идэвхтэй</strong></span>
                 </div>
@@ -129,7 +129,7 @@
             </div>
             <div>
                 <h2 class="text-base font-black tracking-tight text-white flex items-center gap-2">
-                    СОНИРХОЛТОЙ ХИМИ <span class="text-[9px] bg-cyan-950/80 text-cyan-400 border border-cyan-850 px-2 py-0.5 rounded-md font-bold">V5.0 Pro</span>
+                    СОНИРХОЛТОЙ ХИМИ <span class="text-[9px] bg-cyan-950/80 text-cyan-400 border border-cyan-850 px-2 py-0.5 rounded-md font-bold">V6.0 Edu</span>
                 </h2>
                 <p class="text-[9px] text-slate-400 font-semibold uppercase tracking-wider">3D Виртуал лаборатори</p>
             </div>
@@ -156,7 +156,7 @@
                     <p id="header-username" class="text-xs font-black text-slate-200">Зочин</p>
                     <p id="header-userrole" class="text-[9px] font-bold text-indigo-400">Сурагч</p>
                 </div>
-                <button onclick="window.logout()" class="p-2.5 rounded-xl bg-rose-950 hover:bg-rose-900 border border-rose-500/50 text-rose-400 hover:text-white transition" title="Системээс гарах">
+                <button onclick="window.logout()" class="p-2.5 rounded-xl bg-rose-955 hover:bg-rose-900 border border-rose-500/50 text-rose-400 hover:text-white transition" title="Системээс гарах">
                     <i class="fa-solid fa-right-from-bracket"></i>
                 </button>
             </div>
@@ -170,7 +170,7 @@
         <section class="w-[420px] shrink-0 border-r border-slate-800 bg-slate-950/80 backdrop-blur-md flex flex-col overflow-hidden z-20">
             
             <!-- Табууд солих хэсэг -->
-            <div class="grid grid-cols-5 border-b border-slate-800 text-[10px] font-black tracking-wider uppercase text-center shrink-0 bg-slate-950/60">
+            <div class="grid grid-cols-5 border-b border-slate-800 text-[10px] font-black tracking-wider uppercase text-center shrink-0 bg-slate-955/60">
                 <button onclick="window.switchTab('chemical')" id="tab-btn-chemical" class="py-3 border-b-2 border-cyan-500 text-cyan-400 transition">
                     <i class="fa-solid fa-vial block text-xs mb-1"></i>Бодис
                 </button>
@@ -217,25 +217,25 @@
                         </div>
                         <input type="range" id="pipette-volume" min="0.5" max="15" step="0.5" value="5.0" oninput="window.updatePipetteLabel()" class="w-full accent-cyan-500 cursor-pointer">
                         <div class="grid grid-cols-1 gap-2 max-h-[160px] overflow-y-auto pr-1 custom-scroll">
-                            <button onclick="window.addLiquid('H2O', '#cbd5e1', 7.0)" class="p-2.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition" title="Нэрмэл ус">
+                            <button onclick="window.addLiquid('H2O', '#cbd5e1', 7.0)" class="p-2.5 bg-slate-955 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition" title="Нэрмэл ус">
                                 <span>Нэрмэл ус (H₂O)</span>
                                 <span class="text-[8px] bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded font-mono-chem">pH 7.0</span>
                             </button>
-                            <button onclick="window.addLiquid('HCl', '#cbd5e1', 1.2)" class="p-2.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition" title="Давсны хүчил">
+                            <button onclick="window.addLiquid('HCl', '#cbd5e1', 1.2)" class="p-2.5 bg-slate-955 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition" title="Давсны хүчил">
                                 <span>Давсны хүчил (HCl)</span>
                                 <span class="text-[8px] bg-rose-955 text-rose-400 px-1.5 py-0.5 rounded font-mono-chem">pH 1.2</span>
                             </button>
-                            <button onclick="window.addLiquid('H2SO4', '#93c5fd', 1.0)" class="p-2.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition" title="Хүхрийн хүчил">
+                            <button onclick="window.addLiquid('H2SO4', '#93c5fd', 1.0)" class="p-2.5 bg-slate-955 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition" title="Хүхрийн хүчил">
                                 <span>Хүхрийн хүчил (H₂SO₄)</span>
                                 <span class="text-[8px] bg-rose-955 text-rose-400 px-1.5 py-0.5 rounded font-mono-chem">pH 1.0</span>
                             </button>
-                            <button onclick="window.addLiquid('HNO3', '#fef08a', 1.1)" class="p-2.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition" title="Азотын хүчил">
+                            <button onclick="window.addLiquid('HNO3', '#fef08a', 1.1)" class="p-2.5 bg-slate-955 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition" title="Азотын хүчил">
                                 <span>Азотын хүчил (HNO₃)</span>
                                 <span class="text-[8px] bg-rose-955 text-rose-400 px-1.5 py-0.5 rounded font-mono-chem">pH 1.1</span>
                             </button>
-                            <button onclick="window.addLiquid('NaOH', '#cbd5e1', 13.0)" class="p-2.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition" title="Натрийн гидроксид">
+                            <button onclick="window.addLiquid('NaOH', '#cbd5e1', 13.0)" class="p-2.5 bg-slate-955 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] font-bold text-left flex justify-between items-center transition" title="Натрийн гидроксид">
                                 <span>Натрийн гидроксид (NaOH)</span>
-                                <span class="text-[8px] bg-indigo-950 text-indigo-400 px-1.5 py-0.5 rounded font-mono-chem">pH 13.0</span>
+                                <span class="text-[8px] bg-indigo-955 text-indigo-400 px-1.5 py-0.5 rounded font-mono-chem">pH 13.0</span>
                             </button>
                         </div>
                     </div>
@@ -244,23 +244,23 @@
                     <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-855 space-y-3">
                         <div class="flex justify-between items-center">
                             <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Хатуу бодис нэмэх (Хэмжээ):</span>
-                            <span id="solid-mass-lbl" class="text-[9px] font-black text-amber-400 bg-amber-950/80 border border-amber-500/50 px-2 py-0.5 rounded-md">1.00 гр</span>
+                            <span id="solid-mass-lbl" class="text-[9px] font-black text-amber-400 bg-amber-955/80 border border-amber-500/50 px-2 py-0.5 rounded-md">1.00 гр</span>
                         </div>
                         <input type="range" id="solid-mass" min="0.10" max="5.00" step="0.05" value="1.00" oninput="window.updateSolidMassLabel()" class="w-full accent-amber-500 cursor-pointer">
-                        <div class="grid grid-cols-2 gap-1.5 max-h-[140px] overflow-y-auto pr-1 custom-scroll font-mono-chem">
-                            <button onclick="window.addSolid('KMnO4')" class="p-2 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-lg text-[9px] font-bold text-left transition">
-                                <i class="fa-solid fa-cubes text-purple-500 mr-1.5"></i> KMnO₄ (Калийн перманганат)
+                        <div class="grid grid-cols-2 gap-1.5 max-h-[160px] overflow-y-auto pr-1 custom-scroll font-mono-chem">
+                            <button onclick="window.addSolid('KMnO4')" class="p-2 bg-slate-955 hover:bg-slate-900 border border-purple-500/30 rounded-lg text-[9px] font-bold text-left transition">
+                                <i class="fa-solid fa-cubes text-purple-500 mr-1.5"></i> KMnO₄ (Калийн перманганат) - Задрах урвал
                             </button>
-                            <button onclick="window.addSolid('NH4Cl_CaOH2')" class="p-2 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-lg text-[9px] font-bold text-left transition">
-                                <i class="fa-solid fa-cubes text-yellow-600 mr-1.5"></i> NH₄Cl + Ca(OH)₂ холимог
+                            <button onclick="window.addSolid('NH4Cl_CaOH2')" class="p-2 bg-slate-955 hover:bg-slate-900 border border-amber-500/30 rounded-lg text-[9px] font-bold text-left transition" title="Ammonium Chloride & Calcium Hydroxide">
+                                <i class="fa-solid fa-cubes text-amber-400 mr-1.5"></i> NH₄Cl + Ca(OH)₂ (Задрах)
                             </button>
-                            <button onclick="window.addSolid('Na')" class="p-2 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-lg text-[9px] font-bold text-left transition">
+                            <button onclick="window.addSolid('Na')" class="p-2 bg-slate-955 hover:bg-slate-900 border border-slate-800 rounded-lg text-[9px] font-bold text-left transition">
                                 <i class="fa-solid fa-cubes text-slate-400 mr-1.5"></i> Натри металл (Na)
                             </button>
-                            <button onclick="window.addSolid('Mg')" class="p-2 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-lg text-[9px] font-bold text-left transition">
+                            <button onclick="window.addSolid('Mg')" class="p-2 bg-slate-955 hover:bg-slate-900 border border-slate-800 rounded-lg text-[9px] font-bold text-left transition">
                                 <i class="fa-solid fa-cubes text-slate-300 mr-1.5"></i> Магний тууз (Mg)
                             </button>
-                            <button onclick="window.addSolid('CaCO3')" class="p-2 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-lg text-[9px] font-bold text-left transition">
+                            <button onclick="window.addSolid('CaCO3')" class="p-2 bg-slate-955 hover:bg-slate-900 border border-slate-800 rounded-lg text-[9px] font-bold text-left transition">
                                 <i class="fa-solid fa-mountain text-stone-400 mr-1.5"></i> Шохойн чулуу (CaCO₃)
                             </button>
                         </div>
@@ -270,10 +270,10 @@
                         <div class="bg-slate-900/60 p-3 rounded-2xl border border-slate-855 space-y-2">
                             <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest block">Индикатор дусаах:</span>
                             <div class="grid grid-cols-1 gap-1.5">
-                                <button onclick="window.dropIndicator('phenolphthalein')" class="p-1.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-lg text-[9px] font-bold text-left transition">
+                                <button onclick="window.dropIndicator('phenolphthalein')" class="p-1.5 bg-slate-955 hover:bg-slate-900 border border-slate-800 rounded-lg text-[9px] font-bold text-left transition">
                                     <i class="fa-solid fa-droplet text-pink-500 mr-1.5"></i> Фенолфталеин
                                 </button>
-                                <button onclick="window.dropIndicator('litmus')" class="p-1.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-lg text-[9px] font-bold text-left transition">
+                                <button onclick="window.dropIndicator('litmus')" class="p-1.5 bg-slate-955 hover:bg-slate-900 border border-slate-800 rounded-lg text-[9px] font-bold text-left transition">
                                     <i class="fa-solid fa-droplet text-indigo-500 mr-1.5"></i> Лакмус
                                 </button>
                             </div>
@@ -281,11 +281,14 @@
                         <div class="bg-slate-900/60 p-3 rounded-2xl border border-slate-855 space-y-2 flex flex-col justify-between">
                             <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest block">Хий хураах арга:</span>
                             <div class="grid grid-cols-1 gap-1">
-                                <button onclick="window.selectGasMethod('water')" id="card-method-water" class="p-1 px-2 bg-slate-950 border border-slate-800 rounded-lg text-[8px] font-bold transition flex items-center gap-1">
+                                <button onclick="window.selectGasMethod('water')" id="card-method-water" class="p-1 px-2 bg-slate-955 border border-slate-800 rounded-lg text-[8px] font-bold transition flex items-center gap-1">
                                     <i class="fa-solid fa-droplet text-cyan-400"></i> Ус түрүүлэх
                                 </button>
-                                <button onclick="window.selectGasMethod('air_heavy')" id="card-method-air_heavy" class="p-1 px-2 bg-slate-950 border border-slate-800 rounded-lg text-[8px] font-bold transition flex items-center gap-1">
+                                <button onclick="window.selectGasMethod('air_heavy')" id="card-method-air_heavy" class="p-1 px-2 bg-slate-955 border border-slate-800 rounded-lg text-[8px] font-bold transition flex items-center gap-1">
                                     <i class="fa-solid fa-angles-down text-red-400"></i> Агаар доош
+                                </button>
+                                <button onclick="window.selectGasMethod('air_light')" id="card-method-air_light" class="p-1 px-2 bg-slate-955 border border-slate-800 rounded-lg text-[8px] font-bold transition flex items-center gap-1" title="Displacement of air upwards for light gases like Ammonia">
+                                    <i class="fa-solid fa-angles-up text-blue-400"></i> Агаар дээш (NH₃)
                                 </button>
                             </div>
                         </div>
@@ -296,7 +299,7 @@
                             <i class="fa-solid fa-cubes-stacked mr-1.5"></i> Хий хураах багаж угсрах
                         </button>
                         
-                        <div class="bg-slate-950/80 p-3 rounded-xl border border-slate-800 space-y-1.5">
+                        <div class="bg-slate-955/80 p-3 rounded-xl border border-slate-800 space-y-1.5">
                             <span class="text-[8px] font-black text-cyan-400 uppercase tracking-widest block">Хий хураах дараалал:</span>
                             <div class="space-y-1 text-[9px] font-semibold text-slate-300">
                                 <div id="step-1" class="flex items-center gap-1.5 text-rose-400">
@@ -331,25 +334,25 @@
                         <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Давс сонгох:</h3>
                     </div>
                     <div class="grid grid-cols-1 gap-1.5 max-h-[140px] overflow-y-auto pr-1 custom-scroll">
-                        <button onclick="window.selectFlameSalt('LiCl', '#ef4444')" id="salt-LiCl" class="p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] flex justify-between items-center transition">
+                        <button onclick="window.selectFlameSalt('LiCl', '#ef4444')" id="salt-LiCl" class="p-2.5 text-left bg-slate-955 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] flex justify-between items-center transition">
                             <span class="font-bold"><i class="fa-solid fa-bottle-droplet text-red-500 mr-2"></i> Литийн хлорид (LiCl)</span>
                             <span class="text-[9px] bg-red-955 text-red-400 px-2 py-0.5 rounded-md font-black">Li<sup>+</sup></span>
                         </button>
-                        <button onclick="window.selectFlameSalt('NaCl', '#f59e0b')" id="salt-NaCl" class="p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] flex justify-between items-center transition">
+                        <button onclick="window.selectFlameSalt('NaCl', '#f59e0b')" id="salt-NaCl" class="p-2.5 text-left bg-slate-955 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] flex justify-between items-center transition">
                             <span class="font-bold"><i class="fa-solid fa-bottle-droplet text-yellow-500 mr-2"></i> Натрийн хлорид (NaCl)</span>
                             <span class="text-[9px] bg-yellow-950 text-yellow-400 px-2 py-0.5 rounded-md font-black">Na<sup>+</sup></span>
                         </button>
-                        <button onclick="window.selectFlameSalt('KCl', '#d8b4fe')" id="salt-KCl" class="p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] flex justify-between items-center transition">
+                        <button onclick="window.selectFlameSalt('KCl', '#d8b4fe')" id="salt-KCl" class="p-2.5 text-left bg-slate-955 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] flex justify-between items-center transition">
                             <span class="font-bold"><i class="fa-solid fa-bottle-droplet text-purple-400 mr-2"></i> Калийн хлорид (KCl)</span>
                             <span class="text-[9px] bg-purple-950 text-purple-400 px-2 py-0.5 rounded-md font-black">K<sup>+</sup></span>
                         </button>
-                        <button onclick="window.selectFlameSalt('CaCl2', '#f97316')" id="salt-CaCl2" class="p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] flex justify-between items-center transition">
+                        <button onclick="window.selectFlameSalt('CaCl2', '#f97316')" id="salt-CaCl2" class="p-2.5 text-left bg-slate-955 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] flex justify-between items-center transition">
                             <span class="font-bold"><i class="fa-solid fa-bottle-droplet text-orange-400 mr-2"></i> Кальцийн хлорид (CaCl₂)</span>
                             <span class="text-[9px] bg-orange-950 text-orange-400 px-2 py-0.5 rounded-md font-black">Ca<sup>2+</sup></span>
                         </button>
-                        <button onclick="window.selectFlameSalt('BaCl2', '#a3e635')" id="salt-BaCl2" class="p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] flex justify-between items-center transition">
+                        <button onclick="window.selectFlameSalt('BaCl2', '#a3e635')" id="salt-BaCl2" class="p-2.5 text-left bg-slate-955 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] flex justify-between items-center transition">
                             <span class="font-bold"><i class="fa-solid fa-bottle-droplet text-lime-400 mr-2"></i> Барийн хлорид (BaCl₂)</span>
-                            <span class="text-[9px] bg-lime-950 text-lime-400 px-2 py-0.5 rounded-md font-black">Ba<sup>2+</sup></span>
+                            <span class="text-[9px] bg-lime-955 text-lime-400 px-2 py-0.5 rounded-md font-black">Ba<sup>2+</sup></span>
                         </button>
                     </div>
 
@@ -361,7 +364,7 @@
                             <i class="fa-solid fa-wand-magic-sparkles"></i> Утсыг дөлөнд барих
                         </button>
                     </div>
-                    <div id="wire-status-lbl" class="text-[9px] text-amber-400 text-center font-bold bg-slate-950 p-2 rounded-lg border border-slate-900">
+                    <div id="wire-status-lbl" class="text-[9px] text-amber-400 text-center font-bold bg-slate-955 p-2 rounded-lg border border-slate-900">
                         Анхаар: Нихром утас бохирдсон байна. Эхлээд HCl-ээр угааж цэвэрлэнэ үү.
                     </div>
 
@@ -369,14 +372,14 @@
                         <span class="text-[9px] font-black text-indigo-400 uppercase tracking-widest block">Дөлний өнгө таних тоглоом:</span>
                         <div class="flex justify-between items-center text-[9px] font-bold">
                             <div class="flex gap-2">
-                                <button id="btn-game-practice" onclick="window.setGameMode('practice')" class="py-1 px-2.5 bg-purple-950 text-purple-300 border border-purple-800 rounded-lg shadow-md font-bold">Дадлага</button>
-                                <button id="btn-game-exam" onclick="window.setGameMode('exam')" class="py-1 px-2.5 bg-slate-950 text-slate-400 border border-slate-800 rounded-lg font-bold">Шалгалт</button>
+                                <button id="btn-game-practice" onclick="window.setGameMode('practice')" class="py-1 px-2.5 bg-purple-955 text-purple-300 border border-purple-800 rounded-lg shadow-md font-bold">Дадлага</button>
+                                <button id="btn-game-exam" onclick="window.setGameMode('exam')" class="py-1 px-2.5 bg-slate-955 text-slate-400 border border-slate-800 rounded-lg font-bold">Шалгалт</button>
                             </div>
                             <span id="game-timer-container" class="hidden text-rose-400 font-black">Хугацаа: <span id="game-timer-val">30</span>с</span>
                             <span class="text-emerald-400 font-black">Оноо: <span id="game-score-lbl">0</span></span>
                         </div>
 
-                        <div class="flex justify-center py-2 bg-slate-950 rounded-xl border border-slate-900">
+                        <div class="flex justify-center py-2 bg-slate-955 rounded-xl border border-slate-900">
                             <svg id="game-flame-svg" width="50" height="75" viewBox="0 0 100 150" style="filter: drop-shadow(0 0 12px #ef4444); transition: all 0.5s ease;">
                                 <path d="M50 10C50 10 90 60 90 100C90 125 72 145 50 145C28 145 10 125 10 100C10 60 50 10 50 10Z" fill="#ef4444" />
                                 <path d="M50 40C50 40 75 75 75 105C75 122 64 135 50 135C36 135 25 122 25 105C25 75 50 40 50 40Z" fill="#ffeb3b" />
@@ -392,21 +395,26 @@
                     </div>
                 </div>
 
-                <!-- ТАБ В: ХҮЧИЛ-СУУРИЙН ТИТРЛЭЛТ (ЗУРАГТ ЗААСАН БҮТЦЭЭР) -->
+                <!-- ТАБ В: ХҮЧИЛ-СУУРИЙН ТИТРЛЭЛТ -->
                 <div id="tab-content-titration" class="hidden space-y-4">
-                    <!-- Титрлэлтийн зааварчилгаа -->
-                    <div class="bg-indigo-950/40 p-3.5 rounded-2xl border border-indigo-900/30 space-y-2">
-                        <span class="text-[10px] font-black text-indigo-400 uppercase tracking-widest block">📘 ТИТРЛЭЛТИЙН ЗААВАРЧИЛГАА:</span>
-                        <div class="space-y-1 text-[9px] text-slate-300">
-                            <p><strong>1. Уусмалаа тохируулах:</strong> Доорх тохиргоо хэсгээс хүчлийн хэмжээ болон шүлтийн концентрацийг сонгоно.</p>
-                            <p><strong>2. Багаж бэлтгэх:</strong> Титрлэлтийн багаж угсарч, бюреткад шүлт дүүргэх товчийг дарна.</p>
-                            <p><strong>3. Саармагжуулах:</strong> Цоргыг нээж, фенолфталеин уусмал бүдэг ягаан туяатай болох агшныг ажиглан цоргыг яг цагт нь хааж зогсооно.</p>
+                    
+                    <!-- Жишээ Бодлого ба Заавар Card -->
+                    <div class="bg-indigo-955/60 p-3.5 rounded-2xl border border-cyan-500/30 space-y-2">
+                        <span class="text-[10px] font-black text-cyan-400 uppercase tracking-widest block">📘 БОДОХ ЗААВАР & ЖИШЭЕ БОДЛОГО:</span>
+                        <div class="space-y-1.5 text-[9px] text-slate-300">
+                            <p class="font-bold text-white border-b border-slate-800 pb-1">Тэгшитгэл: HCl + NaOH → NaCl + H₂O</p>
+                            <p><strong>Жишээ бодлого:</strong> 10.0 мл HCl хүчлийн уусмалыг саармагжуулахад 0.10 M NaOH уусмалаас яг 15.0 мл зарцуулсан бол хүчлийн концентрацийг ол.</p>
+                            <p class="bg-slate-955/80 p-1.5 rounded text-amber-300 font-mono-chem">
+                                <strong>Бодолт:</strong><br>
+                                C_хүчил &times; V_хүчил = C_шүлт &times; V_шүлт<br>
+                                C_хүчил = (0.10 &times; 15.0) / 10.0 = 0.15 M
+                            </p>
                         </div>
                     </div>
 
                     <!-- Туршилтын өгөгдөл тохируулах -->
                     <div class="bg-slate-900/60 p-3.5 rounded-2xl border border-slate-855 space-y-3">
-                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest block">ТУРШИЛТЫН ӨГӨГДӨЛ ТОХИРУУЛАХ:</span>
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">ТУРШИЛТЫН ӨГӨГДӨЛ ТОХИРУУЛАХ:</span>
                         
                         <div class="space-y-1">
                             <div class="flex justify-between text-[9px]">
@@ -440,21 +448,49 @@
                             <span id="valve-status" class="text-rose-400 uppercase font-black">Хаалттай</span>
                         </div>
                         <div class="grid grid-cols-2 gap-2">
-                            <button onclick="window.toggleTitrationValve(true)" class="py-2 bg-emerald-950 hover:bg-emerald-900 text-emerald-400 border border-emerald-800 rounded-xl text-[10px] font-bold transition">Нээх (Дусаах)</button>
-                            <button onclick="window.toggleTitrationValve(false)" class="py-2 bg-rose-950 hover:bg-rose-900 text-rose-400 border border-rose-800 rounded-xl text-[10px] font-bold transition">Хаах</button>
+                            <button onclick="window.toggleTitrationValve(true)" class="py-2 bg-emerald-955 hover:bg-emerald-900 text-emerald-400 border border-emerald-800 rounded-xl text-[10px] font-bold transition">Нээх (Дусаах)</button>
+                            <button onclick="window.toggleTitrationValve(false)" class="py-2 bg-rose-955 hover:bg-rose-900 text-rose-400 border border-rose-800 rounded-xl text-[10px] font-bold transition">Хаах</button>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-2 gap-2 text-center">
-                        <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-900 space-y-0.5">
+                        <div class="bg-slate-955 p-2.5 rounded-xl border border-slate-900 space-y-0.5">
                             <span class="text-[8px] text-slate-500 uppercase font-bold block">Бюреткад үлдсэн:</span>
                             <span id="burette-vol-val" class="text-xs font-black text-indigo-400 font-mono-chem">0.0 мл</span>
                         </div>
-                        <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-900 space-y-0.5">
+                        <div class="bg-slate-955 p-2.5 rounded-xl border border-slate-900 space-y-0.5">
                             <span class="text-[8px] text-slate-500 uppercase font-bold block">Уусмалын рН (Колбо):</span>
                             <span id="flask-ph-val" class="text-xs font-black text-rose-400 font-mono-chem">1.2</span>
                         </div>
                     </div>
+
+                    <!-- Өрийн тооцооллыг шалгах бодлого бодох хэсэг -->
+                    <div id="titration-calculation-box" class="hidden bg-slate-900 p-3.5 rounded-2xl border border-emerald-500/30 space-y-2">
+                        <span class="text-[10px] font-black text-emerald-400 uppercase tracking-widest block">📝 ӨӨРИЙН ТУРШИЛТЫН БОДЛОГО:</span>
+                        <div class="space-y-2 text-[9px] text-slate-300">
+                            <p>Таны туршилтын өгөгдөл:</p>
+                            <div class="grid grid-cols-3 gap-1 bg-slate-955 p-2 rounded text-center text-[10px]">
+                                <div>
+                                    <p class="text-slate-500 font-bold uppercase text-[7.5px]">V_хүчил</p>
+                                    <p id="student-v-acid" class="text-cyan-400 font-black">10.0 мл</p>
+                                </div>
+                                <div>
+                                    <p class="text-slate-500 font-bold uppercase text-[7.5px]">C_шүлт</p>
+                                    <p id="student-c-base" class="text-indigo-400 font-black">0.10 M</p>
+                                </div>
+                                <div>
+                                    <p class="text-slate-500 font-bold uppercase text-[7.5px]">V_шүлт (Зарц)</p>
+                                    <p id="student-v-base" class="text-pink-400 font-black">0.00 мл</p>
+                                </div>
+                            </div>
+                            <p class="font-semibold text-[9.5px]">Туршилтын үр дүнгээр тооцсон хүчлийн концентрацийг ($C_{\text{хүчил}}$) олж оруулна уу:</p>
+                            <div class="flex gap-2">
+                                <input type="number" id="input-student-calc" step="0.01" placeholder="Жишээ: 0.15" class="flex-1 py-2 px-3 rounded-lg bg-slate-955 border border-slate-800 text-slate-200 focus:outline-none focus:border-emerald-500 font-mono-chem text-xs">
+                                <button onclick="window.checkStudentCalculation()" class="px-4 bg-emerald-600 hover:bg-emerald-500 text-white text-[9.5px] font-bold rounded-lg transition">Шалгах</button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 <!-- ТАБ Г: ИНТЕРАКТИВ ДАСГАЛУУД -->
@@ -463,7 +499,7 @@
                         <span class="text-[10px] font-black text-cyan-400 uppercase tracking-widest block">Хамтарсан туршилт үүсгэх:</span>
                         <div class="space-y-1.5">
                             <label class="text-[9px] font-bold text-slate-400">Туршилтын нэр:</label>
-                            <input type="text" id="share-title" placeholder="Жишээ: CO2 гаргах сорил" class="w-full py-2 px-3.5 rounded-xl bg-slate-950 border border-slate-850 focus:border-cyan-500 focus:outline-none text-xs text-slate-200">
+                            <input type="text" id="share-title" placeholder="Жишээ: CO2 гаргах сорил" class="w-full py-2 px-3.5 rounded-xl bg-slate-955 border border-slate-850 focus:border-cyan-500 focus:outline-none text-xs text-slate-200">
                         </div>
                         <button onclick="window.saveExperiment()" class="w-full py-2.5 bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white font-black text-[10px] rounded-xl transition tracking-wide shadow-lg">
                             <i class="fa-solid fa-share-nodes mr-1"></i> Нийтийн санд байршуулах
@@ -497,7 +533,7 @@
 
             </div>
 
-            <!-- ХАЛААЛТЫН ТӨХӨӨРӨМЖИЙН ХЭСЭГ (ЗУРАГТ ЗААСАН ШИНЭ БҮТЦЭЭР) -->
+            <!-- ХАЛААЛТЫН ТӨХӨӨРӨМЖИЙН ХЭСЭГ (Багшийн заавраар өргөжүүлсэн) -->
             <div class="p-4 border-t border-slate-800 space-y-3 shrink-0 bg-slate-950/60">
                 <div class="space-y-1.5">
                     <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest block">ХАЛААГУУРЫН СИСТЕМ:</span>
@@ -511,14 +547,27 @@
                     </div>
                 </div>
 
+                <div class="grid grid-cols-2 gap-2 text-[8px] font-black uppercase text-center">
+                    <button onclick="window.adjustBurnerPos(-0.15)" class="py-1.5 bg-slate-955 border border-slate-800 hover:border-cyan-500 text-slate-300 rounded-lg transition">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Зүүн тийш зөөх
+                    </button>
+                    <button onclick="window.adjustBurnerPos(0.15)" class="py-1.5 bg-slate-955 border border-slate-800 hover:border-cyan-500 text-slate-300 rounded-lg transition">
+                        Баруун тийш зөөх <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+
                 <div class="flex items-center justify-between bg-slate-900/60 p-2.5 rounded-2xl border border-slate-855">
                     <div class="space-y-0.5">
-                        <span class="text-[8px] text-slate-500 uppercase font-bold block">ХАЛААГЧИЙН ГАЛ:</span>
                         <span id="burner-status-lbl" class="text-[9px] text-rose-500 font-bold uppercase">УНТРААСТАЙ (ТАГЛАГДСАН)</span>
+                        <div class="flex gap-1.5 mt-1">
+                            <button onclick="window.toggleBurnerVisibility(true)" class="text-[8px] text-emerald-400 font-bold underline hover:text-emerald-300 transition">Харуулах</button>
+                            <span class="text-slate-600 text-[8px]">/</span>
+                            <button onclick="window.toggleBurnerVisibility(false)" class="text-[8px] text-rose-400 font-bold underline hover:text-rose-300 transition">Нуух</button>
+                        </div>
                     </div>
                     <div class="flex gap-1.5">
-                        <button onclick="window.toggleBurner(true)" class="py-1.5 px-3.5 bg-emerald-950 hover:bg-emerald-900 text-emerald-400 border border-emerald-800 rounded-xl text-[9px] font-bold transition">Асаах</button>
-                        <button onclick="window.toggleBurner(false)" class="py-1.5 px-3.5 bg-rose-950 hover:bg-rose-900 text-rose-400 border border-rose-800 rounded-xl text-[9px] font-bold transition">Унтраах</button>
+                        <button onclick="window.toggleBurner(true)" class="py-1.5 px-3.5 bg-emerald-955 hover:bg-emerald-900 text-emerald-400 border border-emerald-800 rounded-xl text-[9px] font-bold transition">Асаах</button>
+                        <button onclick="window.toggleBurner(false)" class="py-1.5 px-3.5 bg-rose-955 hover:bg-rose-900 text-rose-400 border border-rose-800 rounded-xl text-[9px] font-bold transition">Унтраах</button>
                     </div>
                 </div>
             </div>
@@ -533,11 +582,11 @@
 
             <div class="absolute inset-x-0 top-6 text-center pointer-events-none z-10">
                 <span id="viewport-guide" class="px-3 py-1 rounded-full bg-slate-950/80 text-cyan-400 text-[9px] font-black border border-cyan-500/30 tracking-wider shadow-lg">
-                    3D ҮЗҮҮЛЭН: ТӨХӨӨРӨМЖ БЭЛЭН
+                    3D ҮЗҮҮЛЭН: ТӨХӨӨРЕМЖ БЭЛЭН
                 </span>
             </div>
 
-            <!-- ЗУРАГТ ЗААСАН ЗҮҮН ДЭЭД ХЯНАЛТЫН ХЭСЭГ (САВНЫ ТЕМПЕРАТУР & ЖИН) -->
+            <!-- ХЯНАЛТЫН ХЭСЭГ (САВНЫ ТЕМПЕРАТУР & ЖИН) -->
             <div class="absolute left-6 top-6 z-10 flex flex-col gap-3 pointer-events-none w-64">
                 <div class="bg-slate-900/95 backdrop-blur-md p-4 rounded-2xl border border-slate-800 shadow-xl flex items-center gap-3">
                     <i class="fa-solid fa-temperature-high text-rose-400 text-lg animate-pulse"></i>
@@ -558,29 +607,37 @@
                     <button onclick="window.tareScale()" class="px-2 py-1 bg-slate-950 hover:bg-slate-900 border border-slate-800 text-[8px] font-black uppercase text-slate-400 rounded-md transition">Тара</button>
                 </div>
 
-                <!-- ЗУРАГТ ЗААСАН "ИЛРҮҮЛЭГЧ СОРИЛТЫН САВХ" ХЭСЭГ -->
+                <!-- "ИЛРҮҮЛЭГЧ СОРИЛТЫН САВХ" ХЭСЭГ -->
                 <div id="gas-test-panel" class="hidden bg-slate-900/95 backdrop-blur-md p-4 rounded-2xl border border-indigo-500/30 shadow-2xl space-y-3 pointer-events-auto transition duration-300">
                     <span class="text-[8px] font-black text-indigo-400 uppercase tracking-widest block flex items-center gap-1">
                         <i class="fa-solid fa-wand-magic-sparkles"></i> ИЛРҮҮЛЭГЧ СОРИЛТЫН САВХ:
                     </span>
                     <div class="grid grid-cols-2 gap-2">
-                        <button onclick="window.runGasIdentifierTest('match_pop')" class="py-2 px-1 bg-slate-950 hover:bg-slate-900 rounded-lg text-[9px] font-bold border border-slate-800 text-cyan-300 transition flex items-center justify-center gap-1">
-                            <i class="fa-solid fa-fire"></i> Шүдэнз
+                        <button onclick="window.runGasIdentifierTest('match_pop')" class="py-2 px-1 bg-slate-955 hover:bg-slate-900 rounded-lg text-[9px] font-bold border border-rose-500/30 text-rose-300 transition flex items-center justify-center gap-1">
+                            <i class="fa-solid fa-fire"></i> Шүдэнз (H₂)
                         </button>
-                        <button onclick="window.runGasIdentifierTest('glowing_splint')" class="py-2 px-1 bg-slate-950 hover:bg-slate-900 rounded-lg text-[9px] font-bold border border-slate-800 text-amber-300 transition flex items-center justify-center gap-1">
-                            <i class="fa-solid fa-fire-burner"></i> Цучил
+                        <button onclick="window.runGasIdentifierTest('glowing_splint')" class="py-2 px-1 bg-slate-955 hover:bg-slate-900 rounded-lg text-[9px] font-bold border border-amber-500/30 text-amber-300 transition flex items-center justify-center gap-1">
+                            <i class="fa-solid fa-fire-burner"></i> Цучил (O₂)
                         </button>
                     </div>
-                    <button onclick="window.runGasIdentifierTest('limewater')" class="w-full py-2 bg-slate-950 hover:bg-slate-900 rounded-lg text-[9px] font-bold border border-slate-800 text-emerald-300 transition flex items-center justify-center gap-1.5">
-                        <i class="fa-solid fa-vial"></i> Шохойн усоор сорих
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="window.runGasIdentifierTest('red_litmus')" class="py-2 px-1 bg-slate-955 hover:bg-slate-900 rounded-lg text-[8px] font-bold border border-blue-500/30 text-blue-300 transition flex items-center justify-center gap-1">
+                            Улаан лакмус (NH₃)
+                        </button>
+                        <button onclick="window.runGasIdentifierTest('blue_litmus')" class="py-2 px-1 bg-slate-955 hover:bg-slate-900 rounded-lg text-[8px] font-bold border border-slate-500/30 text-slate-300 transition flex items-center justify-center gap-1">
+                            Цэнхэр лакмус (Cl₂)
+                        </button>
+                    </div>
+                    <button onclick="window.runGasIdentifierTest('limewater')" class="w-full py-2 bg-slate-955 hover:bg-slate-900 rounded-lg text-[9px] font-bold border border-emerald-500/30 text-emerald-300 transition flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-vial"></i> Шохойн усоор сорих (CO₂)
                     </button>
                 </div>
             </div>
 
-            <!-- ДООД ТЭМДЭГЛЭЛИЙН ХЭСЭГ (ЗУРАГТ ЗААСАН ЖУРНАЛ) -->
+            <!-- ДООД ТЭМДЭГЛЭЛИЙН ХЭСЭГ (ЖУРНАЛ) -->
             <div class="absolute bottom-6 left-6 right-6 z-10 pointer-events-none">
                 <div class="max-w-4xl mx-auto bg-slate-900/95 backdrop-blur-md border border-slate-800 rounded-2xl p-5 flex gap-4 shadow-xl pointer-events-auto">
-                    <div class="w-12 h-12 rounded-xl bg-indigo-950 text-indigo-400 border border-indigo-900 flex items-center justify-center text-xl shrink-0 shadow">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-955 text-indigo-400 border border-indigo-900 flex items-center justify-center text-xl shrink-0 shadow">
                         <i class="fa-solid fa-book-open"></i>
                     </div>
                     <div class="flex-1 space-y-1">
@@ -590,7 +647,7 @@
                         </div>
                     </div>
                     <div class="shrink-0 flex items-center">
-                        <button onclick="window.resetLab()" class="px-3 py-2 bg-rose-950 hover:bg-rose-900 text-rose-400 border border-rose-850 text-[9px] font-bold rounded-xl transition shadow text-center flex items-center justify-center gap-1" title="Туршилтыг шинээр эхлүүлэх">
+                        <button onclick="window.resetLab()" class="px-3 py-2 bg-rose-955 hover:bg-rose-900 text-rose-400 border border-rose-850 text-[9px] font-bold rounded-xl transition shadow text-center flex items-center justify-center gap-1" title="Туршилтыг шинээр эхлүүлэх">
                             <i class="fa-solid fa-arrow-rotate-left"></i> Цэвэрлэх
                         </button>
                     </div>
@@ -741,6 +798,23 @@
             } catch(e){}
         }
 
+        function playDripSound() {
+            try {
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(1500, audioCtx.currentTime + 0.1);
+                gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.12);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.12);
+            } catch(e){}
+        }
+
         window.showToast = function(message, type = 'info') {
             const container = document.getElementById('toast-container');
             if (!container) return;
@@ -802,11 +876,10 @@
 
         /* LAB LAYOUT SYSTEM CONFIGURATION TO ELIMINATE COLLISION */
         const LAB_LAYOUT = {
-            stand: { x: -0.7, y: 0, z: 0 },
             vessel: { x: 0, y: 0.72, z: 0 }, 
-            burner: { x: 0, y: 0, z: 0 }, 
-            gasCollector: { x: 1.9, y: 0, z: 0 },
-            titration: { x: -1.4, y: 0, z: 0 } 
+            burner: { x: 1.6, y: 0, z: 0 }, 
+            gasCollector: { x: 2.1, y: 0, z: 0 },
+            titration: { x: -1.2, y: 0, z: 0 } 
         };
 
         /* Variables list initialized */
@@ -844,10 +917,10 @@
         };
 
         const cationFlameDB = [
-            { id: "Li", name: "Li⁺ (Лити)", color: "#ef4444", rgb: 0xef4444, exp: "Литийн ион нь дөлийг тод улаан өнгөөр будна." },
-            { id: "Na", name: "Na⁺ (Натри)", color: "#f59e0b", rgb: 0xf59e0b, exp: "Натрийн ион нь дөлийг эрчимтэй шар өнгөөр будна." },
-            { id: "K", name: "K⁺ (Кали)", color: "#d8b4fe", rgb: 0xd8b4fe, exp: "Калийн ион нь дөлийг цайвар нил ягаан өнгөөр будна." },
-            { id: "Ca", name: "Ca²⁺ (Кальци)", color: "#f97316", rgb: 0xf97316, exp: "Кальцийн ион нь дөлийг тоосгон улаан өнгөөр будна." },
+            { id: "Li", name: "Li⁺ (Лити)", color: "#ef4444", rgb: 0xef4444, exp: "Литийн ион нь дөлийг тод улаан өнгөөр будина." },
+            { id: "Na", name: "Na⁺ (Натри)", color: "#f59e0b", rgb: 0xf59e0b, exp: "Натрийн ион нь дөлийг шар өнгөөр будина." },
+            { id: "K", name: "K⁺ (Кали)", color: "#d8b4fe", rgb: 0xd8b4fe, exp: "Калийн ион нь дөлийг цайвар нил ягаан өнгөөр будина." },
+            { id: "Ca", name: "Ca²⁺ (Кальци)", color: "#f97316", rgb: 0xf97316, exp: "Кальцийн ион нь дөлийг тоосгон улаан өнгөөр будина." },
             { id: "Ba", name: "Ba²⁺ (Бари)", color: "#a3e635", rgb: 0xa3e635, exp: "Барийн ион нь дөлийг цайвар ногоон өнгөтэй болгоно." }
         ];
         let gameMode = 'practice';
@@ -856,7 +929,6 @@
         let gameTimerInterval = null;
         let currentGameCation = null;
 
-        /* Titration state variables updated as requested in reference layout */
         let titrationBuretteVol = 50.0; 
         let titrationFlaskVol = 10.0; 
         let titrationFlaskPh = 1.2; 
@@ -896,7 +968,10 @@
         let glassMaterial = null;
         let offlineExperiments = [];
 
-        // Simplified registration form handler
+        window.titrationDroplets = [];
+        window.activeRipples = [];
+        window.activePlumes = [];
+
         window.setLoginRole = function(role) {
             userRole = role;
             document.getElementById('btn-login-student').className = "py-2.5 px-4 rounded-xl font-bold border border-slate-800 bg-slate-950 text-slate-400 w-full transition";
@@ -950,16 +1025,6 @@
             document.getElementById('header-username').innerText = userName;
             document.getElementById('header-userrole').innerText = userRole;
 
-            if (db) {
-                try {
-                    const statsDocRef = doc(db, 'stats', 'traffic');
-                    await updateDoc(statsDocRef, { total_views: increment(1) });
-                    
-                    const activeDocRef = doc(db, 'active_users', userId || 'guest_' + Date.now());
-                    await setDoc(activeDocRef, studentRecord);
-                } catch (e) {}
-            }
-
             document.getElementById('login-container').classList.add('translate-y-[-100vh]', 'opacity-0');
             setTimeout(() => {
                 document.getElementById('login-container').classList.add('hidden');
@@ -972,12 +1037,6 @@
         };
 
         window.logout = async function() {
-            if (db && userId) {
-                try {
-                    const activeDocRef = doc(db, 'active_users', userId);
-                    await setDoc(activeDocRef, {}); 
-                } catch (e) {}
-            }
             window.location.reload();
         };
 
@@ -1004,7 +1063,7 @@
             scene.fog = new THREE.FogExp2(0x020617, 0.05);
 
             camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
-            camera.position.set(0, 2.3, 5.8);
+            camera.position.set(0, 1.8, 5.0);
 
             renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
             renderer.setSize(container.clientWidth, container.clientHeight);
@@ -1020,7 +1079,7 @@
             controls.minDistance = 1.5;
             controls.maxDistance = 12;
 
-            const ambient = new THREE.AmbientLight(0xffffff, 0.85);
+            const ambient = new THREE.AmbientLight(0xffffff, 0.9);
             scene.add(ambient);
 
             const spot = new THREE.SpotLight(0xffffff, 4.0);
@@ -1041,7 +1100,7 @@
             grid.position.y = 0;
             scene.add(grid);
 
-            /* Realistic glassware material with Physical Transparency */
+            /* Physical transparency glass material with refractive indexes */
             glassMaterial = new THREE.MeshPhysicalMaterial({
                 color: 0xffffff,
                 roughness: 0.02,
@@ -1050,9 +1109,9 @@
                 clearcoatRoughness: 0.01,
                 transmission: 0.98,
                 ior: 1.52,
-                thickness: 0.12,
+                thickness: 0.08,
                 transparent: true,
-                opacity: 0.5,
+                opacity: 0.45,
                 depthWrite: false,
                 side: THREE.DoubleSide
             });
@@ -1078,7 +1137,7 @@
 
             titrationAcidVol = vol;
             titrationBaseConc = conc;
-            titrationEquivalenceVol = (0.1 * vol) / conc; // С_хүчил * V_хүчил = С_шүлт * V_шүлт (Assume 0.1 M HCl)
+            titrationEquivalenceVol = (0.1 * vol) / conc; 
         };
 
         window.updateSolidMassLabel = function() {
@@ -1089,6 +1148,9 @@
         function safeRemoveAndDispose(obj) {
             if (!obj) return;
             scene.remove(obj);
+            if (obj.parent) {
+                obj.parent.remove(obj); // Санах ойн давхцал үүсгэхгүй даруй салгах
+            }
             obj.traverse(child => {
                 if (child.isMesh) {
                     if (child.geometry) {
@@ -1110,14 +1172,15 @@
 
             if (controls) controls.update();
 
+            // Gas Identification stick moving phases
             if (activeTestStick && testStickPhase === 'moving') {
                 testStickTimer += 0.02;
                 if (testStickTimer >= 1.0) {
                     testStickTimer = 1.0;
                     testStickPhase = 'reacting';
                 }
-                const startPos = new THREE.Vector3(1.8, 1.8, 0.5);
-                const targetPos = new THREE.Vector3(2.0, 1.25, 0);
+                const startPos = new THREE.Vector3(2.0, 1.8, 0.5);
+                const targetPos = new THREE.Vector3(2.1, 1.1, 0);
                 activeTestStick.position.lerpVectors(startPos, targetPos, testStickTimer);
             }
 
@@ -1150,21 +1213,48 @@
 
             // Chemical Kinetics & Reactions
             if (reactionActive) {
-                const reactionSpeed = (burnerOn ? 0.01 : 0.025) * (solidMass / 2.0);
+                // SLOWED REACTION SPEED: From 0.008 down to 0.0015 (4x slower) so students can assemble apparatus in time!
+                const reactionSpeed = 0.0015 * (solidMass / 1.0);
                 reactionProgress += reactionSpeed;
 
-                let targetTemp = burnerOn ? (burnerType === 'bunsen' ? 450.0 : 180.0) : 25.0;
+                // Heat calculation
+                const isDecomp = (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2');
+                let targetTemp = 25.0;
+                
+                if (burnerOn && isBurnerSnapped) {
+                    targetTemp = (burnerType === 'bunsen') ? 450.0 : 210.0;
+                } else if (reactionType === 'Na_H2O') {
+                    targetTemp = 85.0;
+                }
+                
                 temperature += (targetTemp - temperature) * 0.05;
 
-                if (gasCollectionAssembled && activeGasType) {
-                    gasCollectedAmount = Math.min(100, Math.floor(reactionProgress * 100));
-                    
-                    if (gasCollectionMethod === 'water' && gasCollectionGroup) {
-                        const dispH2o = gasCollectionGroup.getObjectByName("displacementWaterMesh");
-                        if (dispH2o) {
-                            const pctRemaining = 1.0 - (gasCollectedAmount / 100.0);
-                            dispH2o.scale.set(1, pctRemaining, 1);
-                            dispH2o.position.y = 0.22 + (1.1 * pctRemaining) / 2;
+                // Decomposition conditions
+                if (isDecomp && temperature < 150.0) {
+                    // Requires temperature > 150 to start decomposition!
+                    reactionProgress = 0.0;
+                } else {
+                    if (gasCollectionAssembled && activeGasType) {
+                        
+                        // Ammonia water displacement avoidance
+                        if (activeGasType === 'NH3' && gasCollectionMethod === 'water') {
+                            gasCollectedAmount = 0;
+                        } else {
+                            gasCollectedAmount = Math.min(100, Math.floor(reactionProgress * 100));
+                        }
+                        
+                        if (gasCollectionMethod === 'water' && gasCollectionGroup) {
+                            const dispH2o = gasCollectionGroup.getObjectByName("displacementWaterMesh");
+                            if (dispH2o) {
+                                const pctRemaining = 1.0 - (gasCollectedAmount / 100.0);
+                                dispH2o.scale.set(1, pctRemaining, 1);
+                                dispH2o.position.y = 0.22 + (1.1 * pctRemaining) / 2;
+                            }
+                        }
+                    } else if (activeGasType && !gasCollectionAssembled && Math.random() < 0.3) {
+                        // Flashing Warning if escaping gas
+                        if (Math.random() < 0.05) {
+                            window.showToast("⚠️ Анхаар! Урвал явагдаж байна. Хий агаарт алдагдаж байна! Хурдан багаж угсарна уу!", "warning");
                         }
                     }
                 }
@@ -1175,29 +1265,101 @@
                     finalizeReaction();
                 }
 
+                // Smoothly dissolve the solid
                 if (solidMesh) {
-                    const sc = 1.0 - reactionProgress * 0.8;
+                    const sc = 1.0 - reactionProgress * 0.95;
                     solidMesh.scale.set(sc, sc, sc);
+                    
+                    // Erratic movement of floating Sodium (Na) on water
+                    if (reactionType === 'Na_H2O') {
+                        const time = Date.now() * 0.005;
+                        solidMesh.position.x = Math.sin(time * 3) * 0.18;
+                        solidMesh.position.z = Math.cos(time * 2.5) * 0.18;
+                        solidMesh.position.y = 0.25 + Math.sin(time * 8) * 0.02; // floating bobbing
+                        
+                        if (Math.random() < 0.7) {
+                            createBubbleAt(solidMesh.position.x, solidMesh.position.y, solidMesh.position.z, 0.012);
+                        }
+                        if (activeLiquid && activeLiquid.indicator === 'phenolphthalein' && Math.random() < 0.3) {
+                            createSplashPlume(solidMesh.position.x, solidMesh.position.y - 0.05, solidMesh.position.z);
+                        }
+                    }
                 }
 
-                // Bubble/Gas flow rendering
-                if (Math.random() < 0.45) {
-                    createBubbleAt(0, 0.1, 0);
+                // Dense Bubbling / Gas Effervescence based on reaction rate
+                const bubbleSpawnRate = reactionType === 'CaCO3_HCl' ? 0.95 : 0.6;
+                if (Math.random() < bubbleSpawnRate) {
+                    const isDec = (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2');
+                    const bX = isDec ? -0.3 + (Math.random() - 0.5) * 0.15 : (Math.random() - 0.5) * 0.3;
+                    const bZ = (Math.random() - 0.5) * 0.3;
+                    const bY = isDec ? 1.0 + (Math.random() - 0.5) * 0.15 : 0.1;
+                    createBubbleAt(bX, bY, bZ, 0.015);
                 }
 
-                if (reactionType === 'Na_H2O') {
-                    createSmokeParticles(0, 0.4, 0, 3);
-                } else if (reactionType === 'CaCO3_HCl') {
-                    createSmokeParticles(0, 0.4, 0, 2);
+                if (Math.random() < 0.4) {
+                    createSmokeParticles(0, 0.6, 0, 1);
                 }
 
                 updateUI();
             }
 
+            // Titration Droplets Animation and localized plumes
+            if (titrationAssembled && titrationValveOpen && !titrationHasCompleted) {
+                if (Math.random() < 0.35) { // continuous drops
+                    const dripX = LAB_LAYOUT.titration.x + 0.6;
+                    const dripZ = LAB_LAYOUT.titration.z;
+                    const dGeo = new THREE.SphereGeometry(0.012, 8, 8);
+                    const dMat = new THREE.MeshBasicMaterial({ color: 0x22d3ee, transparent: true, opacity: 0.9 });
+                    const dMesh = new THREE.Mesh(dGeo, dMat);
+                    dMesh.position.set(dripX, 0.7, dripZ);
+                    scene.add(dMesh);
+                    window.titrationDroplets.push(dMesh);
+                }
+            }
+
+            // Update dropping fluids with gravity mechanics
+            window.titrationDroplets.forEach((d, index) => {
+                d.position.y -= 0.045; // fall speed
+                if (d.position.y <= 0.25) { // landed on flask liquid surface
+                    scene.remove(d);
+                    window.titrationDroplets.splice(index, 1);
+                    playDripSound();
+
+                    createWaterRipple(d.position.x, 0.25, d.position.z);
+
+                    if (titrationBaseUsed > 0 && titrationFlaskPh < 8.2 && Math.random() < 0.8) {
+                        createSplashPlume(d.position.x, 0.2, d.position.z);
+                    }
+                }
+            });
+
+            // Update Ripples
+            window.activeRipples.forEach((r, index) => {
+                r.scale.x += 0.04;
+                r.scale.y += 0.04;
+                r.material.opacity -= 0.05;
+                if (r.material.opacity <= 0) {
+                    safeRemoveAndDispose(r);
+                    window.activeRipples.splice(index, 1);
+                }
+            });
+
+            // Update Plumes
+            window.activePlumes.forEach((p, index) => {
+                p.scale.x += 0.03;
+                p.scale.y += 0.03;
+                p.scale.z += 0.03;
+                p.material.opacity -= 0.04;
+                if (p.material.opacity <= 0) {
+                    safeRemoveAndDispose(p);
+                    window.activePlumes.splice(index, 1);
+                }
+            });
+
             if (gasCollectionAssembled && reactionActive && activeGasType) {
                 if (gasCollectionMethod === 'water') {
                     if (Math.random() < 0.5) {
-                        createBubbleAt(2.0, 0.22, 0, 0.02, true);
+                        createBubbleAt(LAB_LAYOUT.gasCollector.x, 0.22, 0, 0.02, true);
                     }
                 }
             }
@@ -1222,7 +1384,7 @@
                             safeRemoveAndDispose(child);
                         }
                     } else {
-                        child.position.y += 0.02;
+                        child.position.y += 0.015;
                         const limitY = activeLiquid ? (glasswareType === 'beaker' ? 1.1 * (activeLiquid.volume / 15.0) : 0.6) : 0.8;
                         if (child.position.y > limitY) {
                             safeRemoveAndDispose(child);
@@ -1231,10 +1393,11 @@
                 }
             });
 
+            // Corrected flame emission calculations
             if (burnerOn && fireParticles && burnerVisible) {
                 const pos = fireParticles.geometry.attributes.position.array;
                 const vels = fireParticles.geometry.attributes.velocity.array;
-                const startY = 0.65 + burnerHeightVal * 0.5;
+                const startY = burnerGroup.position.y + (burnerType === 'alcohol' ? 0.62 : 0.38);
 
                 for (let i = 0; i < pos.length / 3; i++) {
                     pos[i * 3 + 1] += vels[i]; 
@@ -1282,14 +1445,33 @@
             scene.add(bMesh);
         }
 
+        function createWaterRipple(x, y, z) {
+            const rGeo = new THREE.RingGeometry(0.01, 0.08, 16);
+            rGeo.rotateX(-Math.PI / 2);
+            const rMat = new THREE.MeshBasicMaterial({ color: 0x22d3ee, side: THREE.DoubleSide, transparent: true, opacity: 0.8 });
+            const ripple = new THREE.Mesh(rGeo, rMat);
+            ripple.position.set(x, y + 0.005, z);
+            scene.add(ripple);
+            window.activeRipples.push(ripple);
+        }
+
+        function createSplashPlume(x, y, z) {
+            const pGeo = new THREE.SphereGeometry(0.02, 12, 12);
+            const pMat = new THREE.MeshBasicMaterial({ color: 0xec4899, transparent: true, opacity: 0.75 });
+            const plume = new THREE.Mesh(pGeo, pMat);
+            plume.position.set(x + (Math.random() - 0.5) * 0.05, y, z + (Math.random() - 0.5) * 0.05);
+            scene.add(plume);
+            window.activePlumes.push(plume);
+        }
+
         function createSmokeParticles(x, y, z = 0, count = 12) {
             for (let i = 0; i < count; i++) {
                 const pGeo = new THREE.SphereGeometry(0.045 + Math.random() * 0.03, 8, 8);
                 const pMat = new THREE.MeshStandardMaterial({
-                    color: 0x94a3b8,
+                    color: 0xf1f5f9,
                     transparent: true,
-                    opacity: 0.6,
-                    roughness: 0.9
+                    opacity: 0.45,
+                    roughness: 0.95
                 });
                 const sp = new THREE.Mesh(pGeo, pMat);
                 sp.position.set(x + (Math.random() - 0.5) * 0.1, y + (Math.random() - 0.5) * 0.1, z + (Math.random() - 0.5) * 0.1);
@@ -1298,9 +1480,47 @@
             }
         }
 
+        /* COLLISION CHECKER AND VERTICAL ALIGNMENT MANAGER */
+        function resolveApparatusLayout() {
+            if (!glasswareMesh || !burnerGroup) return;
+
+            // Simple positioning logic directly based on the global lab layouts configuration
+            glasswareMesh.position.set(LAB_LAYOUT.vessel.x, LAB_LAYOUT.vessel.y, LAB_LAYOUT.vessel.z);
+            burnerGroup.position.set(burnerWorldX, LAB_LAYOUT.burner.y, burnerWorldZ);
+
+            const isDecomp = (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2');
+
+            // Correct vertical alignment so that flame fits perfectly below the reaction vessel
+            if (burnerWorldX === -0.5 && isDecomp) {
+                isBurnerSnapped = true;
+                burnerGroup.position.x = -0.5;
+                burnerGroup.position.z = 0;
+            } else if (burnerWorldX === 0.0 && !isDecomp) {
+                isBurnerSnapped = true;
+                burnerGroup.position.x = 0;
+                burnerGroup.position.z = 0;
+            } else {
+                isBurnerSnapped = false;
+            }
+            
+            // Adjust glassware height when being heated
+            if (isBurnerSnapped) {
+                const baseHeightOffset = glasswareType === 'beaker' ? 0.72 : 0.8;
+                glasswareMesh.position.y = baseHeightOffset;
+            } else {
+                glasswareMesh.position.y = 0.25; 
+            }
+            
+            burnerGroup.updateMatrixWorld(true);
+            glasswareMesh.updateMatrixWorld(true);
+        }
+
         window.buildGlassware3D = function() {
+            // Check & dispose duplicates to avoid memory leak
             if (glasswareMesh) safeRemoveAndDispose(glasswareMesh);
+
             glasswareMesh = new THREE.Group();
+            glasswareMesh.renderOrder = 2; // Шилэн сав уусмалын дараа зурагдана
 
             if (titrationAssembled) {
                 const titrationGroup = new THREE.Group();
@@ -1315,12 +1535,12 @@
                 rod.position.set(LAB_LAYOUT.titration.x, 1.2, LAB_LAYOUT.titration.z);
                 titrationGroup.add(rod);
 
-                // Boss head clamp and clamp holder
+                // Clamp holder and clamp arm
                 const clampArm = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.05, 0.05), new THREE.MeshStandardMaterial({ color: 0x64748b, metalness: 0.8 }));
                 clampArm.position.set(LAB_LAYOUT.titration.x + 0.3, 1.6, LAB_LAYOUT.titration.z);
                 titrationGroup.add(clampArm);
 
-                // Graduated burette
+                // Graduated transparent burette
                 const burette = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.6, 16, 1, true), glassMaterial);
                 burette.position.set(LAB_LAYOUT.titration.x + 0.6, 1.5, LAB_LAYOUT.titration.z);
                 titrationGroup.add(burette);
@@ -1328,7 +1548,15 @@
                 if (titrationBuretteVol > 0) {
                     const fluidH = 1.5 * (titrationBuretteVol / 50.0);
                     const fluidGeo = new THREE.CylinderGeometry(0.038, 0.038, fluidH, 12);
-                    const fluidMat = new THREE.MeshPhysicalMaterial({ color: 0x0ea5e9, transmission: 0.9, opacity: 0.6, transparent: true });
+                    // НӨХЦӨЛТ СОРТИНГ: Олон тооны давхар тунгалаг чанарыг сайжруулахаар MeshStandardMaterial болгосон
+                    const fluidMat = new THREE.MeshStandardMaterial({
+                        color: 0x0ea5e9,
+                        roughness: 0.2,
+                        metalness: 0.1,
+                        transparent: true,
+                        opacity: 0.6,
+                        depthWrite: true
+                    });
                     const fluidMesh = new THREE.Mesh(fluidGeo, fluidMat);
                     fluidMesh.position.set(LAB_LAYOUT.titration.x + 0.6, 0.7 + fluidH / 2, LAB_LAYOUT.titration.z);
                     titrationGroup.add(fluidMesh);
@@ -1341,11 +1569,14 @@
 
                 const parsedFlaskColor = parseInt(titrationActiveColor.replace('#', '0x'));
                 const flaskFluidGeo = new THREE.CylinderGeometry(0.07, 0.23, 0.2, 16);
-                const flaskFluidMat = new THREE.MeshPhysicalMaterial({
+                // ФЛААСКНЫ УУСМАЛ ХАРАГДАЦЫГ БОДИТ ХИЙВ (MeshStandardMaterial)
+                const flaskFluidMat = new THREE.MeshStandardMaterial({
                     color: parsedFlaskColor,
-                    transmission: 0.9,
+                    roughness: 0.2,
+                    metalness: 0.1,
                     transparent: true,
-                    opacity: titrationFlaskPh > 8.2 ? 0.8 : 0.4
+                    opacity: titrationFlaskPh > 8.2 ? 0.8 : 0.45,
+                    depthWrite: true
                 });
                 const flaskFluidMesh = new THREE.Mesh(flaskFluidGeo, flaskFluidMat);
                 flaskFluidMesh.position.set(LAB_LAYOUT.titration.x + 0.6, 0.2, LAB_LAYOUT.titration.z);
@@ -1356,6 +1587,57 @@
                 return;
             }
 
+            const isDecomp = (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2');
+
+            // 45 DEGREES ROTATED FLASK FOR SOLIDS THERMAL DECOMPOSITION
+            if (gasCollectionAssembled && isDecomp) {
+                const standGroup = new THREE.Group();
+                standGroup.position.set(0.1, 0, 0); 
+
+                const base = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.1, 0.8), new THREE.MeshStandardMaterial({ color: 0x1e293b, metalness: 0.9, roughness: 0.3 }));
+                base.position.y = 0.05;
+                standGroup.add(base);
+
+                const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 2.4), new THREE.MeshStandardMaterial({ color: 0xcccccc, metalness: 0.95, roughness: 0.1 }));
+                rod.position.set(0, 1.2, 0);
+                standGroup.add(rod);
+
+                const clampArm = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.05, 0.05), new THREE.MeshStandardMaterial({ color: 0x64748b, metalness: 0.8 }));
+                clampArm.position.set(-0.4, 1.4, 0);
+                standGroup.add(clampArm);
+
+                // EXACTLY 45 DEGREES ROTATION (-Math.PI / 4)
+                const slantGroup = new THREE.Group();
+                slantGroup.name = "slantGroup";
+                slantGroup.position.set(-0.1, 1.4, 0); 
+                slantGroup.rotation.z = -Math.PI / 4; 
+
+                const tubeG = new THREE.CylinderGeometry(0.18, 0.18, 1.4, 16, 1, true);
+                const tube = new THREE.Mesh(tubeG, glassMaterial);
+                slantGroup.add(tube);
+
+                const bottomG = new THREE.SphereGeometry(0.18, 16, 16, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2);
+                const bottom = new THREE.Mesh(bottomG, glassMaterial);
+                bottom.position.y = -0.7;
+                slantGroup.add(bottom);
+
+                const stopperG = new THREE.CylinderGeometry(0.18, 0.16, 0.18, 16);
+                const stopperMat = new THREE.MeshStandardMaterial({ color: 0x374151, roughness: 0.8 });
+                const stopper = new THREE.Mesh(stopperG, stopperMat);
+                stopper.position.y = 0.72;
+                slantGroup.add(stopper);
+
+                glasswareMesh.add(slantGroup);
+                glasswareMesh.add(standGroup);
+                scene.add(glasswareMesh);
+
+                window.redrawLiquid3D();
+                window.redrawSolid3D();
+                resolveApparatusLayout();
+                return;
+            }
+
+            // Regular Glassware Assemblies with accurate dimensions and glass shading properties
             if (glasswareType === 'beaker') {
                 const bodyG = new THREE.CylinderGeometry(0.55, 0.55, 1.3, 24, 1, true);
                 const body = new THREE.Mesh(bodyG, glassMaterial);
@@ -1393,8 +1675,13 @@
             }
 
             scene.add(glasswareMesh);
+            
+            // Re-render solutions and solids DIRECTLY INSIDE glassware group! (No floating offset bugs!)
             window.redrawLiquid3D();
             window.redrawSolid3D();
+
+            // Run dynamic layout solvers
+            resolveApparatusLayout();
         };
 
         window.redrawLiquid3D = function() {
@@ -1405,6 +1692,34 @@
             let liqGeo = null;
             let targetY = 0;
             const volPct = activeLiquid.volume / 15.0; 
+
+            const isDecomp = (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2');
+
+            if (gasCollectionAssembled && isDecomp) {
+                const slantGroup = glasswareMesh.getObjectByName("slantGroup");
+                if (slantGroup) {
+                    const h = 0.6 * volPct;
+                    liqGeo = new THREE.CylinderGeometry(0.17, 0.17, h, 16);
+                    const parsedColor = parseInt(activeLiquid.color.replace('#', '0x'));
+                    const isColorless = (activeLiquid.color === '#cbd5e1' || activeLiquid.color === '#f8fafc');
+
+                    // ШИЙДЭЛ: Тунгалаг хугарлын мөргөлдөөн үүсгэхгүй уусмалыг тод StandardMaterial болгов
+                    const liqMat = new THREE.MeshStandardMaterial({
+                        color: parsedColor,
+                        roughness: 0.15,
+                        metalness: 0.1,
+                        transparent: true,
+                        opacity: isColorless ? 0.35 : 0.75,
+                        depthWrite: true
+                    });
+
+                    const mesh = new THREE.Mesh(liqGeo, liqMat);
+                    mesh.position.set(0, -0.7 + h/2, 0); 
+                    slantGroup.add(mesh);
+                    liquidMesh = mesh; 
+                }
+                return;
+            }
 
             if (glasswareType === 'beaker') {
                 const h = 1.1 * volPct;
@@ -1426,23 +1741,25 @@
                 const parsedColor = parseInt(activeLiquid.color.replace('#', '0x'));
                 const isColorless = (activeLiquid.color === '#cbd5e1' || activeLiquid.color === '#f8fafc');
 
-                const liqMat = new THREE.MeshPhysicalMaterial({
+                // ШИЙДЭЛ: Шилэнд хугарах алдаанаас сэргийлсэн, орчин үгүй үед ч маш тод зурагдах усан материал
+                const liqMat = new THREE.MeshStandardMaterial({
                     color: parsedColor,
-                    roughness: 0.1,
-                    transmission: isColorless ? 0.95 : 0.65,
-                    opacity: isColorless ? 0.45 : 0.85,
+                    roughness: 0.15,
+                    metalness: 0.1,
                     transparent: true,
-                    ior: 1.333,
-                    side: THREE.DoubleSide
+                    opacity: isColorless ? 0.35 : 0.75,
+                    depthWrite: true
                 });
 
                 liquidMesh = new THREE.Group();
+                liquidMesh.renderOrder = 1; // Уусмалыг шилнээс түрүүлж зурна
                 liquidMesh.position.set(0, targetY, 0);
 
                 const body = new THREE.Mesh(liqGeo, liqMat);
                 liquidMesh.add(body);
 
-                scene.add(liquidMesh);
+                // FIX: Add directly to glasswareMesh so it scales and positions together perfectly!
+                glasswareMesh.add(liquidMesh);
             }
         };
 
@@ -1450,6 +1767,37 @@
             if (solidMesh) safeRemoveAndDispose(solidMesh);
             if (!activeSolid) return;
             if (titrationAssembled) return;
+
+            const isDecomp = (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2');
+
+            if (gasCollectionAssembled && isDecomp) {
+                const slantGroup = glasswareMesh.getObjectByName("slantGroup");
+                if (slantGroup) {
+                    const clusterGroup = new THREE.Group();
+                    clusterGroup.position.set(0, -0.6, 0); 
+
+                    if (activeSolid === 'KMnO4') {
+                        const crystalGeo = new THREE.DodecahedronGeometry(0.04);
+                        const crystalMat = new THREE.MeshStandardMaterial({ color: 0x3b0764, metalness: 0.8, roughness: 0.3 });
+                        for (let i = 0; i < 22; i++) {
+                            const cMesh = new THREE.Mesh(crystalGeo, crystalMat);
+                            cMesh.position.set((Math.random() - 0.5) * 0.15, (Math.random() - 0.5) * 0.1, (Math.random() - 0.5) * 0.15);
+                            clusterGroup.add(cMesh);
+                        }
+                    } else if (activeSolid === 'NH4Cl_CaOH2') {
+                        const crystalMat1 = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.9 });
+                        const crystalMat2 = new THREE.MeshStandardMaterial({ color: 0xe2e8f0, roughness: 0.7 });
+                        for (let i = 0; i < 26; i++) {
+                            const cMesh = new THREE.Mesh(new THREE.DodecahedronGeometry(0.035), Math.random() > 0.5 ? crystalMat1 : crystalMat2);
+                            cMesh.position.set((Math.random() - 0.5) * 0.16, (Math.random() - 0.5) * 0.08, (Math.random() - 0.5) * 0.16);
+                            clusterGroup.add(cMesh);
+                        }
+                    }
+                    slantGroup.add(clusterGroup);
+                    solidMesh = clusterGroup;
+                }
+                return;
+            }
 
             const clusterGroup = new THREE.Group();
             clusterGroup.position.set(0, 0.12, 0);
@@ -1466,14 +1814,6 @@
                     new THREE.MeshStandardMaterial({ color: 0xe2e8f0, metalness: 0.9, roughness: 0.2 })
                 );
                 clusterGroup.add(sMesh);
-            } else if (activeSolid === 'KMnO4') {
-                const granuleGeo = new THREE.IcosahedronGeometry(0.045, 1);
-                const granuleMat = new THREE.MeshStandardMaterial({ color: 0x3b0764, metalness: 0.8, roughness: 0.3 });
-                for (let i = 0; i < 15; i++) {
-                    const g = new THREE.Mesh(granuleGeo, granuleMat);
-                    g.position.set((Math.random() - 0.5) * 0.2, (Math.random() - 0.5) * 0.1, (Math.random() - 0.5) * 0.2);
-                    clusterGroup.add(g);
-                }
             } else if (activeSolid === 'CaCO3') {
                 const powderGeo = new THREE.SphereGeometry(0.035, 6, 6);
                 const powderMat = new THREE.MeshStandardMaterial({ color: 0xf1f5f9, roughness: 0.95 });
@@ -1485,7 +1825,7 @@
             }
 
             solidMesh = clusterGroup;
-            scene.add(solidMesh);
+            glasswareMesh.add(solidMesh);
         };
 
         function buildBurner3D() {
@@ -1556,6 +1896,9 @@
             }
 
             scene.add(burnerGroup);
+
+            // Align height properties immediately after rendering
+            resolveApparatusLayout();
         }
 
         window.selectHeatingSource = function(type) {
@@ -1571,6 +1914,15 @@
 
             buildBurner3D();
             window.showToast(`Халаалтын горимыг өөрчиллөө: ${type === 'alcohol' ? 'Спиртэн дэн' : 'Бунзений дэн'}`, "success");
+        };
+
+        window.toggleBurnerVisibility = function(visible) {
+            burnerVisible = visible;
+            if (!visible && burnerOn) {
+                window.toggleBurner(false);
+            }
+            buildBurner3D();
+            window.showToast(visible ? "Спиртэн халаагуурыг дэлгэцэнд гаргалаа." : "Спиртэн халаагуурыг хурааж алга болгов.", "info");
         };
 
         window.setGlassware = function(type) {
@@ -1640,7 +1992,6 @@
             updateUI();
         };
 
-        /* Correcting reaction activation with instant reactivity for magnesium and active metals */
         function triggerChemicalReaction() {
             if (activeSolid === 'KMnO4') {
                 if (burnerOn) {
@@ -1648,9 +1999,22 @@
                     reactionActive = true;
                     reactionProgress = 0.0;
                     activeGasType = 'O2'; 
-                    window.showToast("Калийн перманганатын задрал эхэллээ!", "warning");
+                    window.showToast("Калийн перманганатын задрал эхэллээ. Температур 150°C хүрэхийг хүлээнэ үү!", "warning");
                 } else {
-                    window.showToast("Калийн перманганатын задралыг эхлүүлэхийн тулд халаагчийг асаана уу!", "info");
+                    window.showToast("Задралын урвалыг эхлүүлэхийн тулд халаагчийг асаана уу!", "info");
+                }
+                return;
+            }
+
+            if (activeSolid === 'NH4Cl_CaOH2') {
+                if (burnerOn) {
+                    reactionType = 'NH4Cl_CaOH2_decomp';
+                    reactionActive = true;
+                    reactionProgress = 0.0;
+                    activeGasType = 'NH3'; 
+                    window.showToast("Аммонийн хлоридын дулааны задрал эхэллээ. Температур 150°C хүрэхийг хүлээнэ үү!", "warning");
+                } else {
+                    window.showToast("Задралын урвалыг эхлүүлэхийн тулд халаагчийг асаана уу!", "info");
                 }
                 return;
             }
@@ -1680,7 +2044,7 @@
                 else if (rType === 'Mg_HCl') activeGasType = 'H2';
                 else if (rType === 'CaCO3_HCl') activeGasType = 'CO2';
 
-                window.showToast("Химийн урвал шууд идэвхтэй эхэллээ!", "warning");
+                window.showToast("Химийн урвал явагдаж эхэллээ. Багажаа угсарна уу!", "warning");
                 updateUI();
             }
         }
@@ -1695,6 +2059,22 @@
                         "<strong>Тэгшитгэл:</strong> 2KMnO₄(х) —(t°)→ K₂MnO₄(х) + MnO₂(х) + O₂(х)↑<br>" +
                         "<strong>Ажиглалт:</strong> Ягаан перманганат задарч хүчилтөрөгч ялгарав.<br>" +
                         "<strong>Заавар:</strong> Хий хураагдаж дууссаны дараа <strong>дэнг унтрааж</strong>, цучилын сорил хийнэ үү.";
+                }
+            } else if (reactionType === 'NH4Cl_CaOH2_decomp') {
+                activeGasType = 'NH3';
+                if (gasCollectionMethod === 'water') {
+                    if (journal) {
+                        journal.innerHTML = "<strong>АНХААРУУЛГА: Урвал амжилтгүй боллоо!</strong><br>" +
+                            "<strong>Тэгшитгэл:</strong> 2NH₄Cl + Ca(OH)₂ —(t°)→ CaCl₂ + 2H₂O + 2NH₃↑<br>" +
+                            "<strong>Ажиглалт:</strong> Аммиакийн хий усанд маш сайн уусдаг тул усыг түрүүлэх аргаар цуглуулах боломжгүй! Усан банзанд бүгд ууслаа. Агаар дээш шахах аргыг сонгоно уу.";
+                    }
+                    window.showToast("❌ Аммиак усанд маш сайн уусдаг тул усан дээр хураагдахгүй ууслаа!", "error");
+                } else {
+                    if (journal) {
+                        journal.innerHTML = "<strong>УРВАЛ: Аммиакийн хийг гарган авах задрал</strong><br>" +
+                            "<strong>Тэгшитгэл:</strong> 2NH₄Cl + Ca(OH)₂ —(t°)→ CaCl₂ + 2H₂O + 2NH₃↑<br>" +
+                            "<strong>Ажиглалт:</strong> Хөнгөн аммиакийн хий ялгарч, агаар дээш шахах аргаар амжилттай хураагдав.";
+                    }
                 }
             } else if (reactionType === 'Na_H2O') {
                 if (activeLiquid.formula === 'HCl') {
@@ -1743,15 +2123,20 @@
         window.selectGasMethod = function(methodId) {
             selectedGasMethodId = methodId;
             
-            document.getElementById('card-method-air_heavy').className = "p-1 px-2 bg-slate-950 border border-slate-800 rounded-lg text-[8px] font-bold transition flex items-center gap-1";
-            document.getElementById('card-method-water').className = "p-1 px-2 bg-slate-950 border border-slate-800 rounded-lg text-[8px] font-bold transition flex items-center gap-1";
+            document.getElementById('card-method-air_heavy').className = "p-1 px-2 bg-slate-955 border border-slate-800 rounded-lg text-[8px] font-bold transition flex items-center gap-1";
+            document.getElementById('card-method-air_light').className = "p-1 px-2 bg-slate-955 border border-slate-800 rounded-lg text-[8px] font-bold transition flex items-center gap-1";
+            document.getElementById('card-method-water').className = "p-1 px-2 bg-slate-955 border border-slate-800 rounded-lg text-[8px] font-bold transition flex items-center gap-1";
             
             const card = document.getElementById(`card-method-${methodId}`);
             if (card) {
                 card.className = "p-1 px-2 border border-cyan-500 bg-cyan-950/20 rounded-lg text-[8px] font-bold transition flex items-center gap-1 shadow-lg";
             }
             
-            gasCollectionMethod = methodId === 'water' ? 'water' : 'air';
+            if (methodId === 'water') {
+                gasCollectionMethod = 'water';
+            } else {
+                gasCollectionMethod = 'air';
+            }
             window.showToast("Хий хураах аргыг сонголоо. Одоо багаж угсарна уу.", "success");
             updateUI();
         };
@@ -1785,6 +2170,7 @@
             window.buildGlassware3D();
 
             gasCollectionGroup = new THREE.Group();
+            gasCollectionGroup.position.set(0, 0, 0);
 
             const receiverGlassMaterial = new THREE.MeshPhysicalMaterial({
                 color: 0xffffff,
@@ -1808,18 +2194,18 @@
                     opacity: 0.4
                 });
                 const trough = new THREE.Mesh(troughG, troughMat);
-                trough.position.set(2.0, 0.25, 0);
+                trough.position.set(LAB_LAYOUT.gasCollector.x, 0.25, 0);
                 gasCollectionGroup.add(trough);
 
                 const h2oG = new THREE.BoxGeometry(1.56, 0.42, 0.96);
                 const h2oMat = new THREE.MeshPhysicalMaterial({ color: 0x0ea5e9, transmission: 0.9, transparent: true, opacity: 0.5 });
                 const h2o = new THREE.Mesh(h2oG, h2oMat);
-                h2o.position.set(2.0, 0.22, 0);
+                h2o.position.set(LAB_LAYOUT.gasCollector.x, 0.22, 0);
                 gasCollectionGroup.add(h2o);
 
                 const jarG = new THREE.CylinderGeometry(0.25, 0.25, 1.2, 16, 1, true);
                 const jar = new THREE.Mesh(jarG, receiverGlassMaterial);
-                jar.position.set(2.0, 0.75, 0);
+                jar.position.set(LAB_LAYOUT.gasCollector.x, 0.75, 0);
                 gasCollectionGroup.add(jar);
 
                 const h = 1.1;
@@ -1827,27 +2213,44 @@
                 const dispH2oMat = new THREE.MeshPhysicalMaterial({ color: 0x0ea5e9, transmission: 0.9, opacity: 0.6, transparent: true });
                 const dispH2o = new THREE.Mesh(dispH2oG, dispH2oMat);
                 dispH2o.name = "displacementWaterMesh";
-                dispH2o.position.set(2.0, 0.22 + h / 2, 0);
+                dispH2o.position.set(LAB_LAYOUT.gasCollector.x, 0.22 + h / 2, 0);
                 gasCollectionGroup.add(dispH2o);
             } else {
                 const jarG = new THREE.CylinderGeometry(0.25, 0.25, 1.3, 16, 1, true);
                 const jar = new THREE.Mesh(jarG, receiverGlassMaterial);
-                jar.position.set(2.0, 0.75, 0);
+                jar.position.set(LAB_LAYOUT.gasCollector.x, 0.75, 0);
                 gasCollectionGroup.add(jar);
             }
 
-            const pipePoints = [
-                new THREE.Vector3(0, 1.3, 0),
-                new THREE.Vector3(0.4, 1.6, 0),
-                new THREE.Vector3(1.2, 1.2, 0),
-                new THREE.Vector3(1.6, 0.3, 0),
-                new THREE.Vector3(2.0, 0.1, 0)
-            ];
+            // Create delivery pipe with realistic non-overlapping endpoints
+            const isDecomp = (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2');
+            
+            let pipePoints = [];
+            if (isDecomp) {
+                // Perfect delivery path starting from the tilted 45° test tube opening
+                pipePoints = [
+                    new THREE.Vector3(-0.4, 1.7, 0),
+                    new THREE.Vector3(0.1, 1.95, 0),
+                    new THREE.Vector3(1.1, 1.4, 0),
+                    new THREE.Vector3(1.7, 0.4, 0),
+                    new THREE.Vector3(LAB_LAYOUT.gasCollector.x, 0.15, 0)
+                ];
+            } else {
+                const vesselTopHeight = glasswareType === 'flask' ? 1.4 : 1.5;
+                pipePoints = [
+                    new THREE.Vector3(LAB_LAYOUT.vessel.x, glasswareMesh.position.y + vesselTopHeight, LAB_LAYOUT.vessel.z),
+                    new THREE.Vector3(LAB_LAYOUT.vessel.x + 0.3, glasswareMesh.position.y + vesselTopHeight + 0.2, LAB_LAYOUT.vessel.z),
+                    new THREE.Vector3(LAB_LAYOUT.gasCollector.x - 0.6, 1.4, 0),
+                    new THREE.Vector3(LAB_LAYOUT.gasCollector.x - 0.2, 0.4, 0),
+                    new THREE.Vector3(LAB_LAYOUT.gasCollector.x, 0.15, 0)
+                ];
+            }
 
             gasFlowCurve = new THREE.CatmullRomCurve3(pipePoints);
-            const pipeGeo = new THREE.TubeGeometry(gasFlowCurve, 32, 0.055, 12, false);
+            const pipeGeo = new THREE.TubeGeometry(gasFlowCurve, 32, 0.035, 12, false);
             const pipeMat = new THREE.MeshPhysicalMaterial({ color: 0x22d3ee, transmission: 0.95, opacity: 0.8, transparent: true });
             const deliveryTubeMesh = new THREE.Mesh(pipeGeo, pipeMat);
+            
             gasCollectionGroup.add(deliveryTubeMesh);
 
             const flowParticleCount = 10;
@@ -1855,7 +2258,7 @@
             const flowMat = new THREE.MeshBasicMaterial({ color: 0x22d3ee, transparent: true, opacity: 0.9 });
             
             for (let i = 0; i < flowParticleCount; i++) {
-                const particle = new THREE.Mesh(new THREE.SphereGeometry(0.038, 8, 8), flowMat);
+                const particle = new THREE.Mesh(new THREE.SphereGeometry(0.025, 8, 8), flowMat);
                 particle.userData = { offset: i / flowParticleCount, speed: 0.008 };
                 scene.add(particle);
                 gasFlowParticles.push(particle);
@@ -1866,6 +2269,40 @@
             window.showToast("Хий хураах багажийг амжилттай угсарлаа!", "success");
         };
 
+        window.adjustBurnerPos = function(offset) {
+            burnerWorldX += offset;
+            
+            // Constrain movement to prevent overlapping with the gas collection apparatus
+            // Gas collection apparatus is located roughly between x = 1.4 and x = 2.6
+            if (gasCollectionAssembled) {
+                if (burnerWorldX > 1.3 && burnerWorldX < 2.5) {
+                    if (offset > 0) {
+                        burnerWorldX = 2.55; // jump past
+                    } else {
+                        burnerWorldX = 1.25; // stop before
+                    }
+                }
+            }
+
+            // Global boundaries
+            if (burnerWorldX < -1.8) burnerWorldX = -1.8;
+            if (burnerWorldX > 3.8) burnerWorldX = 3.8;
+
+            const isDecomp = (activeSolid === 'KMnO4' || activeSolid === 'NH4Cl_CaOH2');
+            
+            // Adjust snaps based on 45° slanted position (it centers exactly at -0.5)
+            const targetPos = isDecomp ? -0.5 : 0.0;
+            const distance = Math.abs(burnerWorldX - targetPos);
+
+            if (distance < 0.28) {
+                burnerWorldX = targetPos;
+                window.showToast("🔥 Халаагуур бэхлэгдлээ!", "success");
+            }
+
+            buildBurner3D();
+            updateUI();
+        };
+
         window.selectFlameSalt = function(salt, color) {
             selectedFlameSalt = salt;
             selectedFlameColor = color;
@@ -1873,11 +2310,11 @@
             const salts = ['LiCl', 'NaCl', 'KCl', 'CaCl2', 'BaCl2'];
             salts.forEach(s => {
                 const btn = document.getElementById(`salt-${s}`);
-                if (btn) btn.className = "p-2.5 text-left bg-slate-950 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] flex justify-between items-center transition";
+                if (btn) btn.className = "p-2.5 text-left bg-slate-955 hover:bg-slate-900 border border-slate-800 rounded-xl text-[10px] flex justify-between items-center transition";
             });
             
             const activeBtn = document.getElementById(`salt-${salt}`);
-            if (activeBtn) activeBtn.className = "p-2.5 text-left bg-indigo-950 border border-indigo-500 text-indigo-200 rounded-xl text-[10px] flex justify-between items-center transition shadow-lg";
+            if (activeBtn) activeBtn.className = "p-2.5 text-left bg-indigo-955 border border-indigo-500 text-indigo-200 rounded-xl text-[10px] flex justify-between items-center transition shadow-lg";
             
             activeLiquid = { formula: `${salt} (уусмал)`, color: color, ph: 7.0, indicator: null, baseColor: color, volume: 8.0 };
             window.setGlassware('test_tube');
@@ -1895,7 +2332,7 @@
                 const statusLbl = document.getElementById('wire-status-lbl');
                 if (statusLbl) {
                     statusLbl.innerText = "Нихром утас бүрэн цэвэрлэгдсэн, давсны сорилд бэлэн.";
-                    statusLbl.className = "text-[9px] text-emerald-400 text-center font-bold bg-slate-950 p-2 rounded-lg border border-slate-900";
+                    statusLbl.className = "text-[9px] text-emerald-400 text-center font-bold bg-slate-955 p-2 rounded-lg border border-slate-900";
                 }
                 const testBtn = document.getElementById('btn-flame-test');
                 if (testBtn) testBtn.disabled = !selectedFlameSalt;
@@ -1925,7 +2362,7 @@
                 const statusLbl = document.getElementById('wire-status-lbl');
                 if (statusLbl) {
                     statusLbl.innerText = "Анхаар: Нихром утас сорилын дараа дахин бохирдсон байна. HCl-ээр угаана уу.";
-                    statusLbl.className = "text-[9px] text-amber-400 text-center font-bold bg-slate-950 p-2 rounded-lg border border-slate-900";
+                    statusLbl.className = "text-[9px] text-amber-400 text-center font-bold bg-slate-955 p-2 rounded-lg border border-slate-900";
                 }
                 const testBtn = document.getElementById('btn-flame-test');
                 if (testBtn) testBtn.disabled = true;
@@ -1947,7 +2384,7 @@
                 if (paths.length >= 2) {
                     paths[0].setAttribute('fill', currentGameCation.color);
                     paths[1].setAttribute('fill', '#ffffff');
-                    svgFlame.style.filter = `drop-shadow(0 0 20px ${currentGameCation.color})`;
+                    svgFlame.style.filter = `drop-shadow(0 0 12px ${currentGameCation.color})`;
                 }
             }
 
@@ -1957,7 +2394,7 @@
                 const shuffled = [...cationFlameDB].sort(() => Math.random() - 0.5);
                 shuffled.forEach(cat => {
                     const btn = document.createElement('button');
-                    btn.className = "py-2 bg-slate-950 hover:bg-slate-900 border border-slate-800 text-[10px] font-bold text-slate-300 rounded-xl transition";
+                    btn.className = "py-2 bg-slate-955 hover:bg-slate-900 border border-slate-800 text-[10px] font-bold text-slate-300 rounded-xl transition";
                     btn.innerText = cat.name;
                     btn.onclick = () => window.submitFlameGuess(cat.id, btn);
                     optionsContainer.appendChild(btn);
@@ -1978,7 +2415,7 @@
             if (btnExam) btnExam.className = "py-1.5 bg-slate-900 text-slate-400 border border-slate-800 rounded-lg";
 
             if (mode === 'practice') {
-                if (btnPractice) btnPractice.className = "py-1.5 bg-purple-950 text-purple-300 border border-purple-800 rounded-lg shadow-md";
+                if (btnPractice) btnPractice.className = "py-1.5 bg-purple-955 text-purple-300 border border-purple-800 rounded-lg shadow-md";
                 if (timerContainer) timerContainer.classList.add('hidden');
             } else {
                 if (btnExam) btnExam.className = "py-1.5 bg-rose-955 text-rose-300 border border-rose-800 rounded-lg shadow-md";
@@ -2022,9 +2459,9 @@
                 if (scoreLbl) scoreLbl.innerText = gameScore;
                 document.getElementById('lbl-total-points').innerText = totalPoints;
 
-                btnElement.className = "py-2 bg-emerald-950 border-2 border-emerald-500 text-emerald-300 rounded-xl text-[10px] font-bold shadow-md";
+                btnElement.className = "py-2 bg-emerald-955 border-2 border-emerald-500 text-emerald-300 rounded-xl text-[10px] font-bold shadow-md";
                 if (feedback) {
-                    feedback.className = "p-3 rounded-xl border border-emerald-800 bg-emerald-950/60 text-emerald-400 text-[9px] font-bold text-center leading-relaxed";
+                    feedback.className = "p-3 rounded-xl border border-emerald-800 bg-emerald-955/60 text-emerald-400 text-[9px] font-bold text-center leading-relaxed";
                     feedback.innerHTML = `🎉 ЗӨВ ХАРИУЛЛАА! (+10 оноо)<br>Тайлбар: ${currentGameCation.exp}`;
                 }
                 playPopSound();
@@ -2052,7 +2489,6 @@
             titrationAssembled = true;
             window.buildGlassware3D(); 
             
-            /* Automatically shift camera view to focus on Burette apparatus */
             camera.position.set(LAB_LAYOUT.titration.x, 1.8, 3.8);
             controls.target.set(LAB_LAYOUT.titration.x, 1.0, LAB_LAYOUT.titration.z);
             
@@ -2072,6 +2508,9 @@
 
             document.getElementById('burette-vol-val').innerText = "50.0 мл";
             document.getElementById('flask-ph-val').innerText = "1.2";
+
+            // Hide calculation panel on restart
+            document.getElementById('titration-calculation-box').classList.add('hidden');
 
             window.showToast("Бюреткад 50.0 мл NaOH уусмал дүүргэлээ.", "success");
             window.buildGlassware3D();
@@ -2098,17 +2537,20 @@
         function runTitrationLoop() {
             if (!titrationValveOpen || titrationHasCompleted) return;
 
-            titrationBaseUsed += 0.05;
+            // Flow speed of base
+            titrationBaseUsed += 0.08;
             titrationBuretteVol = 50.0 - titrationBaseUsed;
+            titrationFlaskVol = 10.0 + titrationBaseUsed;
 
             document.getElementById('burette-vol-val').innerText = `${Math.max(0, titrationBuretteVol).toFixed(1)} мл`;
 
             const phVal = document.getElementById('flask-ph-val');
 
+            // Dynamic pH and localized color rendering equations
             if (titrationBaseUsed < titrationEquivalenceVol) {
                 titrationFlaskPh = 1.2 + (titrationBaseUsed / titrationEquivalenceVol) * 4.0;
                 if (phVal) phVal.innerText = `${titrationFlaskPh.toFixed(1)}`;
-            } else if (Math.abs(titrationBaseUsed - titrationEquivalenceVol) < 0.1) {
+            } else if (Math.abs(titrationBaseUsed - titrationEquivalenceVol) < 0.2) {
                 titrationFlaskPh = 7.0;
                 if (phVal) phVal.innerText = "7.0 (Саармаг)";
                 titrationActiveColor = '#f472b6'; 
@@ -2119,7 +2561,16 @@
                     
                     const journal = document.getElementById('lab-journal');
                     if (journal) {
-                        journal.innerHTML = `<strong>ТИТРЛЭЛТ ТӨГСЛӨӨ:</strong><br>Зарцуулсан шүлт: ${titrationBaseUsed.toFixed(2)} мл<br>Уусмалын рН: 7.0 (Саармаг орчин)`;
+                        journal.innerHTML = `<strong>ТИТРЛЭЛТ ТӨГСЛӨӨ (СААРМАГЖЛАА):</strong><br>Зарцуулсан NaOH шүлт: ${titrationBaseUsed.toFixed(2)} мл<br>Уусмалын рН: 7.0 (Саармаг орчин)<br>Ажиглалт: Фенолфталеин индикаторын тусламжтай сул ягаан өнгө тогтвортой болов.`;
+                    }
+                    
+                    // Show experimental calculation panel
+                    const calcBox = document.getElementById('titration-calculation-box');
+                    if (calcBox) {
+                        calcBox.classList.remove('hidden');
+                        document.getElementById('student-v-acid').innerText = `${titrationAcidVol.toFixed(1)} мл`;
+                        document.getElementById('student-c-base').innerText = `${titrationBaseConc.toFixed(2)} M`;
+                        document.getElementById('student-v-base').innerText = `${titrationBaseUsed.toFixed(2)} мл`;
                     }
                 }
             } else {
@@ -2136,8 +2587,37 @@
 
             window.buildGlassware3D();
 
-            setTimeout(runTitrationLoop, 50);
+            setTimeout(runTitrationLoop, 60);
         }
+
+        /* Verify student's calculated C_acid values */
+        window.checkStudentCalculation = function() {
+            const inputVal = parseFloat(document.getElementById('input-student-calc').value);
+            if (isNaN(inputVal)) {
+                window.showToast("Бодсон утгаа тоон хэлбэрээр оруулна уу!", "warning");
+                return;
+            }
+
+            // Correct formula: C_acid = (C_base * V_base) / V_acid
+            const exactC_acid = (titrationBaseConc * titrationBaseUsed) / titrationAcidVol;
+            const tolerance = 0.02;
+
+            if (Math.abs(inputVal - exactC_acid) <= tolerance) {
+                totalPoints += 20;
+                document.getElementById('lbl-total-points').innerText = totalPoints;
+                window.showToast("🎉 МАШ САЙН! Бодлогоо зөв бодлоо. (+20 оноо)", "success");
+                
+                const calcBox = document.getElementById('titration-calculation-box');
+                if (calcBox) {
+                    calcBox.innerHTML = `<div class="p-2.5 text-center bg-emerald-955 border border-emerald-800 text-emerald-300 rounded-xl text-[10px] font-bold">
+                        🎉 Бодлого амжилттай бодогдсон! Таны хариулт: ${inputVal.toFixed(2)} M (Зөв хариу: ${exactC_acid.toFixed(2)} M)
+                    </div>`;
+                }
+                renderTeacherDashboard();
+            } else {
+                window.showToast("❌ Бодолт буруу байна. Дахин оролдоод үзээрэй!", "error");
+            }
+        };
 
         window.resetLab = function() {
             activeLiquid = null;
@@ -2170,6 +2650,8 @@
                 const assembleBtn = document.getElementById('btn-assemble-gas');
                 if (assembleBtn) assembleBtn.innerText = "Хий хураах багаж угсрах";
             }
+
+            document.getElementById('titration-calculation-box').classList.add('hidden');
 
             window.toggleBurner(false);
             window.buildGlassware3D();
@@ -2209,7 +2691,7 @@
             const velocities = new Float32Array(particleCount);
 
             const startX = burnerWorldX;
-            const startY = 0.65 + burnerHeightVal * 0.5;
+            const startY = burnerGroup.position.y + (burnerType === 'alcohol' ? 0.62 : 0.38);
 
             for (let i = 0; i < particleCount; i++) {
                 positions[i * 3] = startX + (Math.random() - 0.5) * 0.08;
@@ -2271,9 +2753,9 @@
                     s2.innerHTML = `<i class="fa-solid fa-circle-dot text-[7px]"></i> <span>Step 2: Багаж угсрах (Дарааллаар дарах)</span>`;
                 }
 
-                if (burnerOn) {
+                if (burnerOn && isBurnerSnapped) {
                     s3.className = "flex items-center gap-1.5 text-emerald-400";
-                    s3.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>Step 3: Халаагч идэвхтэй байна</span>`;
+                    s3.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>Step 3: Халаагч зөв байрлалд асаалттай</span>`;
                 } else {
                     s3.className = "flex items-center gap-1.5 text-rose-400";
                     s3.innerHTML = `<i class="fa-solid fa-circle-dot text-[7px]"></i> <span>Step 3: Халаагчийг зөв байрлуулах (Хэрэгтэй)</span>`;
@@ -2290,7 +2772,6 @@
                     s4.innerHTML = `<i class="fa-solid fa-circle-dot text-[7px]"></i> <span>Step 4: Дэн асаах / Хий хуримтлуулах</span>`;
                 }
 
-                // Show/Hide Gas Identifier Test sticks HUD
                 const testPanel = document.getElementById('gas-test-panel');
                 if (gasCollectedAmount >= 100) {
                     s5.className = "flex items-center gap-1.5 text-purple-400 animate-pulse";
@@ -2325,7 +2806,7 @@
 
                 const headGeo = new THREE.SphereGeometry(0.025, 8, 8);
                 const headColor = (testType === 'match_pop') ? 0xcc0000 : 0x222222; 
-                const headMat = new THREE.MeshStandardMaterial({ color: headColor, roughness: 0.7 });
+                const headMat = new THREE.MeshStandardMaterial({ color: headColor, roughness: headColor === 0xcc0000 ? 0.7 : 0.9 });
                 const head = new THREE.Mesh(headGeo, headMat);
                 head.position.set(-0.25, 0.25, 0); 
                 activeTestStick.add(head);
@@ -2344,9 +2825,20 @@
                     ember.position.set(-0.25, 0.25, 0);
                     activeTestStick.add(ember);
                 }
+            } else if (testType === 'red_litmus' || testType === 'blue_litmus') {
+                // Moist Litmus paper model
+                const paperGeo = new THREE.BoxGeometry(0.01, 0.3, 0.08);
+                const paperMat = new THREE.MeshStandardMaterial({
+                    color: (testType === 'red_litmus') ? 0xf87171 : 0x60a5fa,
+                    roughness: 0.85
+                });
+                const paper = new THREE.Mesh(paperGeo, paperMat);
+                paper.rotation.z = Math.PI / 4;
+                activeTestStick.add(paper);
+                testStickFlameMesh = paper; // Assign paper mesh as target to change color
             }
 
-            activeTestStick.position.set(1.8, 1.8, 0.5);
+            activeTestStick.position.set(2.0, 1.8, 0.5);
             scene.add(activeTestStick);
 
             testStickType = testType;
@@ -2361,8 +2853,8 @@
                             testStickFlameMesh.visible = true;
                             testStickFlameMesh.scale.set(3, 3, 3);
                         }
-                        journal.innerHTML = `<strong>СОРИЛТЫН ҮР ДҮН: Улайссан цучил сорих</strong><br><strong>Хийн төрөл:</strong> Хүчилтөрөгч (O₂)<br><strong>Ажиглалт:</strong> Улайссан цучилыг савны амсарт ойртуулахад маш тод дүрэлзсэн гал болон аслаа.`;
-                        window.showToast("Цучил дүрэлзэн аслао! Хүчилтөрөгч батлагдлаа.", "success");
+                        journal.innerHTML = `<strong>СОРИЛТЫН ҮР ДҮН: Улайссан цучил сорих</strong><br><strong>Хийн төрөл:</strong> Хүчилтөрөгч (O₂)<br><strong>Ажиглалт:</strong> Улайссан цучилыг савны амсарт ойртуулахад маш тод дүрэлзсэн гал болон аслоо.`;
+                        window.showToast("Цучил дүрэлзэн аслоо! Хүчилтөрөгч батлагдлаа.", "success");
                     } else {
                         playHissSound();
                         journal.innerHTML = `<strong>СОРИЛТЫН ҮР ДҮН: Улайссан цучил сорих</strong><br><strong>Ажиглалт:</strong> Оксигентэй биш учир цучил шууд унтарлаа.`;
@@ -2388,6 +2880,22 @@
                         window.showToast("Шохойн ус сүүн цагаан булингар үүсгэлээ! CO₂ батлагдлаа.", "success");
                     } else {
                         window.showToast("Ямар ч урвал ажиглагдсангүй.", "info");
+                    }
+                } else if (testType === 'red_litmus') {
+                    if (activeGasType === 'NH3') {
+                        if (testStickFlameMesh) testStickFlameMesh.material.color.setHex(0x3b82f6); // turns blue
+                        journal.innerHTML = `<strong>СОРИЛТЫН ҮР ДҮН: Улаан лакмусын цаас барих</strong><br><strong>Урвалж:</strong> Аммиакийн хий (NH₃)<br><strong>Ажиглалт:</strong> Чийгтэй улаан лакмусын цаас хөх өнгөтэй болов. Аммиак нь сул шүлтлэг орчин үүсгэдэг.`;
+                        window.showToast("Лакмусын цаас ХӨХ болон хувирлаа! NH₃ батлагдлаа.", "success");
+                    } else {
+                        window.showToast("Улаан цаасанд өөрчлөлт орсонгүй.", "info");
+                    }
+                } else if (testType === 'blue_litmus') {
+                    if (activeGasType === 'Cl2') {
+                        if (testStickFlameMesh) testStickFlameMesh.material.color.setHex(0xffffff); // Bleaches white
+                        journal.innerHTML = `<strong>СОРИЛТЫН ҮР ДҮН: Цэнхэр лакмусын цаас барих</strong><br><strong>Урвалж:</strong> Хлорын хий (Cl₂)<br><strong>Ажиглалт:</strong> Цэнхэр лакмусын цаас эхлээд бага зэрэг улайж, дараа нь бүрэн цайрч өнгөгүй болов (Bleached).`;
+                        window.showToast("Цэнхэр цаас бүрэн ЦАЙРЧ өнгөгүй болов! Cl₂ батлагдлаа.", "success");
+                    } else {
+                        window.showToast("Цэнхэр цаасанд өөрчлөлт орсонгүй.", "info");
                     }
                 }
             }, 1000);
@@ -2425,7 +2933,7 @@
                 } else {
                     sorted.slice(0, 10).forEach((user, idx) => {
                         const item = document.createElement('div');
-                        item.className = "p-2 bg-slate-950/80 border border-slate-850 rounded-xl flex justify-between items-center text-[9.5px]";
+                        item.className = "p-2 bg-slate-950/80 border border-slate-855 rounded-xl flex justify-between items-center text-[9.5px]";
                         item.innerHTML = `
                             <div class="flex items-center gap-2">
                                 <span class="w-5 h-5 rounded bg-indigo-955 text-indigo-400 font-bold flex items-center justify-center text-[8.5px]">${idx + 1}</span>
